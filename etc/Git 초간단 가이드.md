@@ -16,6 +16,13 @@
 
 4. 그러면 `S07P11A208` 폴더가 만들어짐
 
+5. 해당 pc에서 맨 처음 커밋할때는 
+
+   ``` 
+   $git remote add origin https://lab.ssafy.com/s07-webmobile3-sub1/S07P11A208.git
+
+​	을 입력한다.
+
 # 이후 개발 (무한반복)
 
 1. 브랜치 만들기 (브랜치를 create해서 현재 브랜치에서 만들어진 브랜치로 이동하는 것까지 포함된 명령어)
@@ -64,10 +71,9 @@ $git pull origin master
 $git branch -d 브랜치이름
 ```
 
+# 간략한 깃허브 프로세스
+
+![image-20220711195616462](Git 초간단 가이드.assets/image-20220711195616462.png)
 
 
-![image-20220711194520379](Git 초간단 가이드.assets/image-20220711194520379.png)
 
-
-
-![image-20220711193135892](Git 초간단 가이드.assets/image-20220711193135892.png)
