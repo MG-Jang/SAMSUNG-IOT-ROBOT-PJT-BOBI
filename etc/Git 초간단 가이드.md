@@ -59,7 +59,7 @@ $ git push origin 브랜치이름
 
 ![image-20220711194625866](Git 초간단 가이드.assets/image-20220711194625866.png)
 
-* 승인하고 머지하기 (Approve 버튼 누르고 머지 버튼 누르기)
+* 승인하고 머지하기 (Approve버튼 누르고 머지 버튼 누르기)
 
 ![image-20220711194908997](Git 초간단 가이드.assets/image-20220711194908997.png)
 
@@ -68,7 +68,7 @@ $ git push origin 브랜치이름
 ```
 $git switch master
 $git pull origin master
-$git branch -d 브랜치이름
+$git branch -d 브랜치이름 
 ```
 
 # 간략한 깃허브 프로세스
