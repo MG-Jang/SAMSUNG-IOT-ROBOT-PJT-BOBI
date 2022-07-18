@@ -24,7 +24,7 @@
 # REFACT : 코드 리팩토링
 # STYLE : 코드 의미에 영향을 주지 않는 변경사항
 # CHORE : 빌드 부분 혹은 패키지 매니저 수정사항
-# 
+# TIPS: 개발에 도움이 되는 내용
 # 예) 
 #	- type: CHORE
 #	- Writing rule was not fixed
