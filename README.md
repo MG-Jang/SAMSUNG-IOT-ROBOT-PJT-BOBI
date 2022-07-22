@@ -48,7 +48,7 @@
 ## Total Architecture
 
 <p align='center'>
-  <img src='./DOCS/ideas/[] total_architecture.png' alt='bobi total architecture'><br/>
+  <img src='/DOCS/ideas/[] total_architecture.png' alt='bobi total architecture'><br/>
   total architecture
 </p>
 
