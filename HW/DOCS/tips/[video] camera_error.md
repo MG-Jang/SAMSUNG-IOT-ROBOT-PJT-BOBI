@@ -15,7 +15,7 @@ author: 김동원
 - `libcamera-hello` 를 사용하면
 
 <p align="center">
-    <img src="./camera_error.assets/libcamera-hello_error.png" alt="camera error">
+    <img src="./assets/libcamera-hello_error.png" alt="camera error">
 </p>
 
 발생
