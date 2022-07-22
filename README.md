@@ -47,10 +47,7 @@
     
 ## Total Architecture
 
-<p align='center'>
-  <img src='/DOCS/ideas/[] total_architecture.png' alt='bobi total architecture'><br/>
-  total architecture
-</p>
+![___total_architecture](/uploads/6bb795ad4260d9b0ac6a1262cf36a934/___total_architecture.png)
 
 ## Members
 |이름 | 이메일 | 역할 |
