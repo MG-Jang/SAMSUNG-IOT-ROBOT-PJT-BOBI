@@ -52,11 +52,12 @@
 ## Members
 |이름 | 이메일 | 역할 |
 |---|---|---|
-|곽다원 | wings4608@gmail.com | HW |
-|김동원 | kdw324400@gmail.com | HW |
+|곽다원 | wings4608@gmail.com | 3D modeling, Robot movement |
+|김동원 | kdw324400@gmail.com | Video detection, Voice detection |
 |신선영 | sunyeong0412@naver.com | Web |
 |이승훈 | a01038517287@gmail.com | Web |
-|장명근 | jang23mg@naver.com | HW|
-|정재훈 | jaeung644@gmail.com | HW|
+|장명근 | jang23mg@naver.com | Robot movement, Video detection |
+|정재훈 | jaeung644@gmail.com | Voice detection, Sensors |
+
 
 last modified on 15 July, 2022
