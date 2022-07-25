@@ -1,11 +1,11 @@
 import React from "react";
 
-function Video() {
+function Menu() {
     return (
         <div>
-            <h1>[Video]</h1>
+            <h1>Menu</h1>
         </div>
     )
 };
 
-export default Video;
+export default Menu;
