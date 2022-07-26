@@ -1,7 +1,9 @@
-import React from 'react';
-import Dropdown from './Dropdown';
+import React from "react";
+import Dropdown from "./Dropdown";
 import styled from "styled-components";
 
+
+// Menu.Link = MenuLink
 const StyledMenu = styled.menu`
   @keyframes slide-fade-in-dropdown-animation {
     0% {
@@ -51,6 +53,10 @@ const StyledMenu = styled.menu`
   
 `;
 
+// function isActive(path) {
+//   return window.location.pathname.startsWith(path);
+// }
+
 function Menu (props) {
   const [dropdownVisibility, setDropdownVisibility] = React.useState(false);
 
@@ -66,9 +72,9 @@ function Menu (props) {
         </button>
         <Dropdown visibility={dropdownVisibility}>
           <ul>
-            <li>
-              <a href="/">실시간 영상</a>
-            </li>
+            {/* <li>
+              <Menu.Link to="/" active={isActive("/")}>실시간 영상</Menu.Link>
+            </li> */}
             <li>
               <a href="/friendliness">친밀도</a>
             </li>

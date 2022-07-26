@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import 'bootstrap/dist/css/bootstrap.css';
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; // router
 import './index.css';
 import App from './App';
@@ -14,24 +16,28 @@ import Sensor from './pages/Sensor';
 import Story from './pages/Story';
 import User from './pages/User';
 import reportWebVitals from './reportWebVitals';
+import Layout from './layout/Layout';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}></Route>
-        <Route path="/main" element={<Main />}></Route>
-        <Route path="/archive" element={<Archive />}></Route>
-        <Route path="/config" element={<Config />}></Route>
-        <Route path="/control" element={<Control />}></Route>
-        <Route path="/friendliness" element={<Friendliness />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/sensor" element={<Sensor />}></Route>
-        <Route path="/story" element={<Story />}></Route>
-        <Route path="/user" element={<User />}></Route>
-      </Routes>
-    </BrowserRouter>
+    <Layout>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}></Route>
+          <Route path="/main" element={<Main />}></Route>
+          <Route path="/archive" element={<Archive />}></Route>
+          <Route path="/config" element={<Config />}></Route>
+          <Route path="/control" element={<Control />}></Route>
+          <Route path="/friendliness" element={<Friendliness />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/sensor" element={<Sensor />}></Route>
+          <Route path="/story" element={<Story />}></Route>
+          <Route path="/user" element={<User />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </Layout>
+    
   </React.StrictMode>
 );
 

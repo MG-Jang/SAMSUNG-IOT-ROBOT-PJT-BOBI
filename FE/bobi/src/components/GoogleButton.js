@@ -1,5 +1,5 @@
-import React from 'react';
-import GoogleLogin from 'react-google-login';
+import React from "react";
+import GoogleLogin from "react-google-login";
 
 const clientId = "243625053777-bq6r6qml1cc8pjlo5njsrdmlvrf4tp54.apps.googleusercontent.com";
 
