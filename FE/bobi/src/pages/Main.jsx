@@ -29,18 +29,18 @@ const StyledMain = styled.main`
 `;
 
 function Main() {
-    return (
-      <div>
-        <StyledMain>
-          <div className="Main">
-            <header className="Main-header">
-              <img src="img/bobi_dot.png" className="Main-logo" alt="logo" />
-              <h1 className="Main-title">BOBI</h1>
-            </header>
-          </div>
-        </StyledMain>
-      </div>
-    )
+  return (
+    <div>
+      <StyledMain>
+        <div className="Main">
+          <header className="Main-header">
+            <img src="img/bobi_dot.png" className="Main-logo" alt="logo" />
+            <h1 className="Main-title">BOBI</h1>
+          </header>
+        </div>
+      </StyledMain>
+    </div>
+  )
 }
 
 export default Main;
