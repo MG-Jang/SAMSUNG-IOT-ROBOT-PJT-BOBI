@@ -227,7 +227,6 @@ L-W : <>모터(wiggle servo라 명칭)와 다리와의 거리 (사진상으로�
                             |
                             |
                      Ground
-
 ### 전역 변수
 
 - Define
@@ -248,6 +247,28 @@ L-W : <>모터(wiggle servo라 명칭)와 다리와의 거리 (사진상으로�
     - LEG_A_WAVE
 - 변수 정의
     - double
+        
+        //     <<<[S-A][S-B]<<<
+        //         /     |
+        //       L-A    L-A
+        //       /       |
+        //      O        O
+        //      |       /
+        //     L-B    L-C
+        //      |     /
+        //      |    /
+        //      |   /
+        //      |  /
+        //      | /
+        //      O
+        //     /
+        //   L-D
+        //   /
+        //  <---90°
+        //      .L-E
+        //           .
+        // ------------------------
+        
         - Linkage_W
             - 19.15mm
             - 흔드는 서보모터와 다리 링크의 평면 사이의 거리
@@ -334,7 +355,9 @@ L-W : <>모터(wiggle servo라 명칭)와 다리와의 거리 (사진상으로�
     - wigglePlaneIK(double LA, double aln, double bln, uint8_t outputAlpha, uint8_t outputLen)
     
     - pitchYawRoll(float pitchInput, float yawInput, float rollInput)
-        - 
+        - legPosBuffer[1,4,7,10] = STAND_HEIGHT +-+- pitchInput ++- - rollInput
+        - legPosBuffer[1,4,7,10]의 범위는 WALK_HEIGHT_MIN과 WALK_HEIHGT_MAX 사이
+        - legPosBuffer[2,5,8,11]
     - balancing()
         - BALANCE_PITCHU_BUFFER = ACC_Y * BALANCE_P
         - BALANCE_ROLL_BUFFER = ACC_X * BALANCE_P
