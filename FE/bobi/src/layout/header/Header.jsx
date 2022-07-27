@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import HeaderMenu from "./HeaderMenu";
+import { Link } from "react-router-dom";
 
 const StyledHeader = styled.header`
   .Header {
@@ -9,29 +10,27 @@ const StyledHeader = styled.header`
     position: fixed;
     left: 0;
     right: 0;
-    width: 100%;
-    height: 65px;
+    // width: 100%;
+    height: 4rem;
+    justify-content: space-between;
   }
-
-  .Header-image {
-    width: 50px;
-    height: 50px;
-    margin: 10px;
-  }
-
+  
   .Header-link {
     text-decoration: none;
     color: black;
-    margin-top: 15px;
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .Header-image {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .Header-title {
-    font-size: 28px;
-  }
-
-  .Header-menu {
-    
+    font-size: 2rem;
   }
 `;
 
@@ -39,10 +38,12 @@ function Header() {
   return (
     <StyledHeader>
       <div className="Header">
-        <img src="img/bobi_dot.png" className="Header-image" alt="logo" />
-        <a className="Header-link" href="/"><h2 className="Header-title">BOBI</h2></a>
+        <Link className="Header-link" to="/">
+          <img src="img/bobi_dot.png" className="Header-image" alt="logo" />
+          <h2 className="Header-title">BOBI</h2>
+        </Link>
         <HeaderMenu className="Header-menu"></HeaderMenu>
-        </div>
+      </div>
     </StyledHeader>
   );
 }

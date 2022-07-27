@@ -50,14 +50,19 @@ const StyledMenu = styled.menu`
     position: relative;
     top: 5px;
     margin-top: 0;
-    margin-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
+    margin-bottom: 0.6rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    padding-bottom: 1.2rem;
     list-style: none;
     background-color: #a6eae2;
   }
   
+  .components-dropdown > ul > li {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+
   .components-dropdown > ul > li > a {
     text-decoration: none;
     color: #000000;
@@ -65,6 +70,11 @@ const StyledMenu = styled.menu`
 
   .components-dropdown > ul > li > a.active {
     color: #ffffff;
+  }
+
+  .button {
+    font-size: 5rem;
+    margin-right: 3rem;
   }
 `;
 
@@ -76,7 +86,7 @@ function HeaderMenu (props) {
   const [dropdownVisibility, setDropdownVisibility ] = React.useState(false);
 
   return (
-    <div className='HeaderMenu'>
+    <div className='Header-menu'>
       <StyledMenu>
         <button onClick={e => setDropdownVisibility(!dropdownVisibility)}>
           {
@@ -87,30 +97,14 @@ function HeaderMenu (props) {
         </button>
         <Dropdown visibility={dropdownVisibility}>
           <ul>
-            <li>
-              <NavLink to="/">실시간 영상</NavLink>
-            </li>
-            <li>
-              <NavLink to="/friendliness">친밀도</NavLink>
-            </li>
-            <li>
-              <ArchiveMenu />
-            </li>
-            <li>
-              <NavLink to="/story">스토리</NavLink>
-            </li>
-            <li>
-              <NavLink to="/control">로봇 조작</NavLink>
-            </li>
-            <li>
-              <NavLink to="/sensor">센서</NavLink>
-            </li>
-            <li>
-              <NavLink to="/config">환경설정</NavLink>
-            </li>
-            <li>
-              <NavLink to="/user">회원정보수정</NavLink>
-            </li>
+            <li><NavLink to="/">실시간 영상</NavLink></li>
+            <li><NavLink to="/friendliness">친밀도</NavLink></li>
+            <li><ArchiveMenu /></li>
+            <li><NavLink to="/story">스토리</NavLink></li>
+            <li><NavLink to="/control">로봇 조작</NavLink></li>
+            <li><NavLink to="/sensor">센서</NavLink></li>
+            <li><NavLink to="/config">환경설정</NavLink></li>
+            <li><NavLink to="/user">회원정보수정</NavLink></li>
           </ul>
         </Dropdown>
       </StyledMenu>
