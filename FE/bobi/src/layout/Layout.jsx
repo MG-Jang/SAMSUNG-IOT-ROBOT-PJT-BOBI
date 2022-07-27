@@ -3,18 +3,18 @@ import styled from "styled-components";
 import Footer from "./footer/Footer";
 import Header from "./header/Header";
 
-// const StyledLayout = styled.layout`
-// .Layout {
-// }
-// `
+const StyledMain = styled.main`
+  min-height: calc(100vh - 40px);   // footer 하단 고정
+  padding-top: 65px;    // Header과 내용 겹치지 않게 (Header의 height이 65px임 (Header.jsx))
+`
+
 function Layout(props) {
   return (
-      <div class="Layout">
-        <Header />
-          <main>{props.children}</main>
-        <Footer />
+    <div className="layout">
+      <Header />
+        <StyledMain>{props.children}</ StyledMain>
+      <Footer />
     </div>
-    
   );
 }
 

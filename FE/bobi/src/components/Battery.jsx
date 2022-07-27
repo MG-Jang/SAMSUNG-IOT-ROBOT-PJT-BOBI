@@ -1,11 +1,11 @@
 import React from "react";
 
-function MenuItem() {
+function Battery() {
     return (
         <div>
-            <h1>[MenuItem]</h1>
+            <h1>[Battery]</h1>
         </div>
     )
 };
 
-export default MenuItem;
+export default Battery;

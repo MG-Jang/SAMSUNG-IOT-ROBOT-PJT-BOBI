@@ -18,8 +18,8 @@ const StyledFooter = styled.footer`
 function Footer() {
   return (
     <StyledFooter>
-      <div class="Footer">
-        <h3 class="Footer-text">Footer</h3>
+      <div className="Footer">
+        <h3 className="Footer-text">Footer</h3>
       </div>
     </StyledFooter>
   );

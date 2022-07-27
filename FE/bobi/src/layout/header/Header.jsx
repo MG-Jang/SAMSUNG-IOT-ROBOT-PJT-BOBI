@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Menu from "./menu/Menu";
+import HeaderMenu from "./HeaderMenu";
 
 const StyledHeader = styled.header`
   .Header {
@@ -19,19 +19,29 @@ const StyledHeader = styled.header`
     margin: 10px;
   }
 
+  .Header-link {
+    text-decoration: none;
+    color: black;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
   .Header-title {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    font-size: 28px;
+  }
+
+  .Header-menu {
+    
   }
 `;
 
 function Header() {
   return (
     <StyledHeader>
-      <div class="Header">
+      <div className="Header">
         <img src="img/bobi_dot.png" className="Header-image" alt="logo" />
-        <h2 class="Header-title">BOBI</h2>
-        <Menu class="Header-menu"></Menu>
+        <a className="Header-link" href="/"><h2 className="Header-title">BOBI</h2></a>
+        <HeaderMenu className="Header-menu"></HeaderMenu>
         </div>
     </StyledHeader>
   );

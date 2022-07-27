@@ -1,9 +1,13 @@
 import React from "react";
-import Dropdown from "./Dropdown";
+// import Menu from "./Menu"
+
+import Dropdown from "../../components/Dropdown";
+// import { DropdownItem } from 'reactstrap';
 import styled from "styled-components";
+import ArchiveMenu from "./ArchiveMenu"
+import { NavLink } from "react-router-dom"
 
 
-// Menu.Link = MenuLink
 const StyledMenu = styled.menu`
   @keyframes slide-fade-in-dropdown-animation {
     0% {
@@ -46,22 +50,33 @@ const StyledMenu = styled.menu`
     position: relative;
     top: 5px;
     margin-top: 0;
-    margin-bottom: 5px;
-    padding-left: 0;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
     list-style: none;
+    background-color: #a6eae2;
   }
   
+  .components-dropdown > ul > li > a {
+    text-decoration: none;
+    color: #000000;
+  }
+
+  .components-dropdown > ul > li > a.active {
+    color: #ffffff;
+  }
 `;
 
 // function isActive(path) {
 //   return window.location.pathname.startsWith(path);
 // }
 
-function Menu (props) {
-  const [dropdownVisibility, setDropdownVisibility] = React.useState(false);
+function HeaderMenu (props) {
+  const [dropdownVisibility, setDropdownVisibility ] = React.useState(false);
 
   return (
-    <div className='Menu'>
+    <div className='HeaderMenu'>
       <StyledMenu>
         <button onClick={e => setDropdownVisibility(!dropdownVisibility)}>
           {
@@ -72,17 +87,29 @@ function Menu (props) {
         </button>
         <Dropdown visibility={dropdownVisibility}>
           <ul>
-            {/* <li>
-              <Menu.Link to="/" active={isActive("/")}>실시간 영상</Menu.Link>
-            </li> */}
             <li>
-              <a href="/friendliness">친밀도</a>
+              <NavLink to="/">실시간 영상</NavLink>
             </li>
             <li>
-              <a href="/archive">아카이브</a>
+              <NavLink to="/friendliness">친밀도</NavLink>
             </li>
             <li>
-              <a href="/story">스토리</a>
+              <ArchiveMenu />
+            </li>
+            <li>
+              <NavLink to="/story">스토리</NavLink>
+            </li>
+            <li>
+              <NavLink to="/control">로봇 조작</NavLink>
+            </li>
+            <li>
+              <NavLink to="/sensor">센서</NavLink>
+            </li>
+            <li>
+              <NavLink to="/config">환경설정</NavLink>
+            </li>
+            <li>
+              <NavLink to="/user">회원정보수정</NavLink>
             </li>
           </ul>
         </Dropdown>
@@ -91,4 +118,4 @@ function Menu (props) {
   )
 };
 
-export default Menu;
+export default HeaderMenu;

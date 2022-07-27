@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; // router
 import './index.css';
@@ -21,8 +22,8 @@ import Layout from './layout/Layout';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Layout>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Layout>
         <Routes>
           <Route path="/" element={<App />}></Route>
           <Route path="/main" element={<Main />}></Route>
@@ -35,9 +36,8 @@ root.render(
           <Route path="/story" element={<Story />}></Route>
           <Route path="/user" element={<User />}></Route>
         </Routes>
-      </BrowserRouter>
-    </Layout>
-    
+      </Layout>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
