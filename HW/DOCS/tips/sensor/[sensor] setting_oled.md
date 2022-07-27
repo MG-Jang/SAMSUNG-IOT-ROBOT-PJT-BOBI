@@ -78,8 +78,6 @@ python3 image.py
 
 ### 참고 사이트
 
-[https://velog.io/@dev-hoon/PJT-Google-ㅁClass-체험](https://velog.io/@dev-hoon/PJT-Google-Class-%EC%B2%B4%ED%97%98)
-
 [https://rudalskim.tistory.com/109](https://rudalskim.tistory.com/109)
 
 ## 오류
@@ -100,3 +98,30 @@ RST 변수를 다음 이미지와 같이 변경하고 저장 후 실행시키면
 
 1. [https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/usage](https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/usage)
 2. [https://learn.adafruit.com/ssd1306-oled-displays-with-raspberry-pi-and-beaglebone-black/usage](https://learn.adafruit.com/ssd1306-oled-displays-with-raspberry-pi-and-beaglebone-black/usage)
+
+## 2개의 OLED를 따로 조작하기
+
+### I2C 통신 활성화
+
+- 사용가능한 I2C 핀 : 현재는 I2C-1번만 활성화 되어 있다.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3511ebd5-51d3-4299-a9cd-15d7c25306a2/Untitled.png)
+
+## 다중 I2C 핀 설정
+
+```python
+sudo vi /boot/config.txt
+# I2C-6 세팅, GPIO핀에 맞게 열어주기
+dtoverlay=i2c-gpio,bus=6,i2c_gpio_sda=22,i2c_gpio_scl=23
+#dtoverlay=i2c6,pins_22_23
+
+sudo reboot -h now
+
+sudo i2cdetect -l  # 활성환 I2C 포트 확인
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b73576e5-4faa-4426-9f58-5f0adf665d7d/Untitled.png)
+
+## 참고사이트
+
+[https://docs.circuitpython.org/projects/ssd1306/en/latest/](https://docs.circuitpython.org/projects/ssd1306/en/latest/)
