@@ -1,14 +1,15 @@
 import React from "react";
-// import Menu from "./Menu"
-
 import Dropdown from "../../components/Dropdown";
-// import { DropdownItem } from 'reactstrap';
 import styled from "styled-components";
 import ArchiveMenu from "./ArchiveMenu"
 import { NavLink } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX,faBars } from "@fortawesome/free-solid-svg-icons";
 
 
 const StyledMenu = styled.menu`
+  width: 12rem;
+
   @keyframes slide-fade-in-dropdown-animation {
     0% {
       transform: translateY(-100%);
@@ -51,6 +52,7 @@ const StyledMenu = styled.menu`
     top: 5px;
     margin-top: 0;
     margin-bottom: 0.6rem;
+    padding-top: 0.2rem;
     padding-left: 1.2rem;
     padding-right: 1.2rem;
     padding-bottom: 1.2rem;
@@ -72,9 +74,9 @@ const StyledMenu = styled.menu`
     color: #ffffff;
   }
 
-  .button {
-    font-size: 5rem;
-    margin-right: 3rem;
+  .Header-icon {
+    margin-left: 6.5rem;
+    margin-bottom: 0;
   }
 `;
 
@@ -88,13 +90,13 @@ function HeaderMenu (props) {
   return (
     <div className='Header-menu'>
       <StyledMenu>
-        <button onClick={e => setDropdownVisibility(!dropdownVisibility)}>
+        <p className='Header-icon' onClick={e => setDropdownVisibility(!dropdownVisibility)}>
           {
             dropdownVisibility
-            ? 'Close'
-            : 'Open'
+            ? <FontAwesomeIcon icon={faX} size="2x"/>
+            : <FontAwesomeIcon icon={faBars} size="2x"/>
           }
-        </button>
+        </p>
         <Dropdown visibility={dropdownVisibility}>
           <ul>
             <li><NavLink to="/">실시간 영상</NavLink></li>
