@@ -122,6 +122,10 @@ sudo i2cdetect -l  # 활성환 I2C 포트 확인
 
 ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b73576e5-4faa-4426-9f58-5f0adf665d7d/Untitled.png)
 
+## 해결책
+
+OLED 주소가 (0x3C)로 고정되어 있지만, 해당 주소를 바꿀 방법을 찾지 못함
+
 ## 참고사이트
 
 [https://docs.circuitpython.org/projects/ssd1306/en/latest/](https://docs.circuitpython.org/projects/ssd1306/en/latest/)
