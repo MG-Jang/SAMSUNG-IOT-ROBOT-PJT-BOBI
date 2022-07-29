@@ -1,6 +1,6 @@
 ---
 author: Dongwon Kim
-date: 2022-07-28
+date: 2022-07-29
 ---
 # 라즈베리파이에 MQTT 적용하기 & MQTT 주제 설계
 
@@ -71,6 +71,7 @@ sudo apt install mosquitto-clients
 - [ ]  web → RPI 절전 모드 실행
 - [ ]  1계정 1로봇 1디바이스
 - [ ]  주제마다 callback 함수 매칭 가능 → 한 주제에 한 함수만 매칭 되는가??
+ -[x] js에서도 mqtt사용 가능,
 - [ ]  첫 주제는 /로 시작하지 않고 주제 중간에 공백이 없는가?
 - [ ]  mqtt 수신이 어떤 식으로 진행되는지 확인
     - 새로운 거 들어오면 인식해서 바로 callback?
