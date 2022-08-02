@@ -33,8 +33,12 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # Local apps
-    'bobi',
+    'accounts', # user
+    'archives',
+    'bobi',  # robot, level, sensors
+    'movements',
     'stories',
+    'voices',
 
     # Third party apps
     'rest_framework',
