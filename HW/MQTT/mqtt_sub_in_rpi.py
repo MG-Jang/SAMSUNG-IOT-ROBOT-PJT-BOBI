@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt
 
-_mqtt_broker_id = "172.30.1.254"
+_mqtt_broker_ip = "i7a208.p.ssafy.io"
 _user_id="testuser"
 
 def on_connect(client, userdata, flags, rc):
@@ -48,7 +48,7 @@ client.message_callback_add(_user_id + "/powersaving/on", on_powersaving_on)
 client.message_callback_add(_user_id + "/powersaving/off", on_powersaving_off)
 
 # connect to broker
-client.connect("172.30.1.8", 1883, 60)
+client.connect(_mqtt_broker_ip, 1883, 60)
 
 # Blocking call that processes network traffic, dispatches callbacks and
 # handles reconnecting.
