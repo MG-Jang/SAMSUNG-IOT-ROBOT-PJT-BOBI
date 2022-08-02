@@ -89,6 +89,9 @@ client.on("connect", () => {
 });
 ```
 
+## 결과
+- ec2와 통신이 잘 된다
+
 ## reference
 
 - [How to use MQTT in Node.js](https://www.emqx.com/en/blog/how-to-use-mqtt-in-nodejs)
