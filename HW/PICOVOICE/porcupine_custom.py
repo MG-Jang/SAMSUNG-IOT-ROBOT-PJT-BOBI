@@ -219,6 +219,7 @@ def porcupine_parsing():
             output_path=args.output_path,
             input_device_index=args.audio_device_index).run()
 
-
+'''
 if __name__ == '__main__':
     porcupine_parsing()
+'''
