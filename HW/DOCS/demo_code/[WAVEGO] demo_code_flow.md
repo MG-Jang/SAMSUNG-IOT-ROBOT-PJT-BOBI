@@ -1,5 +1,6 @@
 # 기본적인 동작 흐름
 -> 웹에서 행동 버튼 클릭
+
 -> **[webserver.py]** 에서 해당하는 data를 받아와서 **[app.py]** 에 정의되어 있는 **'commnadInput'** 함수를 사용
 
 -> **'commandInput'** 함수에서는 **[camera_opencv.py]** 에 정의되어 있는 **'commandAct'** 를 사용
