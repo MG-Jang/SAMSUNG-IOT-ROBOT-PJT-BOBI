@@ -47,7 +47,7 @@
     
 ## Total Architecture
 
-[total_architecture_refined.drawio](/uploads/a5c85dfe389a1280565afa1ecd76e5ae/total_architecture_refined.drawio.png)
+![total_architecture_refined.drawio](/uploads/a5c85dfe389a1280565afa1ecd76e5ae/total_architecture_refined.drawio.png)
 
 ## Members
 |이름 | 이메일 | 역할 |
