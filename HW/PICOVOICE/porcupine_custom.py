@@ -30,7 +30,6 @@ class PorcupineCustom(Thread):
             keyword_paths='/home/pi/porcupine/hi_bobi_ko_rpi.ppn',
             input_device_index=None,
             output_path=None):
-
         """
         Constructor.
         :param library_path: Absolute path to Porcupine's dynamic library.
@@ -63,7 +62,8 @@ class PorcupineCustom(Thread):
 
         keywords = list()
         for x in self._keyword_paths:
-            keyword_phrase_part = os.path.basename(x).replace('.ppn', '').split('_')
+            keyword_phrase_part = os.path.basename(
+                x).replace('.ppn', '').split('_')
             if len(keyword_phrase_part) > 6:
                 keywords.append(' '.join(keyword_phrase_part[0:-6]))
             else:
@@ -80,7 +80,8 @@ class PorcupineCustom(Thread):
                 keyword_paths=self._keyword_paths,
                 sensitivities=self._sensitivities)
 
-            recorder = PvRecorder(device_index=self._input_device_index, frame_length=porcupine.frame_length)
+            recorder = PvRecorder(
+                device_index=self._input_device_index, frame_length=porcupine.frame_length)
             recorder.start()
 
             if self._output_path is not None:
@@ -102,7 +103,8 @@ class PorcupineCustom(Thread):
 
                 result = porcupine.process(pcm)
                 if result >= 0:
-                    print('[%s] Detected %s' % (str(datetime.now()), keywords[result]))
+                    print('[%s] Detected %s' %
+                          (str(datetime.now()), keywords[result]))
         except pvporcupine.PorcupineInvalidArgumentError as e:
             args = (
                 self._access_key,
@@ -112,13 +114,15 @@ class PorcupineCustom(Thread):
                 self._sensitivities,
             )
             print("One or more arguments provided to Porcupine is invalid: ", args)
-            print("If all other arguments seem valid, ensure that '%s' is a valid AccessKey" % self._access_key)
+            print("If all other arguments seem valid, ensure that '%s' is a valid AccessKey" %
+                  self._access_key)
             raise e
         except pvporcupine.PorcupineActivationError as e:
             print("AccessKey activation error")
             raise e
         except pvporcupine.PorcupineActivationLimitError as e:
-            print("AccessKey '%s' has reached it's temporary device limit" % self._access_key)
+            print("AccessKey '%s' has reached it's temporary device limit" %
+                  self._access_key)
             raise e
         except pvporcupine.PorcupineActivationRefusedError as e:
             print("AccessKey '%s' refused" % self._access_key)
@@ -158,7 +162,8 @@ def porcupine_parsing():
     parser.add_argument(
         '--keywords',
         nargs='+',
-        help='List of default keywords for detection. Available keywords: %s' % ', '.join(sorted(pvporcupine.KEYWORDS)),
+        help='List of default keywords for detection. Available keywords: %s' % ', '.join(
+            sorted(pvporcupine.KEYWORDS)),
         choices=sorted(pvporcupine.KEYWORDS),
         metavar='')
 
@@ -167,7 +172,8 @@ def porcupine_parsing():
         nargs='+',
         help="Absolute paths to keyword model files. If not set it will be populated from `--keywords` argument")
 
-    parser.add_argument('--library_path', help='Absolute path to dynamic library.', default=pvporcupine.LIBRARY_PATH)
+    parser.add_argument(
+        '--library_path', help='Absolute path to dynamic library.', default=pvporcupine.LIBRARY_PATH)
 
     parser.add_argument(
         '--model_path',
@@ -183,9 +189,11 @@ def porcupine_parsing():
         type=float,
         default=None)
 
-    parser.add_argument('--audio_device_index', help='Index of input audio device.', type=int, default=-1)
+    parser.add_argument('--audio_device_index',
+                        help='Index of input audio device.', type=int, default=-1)
 
-    parser.add_argument('--output_path', help='Absolute path to recorded audio for debugging.', default=None)
+    parser.add_argument(
+        '--output_path', help='Absolute path to recorded audio for debugging.', default=None)
 
     parser.add_argument('--show_audio_devices', action='store_true')
 
@@ -198,9 +206,11 @@ def porcupine_parsing():
             raise ValueError("AccessKey (--access_key) is required")
         if args.keyword_paths is None:
             if args.keywords is None:
-                raise ValueError("Either `--keywords` or `--keyword_paths` must be set.")
+                raise ValueError(
+                    "Either `--keywords` or `--keyword_paths` must be set.")
 
-            keyword_paths = [pvporcupine.KEYWORD_PATHS[x] for x in args.keywords]
+            keyword_paths = [pvporcupine.KEYWORD_PATHS[x]
+                             for x in args.keywords]
         else:
             keyword_paths = args.keyword_paths
 
@@ -208,7 +218,8 @@ def porcupine_parsing():
             args.sensitivities = [0.5] * len(keyword_paths)
 
         if len(keyword_paths) != len(args.sensitivities):
-            raise ValueError('Number of keywords does not match the number of sensitivities.')
+            raise ValueError(
+                'Number of keywords does not match the number of sensitivities.')
 
         PorcupineCustom(
             access_key=args.access_key,
@@ -218,6 +229,7 @@ def porcupine_parsing():
             sensitivities=args.sensitivities,
             output_path=args.output_path,
             input_device_index=args.audio_device_index).run()
+
 
 '''
 if __name__ == '__main__':
