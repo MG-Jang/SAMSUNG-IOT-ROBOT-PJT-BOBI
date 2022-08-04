@@ -30,6 +30,7 @@ date: 2022-08-04
     
 - 마이크 2개 사용 시 잘 camera_map_test 까지 잘 연동됨
 - stt delay 거의 없었음
+- `python3 connect_porcupine_record.py --access_key [picovoice access key] --keyword_paths /home/pi/porcupine/hi_bobi_ko_rpi.ppn --model_path /home/pi/porcupine/porcupine_params_ko.pv --audio_device_index [device index]`
 
 ## 파일 설명
 
