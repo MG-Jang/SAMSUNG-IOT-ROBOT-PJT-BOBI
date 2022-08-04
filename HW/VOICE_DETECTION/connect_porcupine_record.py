@@ -1,30 +1,22 @@
 import os
-import stt
 import porcupine_custom
 import sys
 import time
 from threading import Thread
 from voice_recognition import VoiceRecognition
 
-'''
-TODO
-- picovoice에서 mic를 쓰고 있어서 stt에서 사용할 수 없는 듯?????
-- rpi에서 이 파일이 돌아가는 것까지 체크 완료
-- 그러나 마이크 busy여서 stt thread는 처음 불렀을 때 죽음
-'''
 
 class DetectHotword(Thread):
     def __init__(self):
         Thread.__init__(self)
         self.kill_received = False
         self.stt = VoiceRecognition()
-
     def run(self):
         while not self.kill_received:
             if(porcupine_custom.hot_word_flag):
                 print("Hotword detected")
                 self.stt.run()
-                time.sleep(0.1)
+                time.sleep(5)
 
 
 def has_live_threads(threads):
@@ -60,5 +52,9 @@ if __name__ == "__main__":
             print("Sending kill to threads")
             for t in threads:
                 t.kill_received = True
+
+            for t in threads:
+                if t is not None and t.is_alive():
+                    t.join(1)
 
     print("Exited")

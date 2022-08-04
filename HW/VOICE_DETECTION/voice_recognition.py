@@ -78,5 +78,8 @@ class VoiceRecognition():
             cmd = "arecord --device=hw:1,0 --format S16_LE -d4 --rate 48000 -V mono -c1 " + \
                 self.local_file_path
             os.system(cmd)
+            print("\nFinish recording\n Start parsing")
             self.parse_command()
+            print("\nFinish parsing\n command: " + self.var)
+            print("command mapping...")
             self.map_movement()
