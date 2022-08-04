@@ -36,7 +36,7 @@ if __name__ == "__main__":
         output_path=args.output_path,
         input_device_index=args.audio_device_index)
 
-    th2 = detect_hotword()
+    th2 = DetectHotword()
     threads.append(th1)
     threads.append(th2)
     th1.start()
