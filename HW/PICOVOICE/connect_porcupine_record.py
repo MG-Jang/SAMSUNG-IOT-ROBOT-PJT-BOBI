@@ -7,7 +7,7 @@ TODO:
 - RPI 동작 테스트
 - 참고: https://gist.github.com/ruedesign/5218221
 '''
-class detect_hotword(Thread):
+class DetectHotword(Thread):
     def __init__(self):
         Thread.__init__(self)
         self.kill_received = False

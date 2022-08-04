@@ -19,6 +19,7 @@ from threading import Thread
 import pvporcupine
 from pvrecorder import PvRecorder
 
+hot_word_flag = 0
 
 class PorcupineCustom(Thread):
     def __init__(
@@ -53,97 +54,102 @@ class PorcupineCustom(Thread):
         self._input_device_index = input_device_index
 
         self._output_path = output_path
+        self.kill_received = False
 
     def run(self):
         """
          Creates an input audio stream, instantiates an instance of Porcupine object, and monitors the audio stream for
          occurrences of the wake word(s). It prints the time of detection for each occurrence and the wake word.
          """
+        while not self.kill_received:
+            global hot_word_flag
+            keywords = list()
+            for x in self._keyword_paths:
+                keyword_phrase_part = os.path.basename(
+                    x).replace('.ppn', '').split('_')
+                if len(keyword_phrase_part) > 6:
+                    keywords.append(' '.join(keyword_phrase_part[0:-6]))
+                else:
+                    keywords.append(keyword_phrase_part[0])
 
-        keywords = list()
-        for x in self._keyword_paths:
-            keyword_phrase_part = os.path.basename(
-                x).replace('.ppn', '').split('_')
-            if len(keyword_phrase_part) > 6:
-                keywords.append(' '.join(keyword_phrase_part[0:-6]))
-            else:
-                keywords.append(keyword_phrase_part[0])
+            porcupine = None
+            recorder = None
+            wav_file = None
+            try:
+                porcupine = pvporcupine.create(
+                    access_key=self._access_key,
+                    library_path=self._library_path,
+                    model_path=self._model_path,
+                    keyword_paths=self._keyword_paths,
+                    sensitivities=self._sensitivities)
 
-        porcupine = None
-        recorder = None
-        wav_file = None
-        try:
-            porcupine = pvporcupine.create(
-                access_key=self._access_key,
-                library_path=self._library_path,
-                model_path=self._model_path,
-                keyword_paths=self._keyword_paths,
-                sensitivities=self._sensitivities)
+                recorder = PvRecorder(
+                    device_index=self._input_device_index, frame_length=porcupine.frame_length)
+                recorder.start()
 
-            recorder = PvRecorder(
-                device_index=self._input_device_index, frame_length=porcupine.frame_length)
-            recorder.start()
+                if self._output_path is not None:
+                    wav_file = wave.open(self._output_path, "w")
+                    wav_file.setparams((1, 2, 16000, 512, "NONE", "NONE"))
 
-            if self._output_path is not None:
-                wav_file = wave.open(self._output_path, "w")
-                wav_file.setparams((1, 2, 16000, 512, "NONE", "NONE"))
+                print('Using device: %s', recorder.selected_device)
 
-            print('Using device: %s', recorder.selected_device)
+                print('Listening {')
+                for keyword, sensitivity in zip(keywords, self._sensitivities):
+                    print('  %s (%.2f)' % (keyword, sensitivity))
+                print('}')
 
-            print('Listening {')
-            for keyword, sensitivity in zip(keywords, self._sensitivities):
-                print('  %s (%.2f)' % (keyword, sensitivity))
-            print('}')
+                while True:
+                    pcm = recorder.read()
 
-            while True:
-                pcm = recorder.read()
+                    if wav_file is not None:
+                        wav_file.writeframes(struct.pack("h" * len(pcm), *pcm))
+
+                    result = porcupine.process(pcm)
+                    if result >= 0:
+                        hot_word_flag = 1
+                        print('[%s] Detected %s' %
+                            (str(datetime.now()), keywords[result]))
+                    else:
+                        hot_word_flag = 0
+            except pvporcupine.PorcupineInvalidArgumentError as e:
+                args = (
+                    self._access_key,
+                    self._library_path,
+                    self._model_path,
+                    self._keyword_paths,
+                    self._sensitivities,
+                )
+                print("One or more arguments provided to Porcupine is invalid: ", args)
+                print("If all other arguments seem valid, ensure that '%s' is a valid AccessKey" %
+                    self._access_key)
+                raise e
+            except pvporcupine.PorcupineActivationError as e:
+                print("AccessKey activation error")
+                raise e
+            except pvporcupine.PorcupineActivationLimitError as e:
+                print("AccessKey '%s' has reached it's temporary device limit" %
+                    self._access_key)
+                raise e
+            except pvporcupine.PorcupineActivationRefusedError as e:
+                print("AccessKey '%s' refused" % self._access_key)
+                raise e
+            except pvporcupine.PorcupineActivationThrottledError as e:
+                print("AccessKey '%s' has been throttled" % self._access_key)
+                raise e
+            except pvporcupine.PorcupineError as e:
+                print("Failed to initialize Porcupine")
+                raise e
+            except KeyboardInterrupt:
+                print('Stopping ...')
+            finally:
+                if porcupine is not None:
+                    porcupine.delete()
+
+                if recorder is not None:
+                    recorder.delete()
 
                 if wav_file is not None:
-                    wav_file.writeframes(struct.pack("h" * len(pcm), *pcm))
-
-                result = porcupine.process(pcm)
-                if result >= 0:
-                    print('[%s] Detected %s' %
-                          (str(datetime.now()), keywords[result]))
-        except pvporcupine.PorcupineInvalidArgumentError as e:
-            args = (
-                self._access_key,
-                self._library_path,
-                self._model_path,
-                self._keyword_paths,
-                self._sensitivities,
-            )
-            print("One or more arguments provided to Porcupine is invalid: ", args)
-            print("If all other arguments seem valid, ensure that '%s' is a valid AccessKey" %
-                  self._access_key)
-            raise e
-        except pvporcupine.PorcupineActivationError as e:
-            print("AccessKey activation error")
-            raise e
-        except pvporcupine.PorcupineActivationLimitError as e:
-            print("AccessKey '%s' has reached it's temporary device limit" %
-                  self._access_key)
-            raise e
-        except pvporcupine.PorcupineActivationRefusedError as e:
-            print("AccessKey '%s' refused" % self._access_key)
-            raise e
-        except pvporcupine.PorcupineActivationThrottledError as e:
-            print("AccessKey '%s' has been throttled" % self._access_key)
-            raise e
-        except pvporcupine.PorcupineError as e:
-            print("Failed to initialize Porcupine")
-            raise e
-        except KeyboardInterrupt:
-            print('Stopping ...')
-        finally:
-            if porcupine is not None:
-                porcupine.delete()
-
-            if recorder is not None:
-                recorder.delete()
-
-            if wav_file is not None:
-                wav_file.close()
+                    wav_file.close()
 
     @classmethod
     def show_audio_devices(cls):
@@ -211,6 +217,7 @@ def porcupine_parsing():
 
             keyword_paths = [pvporcupine.KEYWORD_PATHS[x]
                              for x in args.keywords]
+            args.keyword_paths = keyword_paths
         else:
             keyword_paths = args.keyword_paths
 
@@ -221,6 +228,8 @@ def porcupine_parsing():
             raise ValueError(
                 'Number of keywords does not match the number of sensitivities.')
 
+        return args
+    '''
         PorcupineCustom(
             access_key=args.access_key,
             library_path=args.library_path,
@@ -229,6 +238,7 @@ def porcupine_parsing():
             sensitivities=args.sensitivities,
             output_path=args.output_path,
             input_device_index=args.audio_device_index).run()
+    '''
 
 
 '''
