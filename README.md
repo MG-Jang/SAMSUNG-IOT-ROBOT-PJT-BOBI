@@ -16,7 +16,7 @@
 
     - 부모님과 음성 메시지로 소통하는 기능
 
-      
+> for more info, visit our [wiki!!](https://lab.ssafy.com/s07-webmobile3-sub2/S07P12A208/-/wikis/home) 
 
 ## Git Structure
 
