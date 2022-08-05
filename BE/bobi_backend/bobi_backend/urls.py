@@ -14,17 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from stories.views import StoryListAPI
+from django.urls import path
+from django.conf.urls import url, include
+from rest_framework import routers
+from stories.views import StoryViewSet
+# from stories.views import StoryListAPI
+
+router = routers.DefaultRouter()
+router.register('stories', StoryViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/stories', StoryListAPI.as_view()),
+    path('api/v1/', include(router.urls)),
+    path('google/', include('allauth.urls')),
+    # path('api/v1/stories/', StoryListAPI.as_view()),
     # path('api/v1/bobi/', include('bobi.urls')),
     # path('api/v1/accounts/', include('accounts.urls')),
     # path('api/v1/stories/', include('stories.urls')),
     # path('api/v1/movements/', include('movenments.urls')),
     # path('api/v1/stories/', include('stories.urls')),
-    # path('api/v1/voices/', include('voices.urls')),
-    path('google/', include('allauth.urls')),
+    # path('api/v1/voices/', include('voices.urls')), 
 ]
