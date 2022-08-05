@@ -26,4 +26,5 @@ urlpatterns = [
     # path('api/v1/movements/', include('movenments.urls')),
     # path('api/v1/stories/', include('stories.urls')),
     # path('api/v1/voices/', include('voices.urls')),
+    path('google/', include('allauth.urls')),
 ]
