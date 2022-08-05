@@ -1,11 +1,12 @@
 import React from "react";
+import StoryList from "../components/story/StoryList";
 
 function Story() {
-    return (
-        <div>
-            <h1>[Story]</h1>
-        </div>
-    )
+  return (
+    <div>
+      <StoryList />
+    </div>
+  )
 };
 
 export default Story;
