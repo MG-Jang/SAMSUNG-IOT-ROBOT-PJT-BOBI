@@ -21,7 +21,7 @@ function Live() {
               <br />
               <h1>Youtube Live</h1>
               <br />
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel=UC0Hu-_pAlzKFhiZPqDAUbIw" frameBorder="0" allowFullScreen></iframe>
+              <iframe title="Live" width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel=UC0Hu-_pAlzKFhiZPqDAUbIw" frameBorder="0" allowFullScreen></iframe>
             </div>
           </StyledMain>
         </div>

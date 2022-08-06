@@ -2,7 +2,9 @@ import React from "react";
 
 const Dropdown = props => {
   const [visibilityAnimation, setVisibilityAnimation] = React.useState(false);
+
   const [repeat, setRepeat] = React.useState(null);
+  
   React.useEffect(() => {
     if (props.visibility) {
       clearTimeout(repeat);
