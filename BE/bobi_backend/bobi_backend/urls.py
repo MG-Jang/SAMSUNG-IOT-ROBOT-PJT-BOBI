@@ -18,10 +18,12 @@ from django.urls import path
 from django.conf.urls import url, include
 from rest_framework import routers
 from stories.views import StoryViewSet
+from movements.views import MovementViewSet
 # from stories.views import StoryListAPI
 
 router = routers.DefaultRouter()
 router.register('stories', StoryViewSet)
+router.register('movements', MovementViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

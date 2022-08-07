@@ -9,6 +9,7 @@ from .serializers import StorySerializer
 class StoryViewSet(viewsets.ModelViewSet):
     queryset = Story.objects.all()
     serializer_class = StorySerializer
+
     # def get(self, request):
     #     queryset = Story.objects.all()
     #     serializer = StorySerializer(queryset, many=True)
