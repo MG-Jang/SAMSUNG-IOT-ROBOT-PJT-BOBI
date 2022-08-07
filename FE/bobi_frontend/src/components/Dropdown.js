@@ -1,6 +1,6 @@
 import React from "react";
 
-const Dropdown = props => {
+function Dropdown (props) {
   const [visibilityAnimation, setVisibilityAnimation] = React.useState(false);
 
   const [repeat, setRepeat] = React.useState(null);

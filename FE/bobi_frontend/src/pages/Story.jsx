@@ -1,10 +1,13 @@
 import React from "react";
 import StoryList from "../components/story/StoryList";
+import ModalsProvider from "../components/modal/ModalsProvider";
 
 function Story() {
   return (
     <div>
-      <StoryList />
+      <ModalsProvider>
+        <StoryList />
+      </ModalsProvider>
     </div>
   )
 };

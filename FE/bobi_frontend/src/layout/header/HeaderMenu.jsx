@@ -4,7 +4,7 @@ import styled from "styled-components";
 import ArchiveMenu from "./ArchiveMenu"
 import { NavLink } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faX,faBars } from "@fortawesome/free-solid-svg-icons";
+import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
 
 
 const StyledMenu = styled.menu`
