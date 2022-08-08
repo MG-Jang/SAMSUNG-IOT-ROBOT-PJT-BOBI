@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     # Third party apps
     'rest_framework',   # REST API
     'corsheaders',      # CORS (Cross-Origin Resource Sharing)
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
     # Django apps
     'django.contrib.admin',

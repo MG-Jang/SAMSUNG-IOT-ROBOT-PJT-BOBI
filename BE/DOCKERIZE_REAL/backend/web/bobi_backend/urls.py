@@ -15,7 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url, include
+from rest_framework import routers
+from stories.views import StoryViewSet
+from movements.views import MovementViewSet
+
+router = routers.DefaultRouter()
+router.register('stories', StoryViewSet)
+router.register('movements', MovementViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/', include(router.urls)),
+    path('google/', include('allauth.urls')),
 ]
