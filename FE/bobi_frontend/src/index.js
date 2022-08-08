@@ -14,6 +14,7 @@ import Control from './pages/Control';
 import Friendliness from './pages/Friendliness';
 import Live from './pages/Live'
 import Login from './pages/Login';
+import LoginSuccess from './pages/LoginSuccess';
 import Sensor from './pages/Sensor';
 import Story from './pages/Story';
 import User from './pages/User';
@@ -35,6 +36,7 @@ root.render(
           <Route path="/friendliness" element={<Friendliness />}></Route>
           <Route path="/live" element={<Live />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/loginSuccess" element={<LoginSuccess/>}></Route>
           <Route path="/sensor" element={<Sensor />}></Route>
           <Route path="/story" element={<Story />}></Route>
           <Route path="/user" element={<User />}></Route>
