@@ -26,7 +26,9 @@ date: 2022-08-05
 
 - [ ]  react와 연결하기
 - [ ]  실제 프로젝트의 django, mysql 넣기
+- [X]  mosquitto 설치
 
 ## 참고
 
-[https://mdntrip.tistory.com/136?category=1003320](https://mdntrip.tistory.com/136?category=1003320)
+- [web 쪽 docker화](https://mdntrip.tistory.com/136?category=1003320)
+- [Mosquitto docker화](https://www.homeautomationguy.io/docker-tips/configuring-the-mosquitto-mqtt-docker-container-for-use-with-home-assistant/)

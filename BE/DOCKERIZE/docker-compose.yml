@@ -46,6 +46,15 @@ services:
     networks:
     - backend_network
     # restart: always 
+  
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    volumes:
+      - ./mosquitto:/mosquitto
+    ports:
+      - 1883:1883
+      - 9001:9001
 
 networks:
   backend_network:
