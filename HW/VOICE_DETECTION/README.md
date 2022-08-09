@@ -97,10 +97,16 @@ date: 2022-08-04
 - 마이크는 2개 사용
 - porcupine을 사용할 때 device_index를 0 제외 다른 것으로 설정(0은 stt에서 녹음할 때 씀)
 - voice_recognition에서 '메시지' 라는 명령시 다음 5초 동안 녹음한 내용을 s3에 저장하는 것까지 확인(RPI에서 진행됨, 해당 dir는 voice_mssg)
+- S3에 영상 데이터를 업로드 하고 MQTT 메시지 보내기
+    - EC2에서 `$ mosquitto_sub -h i7a208.p.ssafy.io -t "testuser/voice/toweb"` 구독
+    - windows에서 `python ./s3_voice_mssg.py` 실행했을 때 단위 테스트 성공
+        - 파일이 S3에 잘 올라감
+        - server에서 구독하고 있는 창에 메시지가 잘 표시됨
 
 ## 할 일
 - [ ] : 마이크 2개로 s3에 잘 들어가는지 확인
-- [ ] : s3에 들어간 후 be로 mqtt 메시지 보내주기
+- [X] : s3에 들어간 후 be로 mqtt 메시지 보내주기
+- [ ] : RPI에서 S3, MQTT 테스트
 
 
 
