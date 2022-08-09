@@ -50,6 +50,12 @@ aws_secret_access_key = "csv 파일의 secret key"
     - upload file, download file을 파일 이름만 넣으면 되도록 함
 - python(python3 X)을 이용하여 실행한 결과 upload, download 모두 windows에서 잘 진행됨
 - RPI에서도 잘 동작함
+- 마이크가 1개 뿐이라서 wake up word와 연동을 하진 못함
+- voice_recognition.py를 일부 수정하여 여기서 '메시지'라는 명령어가 들어왔을 때 음성을 녹음하여 s3에 올리도록 함
+- RPI에서 동작 테스트 완료
+    - `voice_recognition_copy.py`를 이용하여 테스트 진행
+    - `python ./voice_recognition_copy.py` 로 실행하여 테스트
+    - `메시지` 라는 명령 후 잠시 쉬고 `메시지 보내줘` 라는 내용의 음성 메시지를 녹음하여 s3에 올라간 것까지 확인 완료
 ## 참고
 
 - [boto3 가이드](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html)
