@@ -1,3 +1,0 @@
-## BOBI-FE
-
-- React
