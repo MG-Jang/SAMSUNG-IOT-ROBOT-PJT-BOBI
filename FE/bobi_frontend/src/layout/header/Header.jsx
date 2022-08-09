@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const StyledHeader = styled.header`
   .Header {
+    font-family: 'GangwonEdu_OTFBoldA';
     background-color: #a6eae2;
     display: flex;
     position: fixed;
@@ -30,7 +31,8 @@ const StyledHeader = styled.header`
   }
 
   .Header-title {
-    font-size: 2rem;
+    margin-top: 1.25rem;
+    font-size: 2.5rem;
   }
 `;
 

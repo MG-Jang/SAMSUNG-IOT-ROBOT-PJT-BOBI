@@ -1,12 +1,13 @@
 import React from "react";
 import { Link, Navigate } from 'react-router-dom';
+import './App.css';
 
 function App() {
-  // if (localStorage.getItem("user_id") === null) {
-  //   return (
-  //     <Navigate to="/login" />
-  //   )
-  // };
+  if (localStorage.getItem("user_name") === null) {
+    return (
+      <Navigate to="/login" />
+    )
+  };
 
   return (
     <div>
@@ -17,3 +18,4 @@ function App() {
 }
 
 export default App;
+
