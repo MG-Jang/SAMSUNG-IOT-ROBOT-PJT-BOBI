@@ -18,6 +18,7 @@ import LoginSuccess from './pages/LoginSuccess';
 import Sensor from './pages/Sensor';
 import Story from './pages/Story';
 import User from './pages/User';
+import Voice from './pages/Voice';
 import reportWebVitals from './reportWebVitals';
 import Layout from './layout/Layout';
 
@@ -40,6 +41,7 @@ root.render(
           <Route path="/sensor" element={<Sensor />}></Route>
           <Route path="/story" element={<Story />}></Route>
           <Route path="/user" element={<User />}></Route>
+          <Route path="/voice" element={<Voice />}></Route>
         </Routes>
       </Layout>
     </BrowserRouter>
