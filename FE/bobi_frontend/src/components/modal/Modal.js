@@ -1,5 +1,3 @@
-// 이건 지금 당장 쓰이는 modal, 밑에 것들은 시도해봤는데 잘 안된 것들
-
 import React from 'react';
 import styled from 'styled-components';
 
