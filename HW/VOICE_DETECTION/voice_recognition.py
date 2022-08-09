@@ -7,11 +7,13 @@
 # reference
 #   stt.py by 정재훈
 '''
+import os
+import io
 from google.cloud import speech
 import camera_map_test
 import porcupine_custom
-import os
-import io
+from s3_voice_mssg import VoiceMessage
+
 
 
 class VoiceRecognition():
@@ -42,7 +44,7 @@ class VoiceRecognition():
         var1 = var2.split()
         self.var = var1[0]
 
-    def map_movement(self):
+    def map_commands(self):
         # 필요한 기능들 추가 혹은 빼야할 듯
         if self.var == "전진":
             camera_map_test.commandAct('forward', None)
@@ -72,14 +74,27 @@ class VoiceRecognition():
             camera_map_test.commandAct('jump', None)
         elif self.var == "손":
             camera_map_test.commandAct('handshake', None)
+        elif self.var == "메시지":
+            self.record_voice()
+        else:
+            print("Unknown command!!")
+    
+    def record_voice(self):
+        cmd = "arecord --device=hw:1,0 --format S16_LE -d5 --rate 48000 -V mono -c1 " + \
+            self.local_file_path
+        
+        voice_mssg = VoiceMessage()
+        voice_mssg.upload_file(self.local_file_path)
+        
 
     def run(self):
         if porcupine_custom.hot_word_flag:
-            cmd = "arecord --device=hw:1,0 --format S16_LE -d4 --rate 48000 -V mono -c1 " + \
+            cmd = "arecord --device=hw:1,0 --format S16_LE -d2 --rate 48000 -V mono -c1 " + \
                 self.local_file_path
             os.system(cmd)
             print("\nFinish recording\n Start parsing")
             self.parse_command()
             print("\nFinish parsing\n command: " + self.var)
             print("command mapping...")
-            self.map_movement()
+            self.map_commands()
+
