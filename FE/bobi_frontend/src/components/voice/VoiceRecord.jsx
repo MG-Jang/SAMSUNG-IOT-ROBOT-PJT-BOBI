@@ -1,4 +1,8 @@
 import React, { useState, useCallback } from "react";
+import { uploadFile } from "react-s3";
+window.Buffer = window.Buffer || require("buffer").Buffer; 
+// ReferenceError: Buffer is not defined 에러때문에 넣음
+
 
 function VoiceRecord () {
   const [stream, setStream] = useState();
@@ -7,6 +11,7 @@ function VoiceRecord () {
   const [source, setSource] = useState();
   const [analyser, setAnalyser] = useState();
   const [audioUrl, setAudioUrl] = useState();
+  const [audioFile, setAudioFile] = useState();
 
   const onRecAudio = () => {
     // 음원정보를 담은 노드를 생성하거나 음원을 실행또는 디코딩 시키는 일을 한다
@@ -72,20 +77,45 @@ function VoiceRecord () {
     source.disconnect();
   };
 
+  
   const onSubmitAudioFile = useCallback(() => {
     if (audioUrl) {
       console.log(URL.createObjectURL(audioUrl)); // 출력된 링크에서 녹음된 오디오 확인 가능
     }
+    const soundUrl = URL.createObjectURL(audioUrl);
     // File 생성자를 사용해 파일로 변환
     const sound = new File([audioUrl], "soundBlob", { lastModified: new Date().getTime(), type: "audio" });
     console.log(sound); // File 정보 출력
+    setAudioFile(sound)
+    console.log(soundUrl)
   }, [audioUrl]);
-
-
+  
+  // 여기부터 s3 업로드 관련 코드
+  const S3_BUCKET ="bobivoicebucket";
+  const REGION ="ap-northeast-2";
+  const ACCESS_KEY ="AKIAYF3ZGX73TG2YB2NY";
+  const SECRET_ACCESS_KEY ="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";
+  
+  const config = {
+    bucketName: S3_BUCKET,
+    region: REGION,
+    accessKeyId: ACCESS_KEY,
+    secretAccessKey: SECRET_ACCESS_KEY,
+  }
+  
+  const handleUpload = async (file) => {
+    uploadFile(file, config)
+      .then(data => console.log(data))
+      .catch(err => console.error(err))
+  }
+  
+  // 여기까지 s3
+  
   return (
     <>
       <button onClick={onRec ? onRecAudio : offRecAudio}>녹음</button>
       <button onClick={onSubmitAudioFile}>결과 확인</button>
+      <button onClick={() => handleUpload(audioFile)}>업로드</button>
     </>
   );
 };
