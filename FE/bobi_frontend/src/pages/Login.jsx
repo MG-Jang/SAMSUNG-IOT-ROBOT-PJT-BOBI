@@ -16,7 +16,7 @@ function Login() {
     console.log(error)
   };
 
-  if (localStorage.getItem("user_id") != null) {
+  if (localStorage.getItem("user_id") !== null) {
     return (
       <Navigate to="/" />
     )

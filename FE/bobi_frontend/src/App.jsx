@@ -2,11 +2,11 @@ import React from "react";
 import { Link, Navigate } from 'react-router-dom';
 
 function App() {
-  if (localStorage.getItem("user_id") === null) {
-    return (
-      <Navigate to="/login" />
-    )
-  };
+  // if (localStorage.getItem("user_id") === null) {
+  //   return (
+  //     <Navigate to="/login" />
+  //   )
+  // };
 
   return (
     <div>
