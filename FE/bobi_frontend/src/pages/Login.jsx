@@ -3,15 +3,18 @@ import { GoogleLogin } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import { Navigate } from 'react-router-dom';
 
+const googleClientId = process.env.REACT_APP_GOOGLE_API_KEY;
+
 function Login() {  
+
   useEffect(() => {
     function start() {
       gapi.client.init({
-        clientId: "243625053777-t2htd7u0v85i9fnp0oq0cts7a3ba8tld.apps.googleusercontent.com",
+        clientId: googleClientId,
         scope: 'email',
       });
     }
-
+    
     gapi.load('client:auth2', start);
   }, []);
 
@@ -27,6 +30,7 @@ function Login() {
 
   const onSuccess = response => {
     window.localStorage.setItem("user_name", response.profileObj.name);
+    window.localStorage.setItem("email", response.profileObj.email);
     console.log('SUCCESS', response);
     window.location.reload()
   };
@@ -41,12 +45,12 @@ function Login() {
   return (
     <div>
       <GoogleLogin
-        clientId="243625053777-t2htd7u0v85i9fnp0oq0cts7a3ba8tld.apps.googleusercontent.com"
+        clientId={googleClientId}
         onSuccess={onSuccess}
         onFailure={onFailure}
       />
       {/* <GoogleLogout
-        clientId="243625053777-t2htd7u0v85i9fnp0oq0cts7a3ba8tld.apps.googleusercontent.com"
+        clientId={googleClientId}
         onLogoutSuccess={onLogoutSuccess}
       /> */}
     </div>
