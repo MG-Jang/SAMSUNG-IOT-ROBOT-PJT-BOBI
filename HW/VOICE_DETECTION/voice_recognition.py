@@ -73,7 +73,7 @@ class VoiceRecognition():
             camera_map_test.commandAct('jump', None)
         elif self.var == "손":
             camera_map_test.commandAct('handshake', None)
-        elif self.var == "메시지":
+        elif self.var == "메시지 보내줘":
             self.record_voice()
         else:
             print("Unknown command!!")
