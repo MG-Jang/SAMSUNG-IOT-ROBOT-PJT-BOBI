@@ -16,7 +16,7 @@ class DetectHotword(Thread):
             if(porcupine_custom.hot_word_flag):
                 print("Hotword detected")
                 self.stt.run()
-                time.sleep(5)
+                time.sleep(7)
 
 
 def has_live_threads(threads):

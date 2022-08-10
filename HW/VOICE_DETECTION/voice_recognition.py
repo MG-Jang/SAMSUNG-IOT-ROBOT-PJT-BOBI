@@ -84,7 +84,7 @@ class VoiceRecognition():
             self.local_file_path
         
         voice_mssg = VoiceMessage()
-        voice_mssg.upload_file(self.local_file_path)
+        voice_mssg.upload_file(self.local_file_path, 'testuser')
         
 
     def run(self):
@@ -97,4 +97,3 @@ class VoiceRecognition():
             print("\nFinish parsing\n command: " + self.var)
             print("command mapping...")
             self.map_commands()
-

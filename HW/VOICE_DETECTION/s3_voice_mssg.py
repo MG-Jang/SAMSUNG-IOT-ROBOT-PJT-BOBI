@@ -39,7 +39,8 @@ class VoiceMessage():
         object_name = os.path.basename(file_name)
         self.s3_client.download_file(self.bucket_name, object_name, file_name)
 
-
-""" voice_mssg = VoiceMessage()
+'''
+voice_mssg = VoiceMessage()
 #voice_mssg.download_file(_file_name)
-voice_mssg.upload_file(_file_name) """
+voice_mssg.upload_file("./a208_korean_hello.wav", "testuser")
+'''
