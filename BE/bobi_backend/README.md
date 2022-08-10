@@ -1,39 +1,67 @@
-### BOBI_BACKEND
+## BoBi_backup
 
-- Django ver. 3.2.12 사용
+> 2022 SSAFY 공통 프로젝트 : Care robot BoBi - repository for EC2 server upload
 
-```bash
-$ pip install django==3.2.12
-```
 
-- DB: mysql 사용
 
-- 시작 전 가상환경
+### How to update
 
-  - 생성
+- EC2 (mobaxterm 이용)
 
   ```bash
-  $ python -m venv venv
+  $ cd /srv/bobi_backup
   ```
 
-  - 실행
+  
+
+- git pull
 
   ```bash
-  $ source venv/Scripts/activate
+  $ source myvenv/bin/activate
   ```
-
-- requirements.txt
-
-  - 설치 후 추가
 
   ```bash
-  $ pip freeze > requirements.txt
+  (myvenv) ubuntu@ip-172-31-46-44:~$ cd /srv/bobi_backup
   ```
-
-  - 전체 설치
 
   ```bash
-  $ pip install -r requirements.txt
+  (myvenv) ubuntu@ip-172-31-46-44:/srv/templix-backup$ git pull origin master
   ```
 
+
+
+- static files 모으기
+
+  ```bash
+  python3 manage.py collectstatic
+  ```
+
+  
+
+- nginx 재등록
+
+  ```bash
+  sudo cp -f /srv/bobi_backup/.config/nginx/bobi_backend.conf /etc/nginx/sites-available/bobi_backend.conf
+  ```
+
+  ```bash
+  sudo ln -sf /etc/nginx/sites-available/bobi_backend.conf /etc/nginx/sites-enabled/bobi_backend.conf
+  ```
+
+  
+
+- restart
+
+  ```bash
+  sudo systemctl daemon-reload
+  ```
+
+  ```bash
+  sudo systemctl restart uwsgi
+  ```
+
+  ```bash
+  sudo systemctl restart nginx
+  ```
+  
   

@@ -20,15 +20,16 @@ from rest_framework import routers
 from stories.views import StoryViewSet
 from movements.views import MovementViewSet
 # from stories.views import StoryListAPI
+from django.views.generic import TemplateView
 
 router = routers.DefaultRouter()
 router.register('stories', StoryViewSet)
 router.register('movements', MovementViewSet)
 
 urlpatterns = [
+    path('', TemplateView.as_view(template_name='index.html')),
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
-    path('google/', include('allauth.urls')),
     # path('api/v1/stories/', StoryListAPI.as_view()),
     # path('api/v1/bobi/', include('bobi.urls')),
     # path('api/v1/accounts/', include('accounts.urls')),
