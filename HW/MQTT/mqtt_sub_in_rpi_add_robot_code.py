@@ -1,5 +1,6 @@
 import paho.mqtt.client as mqtt
-import robot
+import robot_test
+from s3_voice_mssg import VoiceMessage
 
 _mqtt_broker_ip = "i7a208.p.ssafy.io"
 _user_id="testuser"
@@ -9,7 +10,7 @@ speedMove = 100
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
 
-    # subscribe on predefined topics for robot
+    # subscribe on predefined topics for robot_test
     client.subscribe(_user_id + "/move/forward")
     client.subscribe(_user_id + "/move/backward")
     client.subscribe(_user_id + "/move/left")
@@ -23,36 +24,39 @@ def on_forward(client, userdata, msg):
     global speedMove
     print("forward " + str(msg.payload))
     if msg.payload == "on":
-        robot.forward(speedMove)
+        robot_test.forward(speedMove)
     elif msg.payload == "off":
-        robot.stopFB()
+        robot_test.stopFB()
     
 def on_backward(client, userdata, msg):
     global speeedMove
     print("backward " + str(msg.payload))
     if mag.payload == "on":
-        robot.backward(speedMove)
+        robot_test.backward(speedMove)
     elif msg.payload == "off":
-        robot.stopFB()
+        robot_test.stopFB()
 
 def on_left(client, userdata, msg):
     global speedMove
     print("left " + str(msg.payload))
     if msg.payload == "on":
-        robot.left(speedMove)
+        robot_test.left(speedMove)
     elif msg.payload == "off":
-        robot.stopLR()
+        robot_test.stopLR()
 
 def on_right(client, userdata, msg):
     global speedMove
     print("right " + str(msg.payload))
     if msg.payload == "on":
-        robot.right(speedMove)
+        robot_test.right(speedMove)
     elif msg.payload == "off":
-        robot.stopLR()
+        robot_test.stopLR()
 
 def on_torobot(client, userdata, msg):
-    print("torobot " + str(msg.payload))
+    print("torobot_test " + str(msg.payload))
+    mssg_file_name = "from_web.wav"
+    voice_mssg = VoiceMessage()
+    voice_mssg.download_file(mssg_file_name)
 
 def on_powersaving_on(client, userdata, msg):
     print("power saving on " + str(msg.payload))
@@ -63,11 +67,11 @@ def on_powersaving_off(client, userdata, msg):
 def on_gesture(client, userdata, msg):
     print("gesture " + str(msg.payload))
     if msg.payload == "handshake":
-        robot.handShake()
+        robot_test.handShake()
     elif msg.payload == "steady":
-        robot.steadyMode()
+        robot_test.steadyMode()
     elif msg.payload == "jump":
-        robot.jump()
+        robot_test.jump()
 
 client = mqtt.Client()
 client.on_connect = on_connect
