@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Modal from "../modal/Modal";
 
-function StoryItem2() {
+function StoryItem4() {
   const [ story, setStory ] = useState([]);
 
   useEffect(() => {
-    fetch("http://i7a208.p.ssafy.io/api/v1/stories/2/")
+    fetch("http://i7a208.p.ssafy.io/api/v1/stories/4/")
       .then(res => {
         return res.json();
     })
@@ -26,7 +26,7 @@ function StoryItem2() {
 
   return (
     <React.Fragment>
-      <button onClick={openModal}>2. {story["title"]}</button>
+      <button onClick={openModal}>4. {story["title"]}</button>
       <Modal open={modalOpen} close={closeModal} header={story.title}>
         <p>{story["content"]}</p>
       </Modal>
@@ -34,4 +34,4 @@ function StoryItem2() {
   )
 };
 
-export default StoryItem2;
+export default StoryItem4;

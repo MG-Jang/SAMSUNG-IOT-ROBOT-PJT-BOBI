@@ -12,6 +12,7 @@ import Archive from './pages/Archive/Archive';
 import Config from './pages/Config';
 import Control from './pages/Control';
 import Friendliness from './pages/Friendliness';
+import Intro from './pages/Intro'
 import Live from './pages/Live'
 import Login from './pages/Login';
 import Sensor from './pages/Sensor';
@@ -34,6 +35,7 @@ root.render(
           <Route path="/config" element={<Config />}></Route>
           <Route path="/control" element={<Control />}></Route>
           <Route path="/friendliness" element={<Friendliness />}></Route>
+          <Route path="/intro" element={<Intro />}></Route>
           <Route path="/live" element={<Live />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/sensor" element={<Sensor />}></Route>
