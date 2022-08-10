@@ -15,9 +15,8 @@ import porcupine_custom
 from s3_voice_mssg import VoiceMessage
 
 
-
 class VoiceRecognition():
-    def __init__(self, voice_file_name='test.wav'):
+    def __init__(self, voice_file_name='cmd.wav'):
         super(VoiceRecognition, self).__init__()
         self.local_file_path = os.path.join(
             '/home/pi/voice_recognition', voice_file_name)
@@ -78,18 +77,19 @@ class VoiceRecognition():
             self.record_voice()
         else:
             print("Unknown command!!")
-    
+
     def record_voice(self):
-        cmd = "arecord --device=hw:1,0 --format S16_LE -d5 --rate 48000 -V mono -c1 " + \
-            self.local_file_path
-        
+        mssg_file_path = os.path.join(
+            '/home/pi/voice_recognition', "from_bobi.wav")
+        cmd = "arecord --device=hw:1,0 --format S16_LE -d7 --rate 48000 -V mono -c1 " + \
+            mssg_file_path
+        os.system(cmd)
         voice_mssg = VoiceMessage()
-        voice_mssg.upload_file(self.local_file_path, 'testuser')
-        
+        voice_mssg.upload_file(mssg_file_path, 'testuser')
 
     def run(self):
         if porcupine_custom.hot_word_flag:
-            cmd = "arecord --device=hw:1,0 --format S16_LE -d2 --rate 48000 -V mono -c1 " + \
+            cmd = "arecord --device=hw:1,0 --format S16_LE -d3 --rate 48000 -V mono -c1 " + \
                 self.local_file_path
             os.system(cmd)
             print("\nFinish recording\n Start parsing")
