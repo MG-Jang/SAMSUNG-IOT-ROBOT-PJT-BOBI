@@ -13,7 +13,7 @@ const StyledMain = styled.main`
   }
 
   .Main-header {
-  background-color: #A6EAE2;
+  background-color: #E8EDF2;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,6 +25,7 @@ const StyledMain = styled.main`
 
   .Main-title {
   color: #000000;
+  font-family: 'GangwonEdu_OTFBoldA';
   }
 `;
 
@@ -34,8 +35,8 @@ function Main() {
       <StyledMain>
         <div className="Main">
           <header className="Main-header">
-            <img src="img/bobi_dot.png" className="Main-logo" alt="logo" />
-            <h1 className="Main-title">BOBI</h1>
+            <img src="https://i.ibb.co/PGZd2Td/bobi-dot.png" className="Main-logo" alt="logo" />
+            <h1 style={{fontSize: "60px"}}className="Main-title">BoBi</h1>
           </header>
         </div>
       </StyledMain>

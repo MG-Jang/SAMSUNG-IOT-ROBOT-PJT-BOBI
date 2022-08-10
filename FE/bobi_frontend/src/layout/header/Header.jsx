@@ -41,8 +41,8 @@ function Header() {
     <StyledHeader>
       <div className="Header">
         <Link className="Header-link" to="/">
-          <img src="img/bobi_dot.png" className="Header-image" alt="logo" />
-          <h2 className="Header-title">BOBI</h2>
+          <img src="https://i.ibb.co/PGZd2Td/bobi-dot.png" className="Header-image" alt="logo" />
+          <h2 className="Header-title">BoBi</h2>
         </Link>
         <HeaderMenu className="Header-menu"></HeaderMenu>
       </div>
