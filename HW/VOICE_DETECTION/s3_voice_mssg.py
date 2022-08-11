@@ -14,7 +14,7 @@ class VoiceMessage():
         self.mqtt_client = mqtt.Client()
         self.mqtt_client.connect("i7a208.p.ssafy.io", 1883, 60)
 
-    def upload_file(self, file_name, userid):
+    def upload_file(self, file_name, user_id):
         """Upload a file to an S3 bucket
 
         :param file_name: File to upload
@@ -31,7 +31,9 @@ class VoiceMessage():
             print("upload failed")
             return False
         print("upload success")
-        topic = userid + "/voice/toweb"
+        print("mqtt topic " + user_id + "/voice/toweb")
+        topic = user_id + "/voice/toweb"
+        
         self.mqtt_client.publish(topic, "upload")
         return True
 

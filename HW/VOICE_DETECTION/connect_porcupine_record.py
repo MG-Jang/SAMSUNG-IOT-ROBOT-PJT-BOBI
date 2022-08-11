@@ -7,10 +7,11 @@ from voice_recognition import VoiceRecognition
 
 
 class DetectHotword(Thread):
-    def __init__(self):
+    def __init__(self, user_id):
         Thread.__init__(self)
         self.kill_received = False
-        self.stt = VoiceRecognition()
+        self.user_id = user_id
+        self.stt = VoiceRecognition(self.user_id)
     def run(self):
         while not self.kill_received:
             if(porcupine_custom.hot_word_flag):
@@ -37,7 +38,7 @@ if __name__ == "__main__":
         output_path=args.output_path,
         input_device_index=args.audio_device_index)
 
-    th2 = DetectHotword()
+    th2 = DetectHotword(args.user_id)
     threads.append(th1)
     threads.append(th2)
     th1.start()

@@ -210,6 +210,9 @@ def porcupine_parsing():
 
     parser.add_argument('--show_audio_devices', action='store_true')
 
+    parser.add_argument('--user_id',
+                        help="User ID registered in DB in integer")
+
     args = parser.parse_args()
 
     if args.show_audio_devices:

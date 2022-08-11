@@ -16,7 +16,7 @@ from s3_voice_mssg import VoiceMessage
 
 
 class VoiceRecognition():
-    def __init__(self, voice_file_name='cmd.wav'):
+    def __init__(self, user_id, voice_file_name='cmd.wav'):
         super(VoiceRecognition, self).__init__()
         self.local_file_path = os.path.join(
             '/home/pi/voice_recognition', voice_file_name)
@@ -26,6 +26,7 @@ class VoiceRecognition():
             sample_rate_hertz=48000,
             language_code="ko-KR"
         )
+        self.user_id = user_id
 
     def parse_command(self):
         with io.open(self.local_file_path, 'rb') as f:
@@ -73,19 +74,20 @@ class VoiceRecognition():
             camera_map_test.commandAct('jump', None)
         elif self.var == "손":
             camera_map_test.commandAct('handshake', None)
-        elif self.var == "메시지 보내줘":
+        elif self.var == "메시지":
             self.record_voice()
         else:
             print("Unknown command!!")
 
     def record_voice(self):
+        file_name = self.user_id + "_from_bobi.wav"
         mssg_file_path = os.path.join(
-            '/home/pi/voice_recognition', "from_bobi.wav")
+            '/home/pi/voice_recognition', file_name)
         cmd = "arecord --device=hw:1,0 --format S16_LE -d7 --rate 48000 -V mono -c1 " + \
             mssg_file_path
         os.system(cmd)
         voice_mssg = VoiceMessage()
-        voice_mssg.upload_file(mssg_file_path, 'testuser')
+        voice_mssg.upload_file(mssg_file_path, self.user_id)
 
     def run(self):
         if porcupine_custom.hot_word_flag:
