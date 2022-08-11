@@ -5,51 +5,75 @@ import time
 import json
 
 def forward(speed=100):
-	print('robot-forward')
+	print('\nrobot-forward\n')
 
 def backward(speed=100):
-	print('robot-backward')
+	print('\nrobot-backward\n')
 
 def left(speed=100):
-	print('robot-left')
+	print('\nrobot-left\n')
 
 def right(speed=100):
-	print('robot-right')
+	print('\nrobot-right\n')
 
 def stopLR():
-	print('robot-stop')
+	print('\nrobot-stop\n')
 
 def stopFB():
-	print('robot-stop')
+	print('\nrobot-stop\n')
 
 def lookUp():
-	print('robot-lookUp')
+	print('\nrobot-lookUp\n')
 
 def lookDown():
-	print('robot-lookDown')
+	print('\nrobot-lookDown\n')
 
 def lookStopUD():
-	print('robot-lookStopUD')
+	print('\nrobot-lookStopUD\n')
 
 def lookLeft():
-	print('robot-lookLeft')
+	print('\nrobot-lookLeft\n')
 
 def lookRight():
-	print('robot-lookRight')
+	print('\nrobot-lookRight\n')
 
 def lookStopLR():
-	print('robot-lookStopLR')
+	print('\nrobot-lookStopLR\n')
 
 
 
 def steadyMode():
-	print('robot-steady')
+	print('\nrobot-steady\n')
 
 def jump():
-	print('robot-jump')
+	print('\nrobot-jump\n')
 
 def handShake():
-	print('robot-handshake')
+	print('\nrobot-handshake\n')
+ 
+def sit():
+	print('\nrobot-sit\n')
+
+def standUp():
+	print('\nrobot-standUp\n')
+
+def leftHand():
+	print('\nrobot-leftHand\n')
+
+def rightHand():
+	print('\nrobot-rightHand\n')
+
+def lower():
+	print('\nrobot-lower\n')
+
+def upper():
+	print('\nrobot-upper\n')
+
+
+
+
+
+
 
 
 
