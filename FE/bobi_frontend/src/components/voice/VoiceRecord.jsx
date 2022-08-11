@@ -88,7 +88,7 @@ function VoiceRecord () {
     }
     const soundUrl = URL.createObjectURL(audioUrl);
     // File 생성자를 사용해 파일로 변환
-    const sound = new File([audioUrl], "from_web.wav", { lastModified: new Date().getTime(), type: "audio" });
+    const sound = new File([audioUrl], "1_from_web.wav", { lastModified: new Date().getTime(), type: "audio" });
     console.log(sound); // File 정보 출력
     setAudioFile(sound)
     console.log(soundUrl)
