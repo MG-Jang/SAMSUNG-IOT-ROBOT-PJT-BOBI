@@ -1,6 +1,7 @@
 ---
 author: Dongwon Kim
 date: 2022-08-04
+last_modified_at: 2022-08-11
 ---
 # RPI에서 porcupine & STT 연결
 - feature/voice_recognition 에서 진행
@@ -41,11 +42,12 @@ date: 2022-08-04
         
     - map_movement
         
-        self.var에 담긴 값에 따라 camera_map_test.commandAct 함수 실행
+        self.var에 담긴 값에 따라 camera_map_test.commandAct 함수 실행  
+        명령어 실제로 사용하는 걸로 변경, robot_test.py를 robot.py 대신하여 사용하여 테스트 완료
         
     - run
         
-        arecord device 1, 0을 이용하여 4초 동안 녹음 진행
+        arecord device 1, 0을 이용하여 3초 동안 녹음 진행
         
         parse_command, map_movement 호출
         
@@ -96,21 +98,7 @@ date: 2022-08-04
 → 핸드폰 핫스팟을 키고 한 번 껐다 키니 바로 잘 됨
 - 마이크는 2개 사용
 - porcupine을 사용할 때 device_index를 0 제외 다른 것으로 설정(0은 stt에서 녹음할 때 씀)
-- voice_recognition에서 '메시지' 라는 명령시 다음 5초 동안 녹음한 내용을 s3에 저장하는 것까지 확인(RPI에서 진행됨, 해당 dir는 voice_mssg)
-- S3에 영상 데이터를 업로드 하고 MQTT 메시지 보내기
-    - EC2에서 `$ mosquitto_sub -h i7a208.p.ssafy.io -t "testuser/voice/toweb"` 구독
-    - windows에서 `python ./s3_voice_mssg.py` 실행했을 때 단위 테스트 성공
-        - 파일이 S3에 잘 올라감
-        - server에서 구독하고 있는 창에 메시지가 잘 표시됨
-- requirements.txt 제작 완료
-    - GLIB 에러는 해결해야 함(다른 가상환경에서 테스트 했을 때 에러 발생)
-
-## 할 일
-- [ ] : 마이크 2개로 s3에 잘 들어가는지 확인
-- [X] : s3에 들어간 후 be로 mqtt 메시지 보내주기
-- [ ] : RPI에서 S3, MQTT 테스트
-
-
+- 제스체에 따른 robot_test 함수 잘 실행됨
 
 ## 보완할 것
 
