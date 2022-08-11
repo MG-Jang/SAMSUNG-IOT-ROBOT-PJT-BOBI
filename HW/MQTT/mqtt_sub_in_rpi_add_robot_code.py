@@ -1,9 +1,9 @@
 import paho.mqtt.client as mqtt
 import robot_test
 from s3_voice_mssg import VoiceMessage
+import argparse
 
 _mqtt_broker_ip = "i7a208.p.ssafy.io"
-_user_id="testuser"
 
 speedMove = 100
 
@@ -72,6 +72,12 @@ def on_gesture(client, userdata, msg):
         robot_test.steadyMode()
     elif msg.payload == "jump":
         robot_test.jump()
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--user_id', 
+                    help="User ID registered in DB in integer")
+args = parser.parse_args()
+_user_id = args.user_id
 
 client = mqtt.Client()
 client.on_connect = on_connect
