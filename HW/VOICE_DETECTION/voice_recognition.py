@@ -13,6 +13,7 @@ from google.cloud import speech
 import camera_map_test
 import porcupine_custom
 from s3_voice_mssg import VoiceMessage
+import robot_test
 
 
 class VoiceRecognition():
@@ -46,34 +47,18 @@ class VoiceRecognition():
 
     def map_commands(self):
         # 필요한 기능들 추가 혹은 빼야할 듯
-        if self.var == "전진":
-            camera_map_test.commandAct('forward', None)
-        elif self.var == "후진":
-            camera_map_test.commandAct('backward', None)
-        elif self.var == "좌회전":
-            camera_map_test.commandAct('left', None)
-        elif self.var == "우회전":
-            camera_map_test.commandAct('right', None)
-        elif self.var == "정지":
-            camera_map_test.commandAct('DS', None)
-        elif self.var == "가운데":
-            camera_map_test.commandAct('TS', None)
-        elif self.var == "위":
-            camera_map_test.commandAct('up', None)
-        elif self.var == "아래":
-            camera_map_test.commandAct('down', None)
-        elif self.var == "중간":
-            camera_map_test.commandAct('UDstop', None)
-        elif self.var == "왼쪽":
-            camera_map_test.commandAct('lookleft', None)
-        elif self.var == "오른쪽":
-            camera_map_test.commandAct('lookright', None)
-        elif self.var == "여기":
-            camera_map_test.commandAct('LRstop', None)
-        elif self.var == "점프":
-            camera_map_test.commandAct('jump', None)
-        elif self.var == "손":
-            camera_map_test.commandAct('handshake', None)
+        if self.var == "앉아":
+            robot_test.sit()
+        elif self.var == "일어나":
+            robot_test.standUp()
+        elif self.var == "오른손":
+            robot_test.rightHand()
+        elif self.var == "왼손":
+            robot_test.leftHand()
+        elif self.var == "엎드려":
+            robot_test.lower()
+        elif self.var == "잘했어":
+            robot_test.upper()
         elif self.var == "메시지":
             self.record_voice()
         else:
