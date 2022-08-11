@@ -15,7 +15,10 @@ function Dropdown (props) {
         setVisibilityAnimation(false);
       }, 400));
     }
+
+    
   }, [props.visibility]);
+
 
   return (
     <article className={`components-dropdown ${props.visibility ? 'slide-fade-in-dropdown' : 'slide-fade-out-dropdown'}`}>
