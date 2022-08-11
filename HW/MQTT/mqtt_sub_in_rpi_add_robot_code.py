@@ -31,7 +31,7 @@ def on_forward(client, userdata, msg):
 def on_backward(client, userdata, msg):
     global speeedMove
     print("backward " + str(msg.payload))
-    if mag.payload == "on":
+    if msg.payload == "on":
         robot_test.backward(speedMove)
     elif msg.payload == "off":
         robot_test.stopFB()
@@ -54,7 +54,7 @@ def on_right(client, userdata, msg):
 
 def on_torobot(client, userdata, msg):
     print("torobot_test " + str(msg.payload))
-    mssg_file_name = "from_web.wav"
+    mssg_file_name = _user_id + "_from_web.wav"
     voice_mssg = VoiceMessage()
     voice_mssg.download_file(mssg_file_name)
 
