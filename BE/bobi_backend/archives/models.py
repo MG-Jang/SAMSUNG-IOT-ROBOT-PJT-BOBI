@@ -10,3 +10,17 @@ class Archive(models.Model):
     datetime = models.DateTimeField()
     title = models.CharField(max_length=20)
     contents = models.TextField(max_length=200)
+
+
+class ArchiveImage(models.Model):
+    img_url = models.CharField(max_length=100)
+    datetime = models.DateTimeField(null=True)
+    title = models.CharField(max_length=20)
+    contents = models.TextField(max_length=200, null=True)
+
+
+class ArchiveVideo(models.Model):
+    video_url = models.CharField(max_length=100)
+    datetime = models.DateTimeField(null=True)
+    title = models.CharField(max_length=20)
+    contents = models.TextField(max_length=200, null=True)

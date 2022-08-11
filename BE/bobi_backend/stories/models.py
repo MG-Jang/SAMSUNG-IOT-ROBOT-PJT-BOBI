@@ -4,7 +4,7 @@ from django.db import models
 class Story(models.Model):
     story_id = models.IntegerField(primary_key=True)
     narr_link = models.CharField(max_length=100, null=True)
-    title = models.CharField(max_length=10)
+    title = models.CharField(max_length=30)
     content = models.TextField()
 
     def __str__(self):

@@ -1,6 +1,6 @@
 ## BoBi_backup
 
-> 2022 SSAFY 공통 프로젝트 : Care robot BoBi - repository for EC2 server upload
+> 2022 SSAFY 공통 프로젝트 : Care robot BoBi - repository for EC2 server upload [참고 링크](https://nerogarret.tistory.com/45)
 
 
 
@@ -65,3 +65,5 @@
   ```
   
   
+
+[https://nerogarret.tistory.com/45]: 

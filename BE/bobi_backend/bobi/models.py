@@ -9,6 +9,7 @@ class Robot(models.Model):
     
 class Level(models.Model):
     level = models.IntegerField(primary_key=True)
+    
     required_exp = models.IntegerField()
 
 class Sensor(models.Model):
@@ -17,5 +18,5 @@ class Sensor(models.Model):
     gas = models.FloatField()
     temperature = models.FloatField()
     humidity = models.FloatField()
-    datetime = models.DateTimeField()
+    datetime = models.CharField(max_length=30, null=True)
     battery = models.FloatField()

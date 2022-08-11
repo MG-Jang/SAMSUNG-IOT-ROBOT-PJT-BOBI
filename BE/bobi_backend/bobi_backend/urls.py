@@ -17,14 +17,20 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 from rest_framework import routers
+from accounts.views import UserViewSet
+from archives.views import ArchiveImageViewSet, ArchiveVideoViewSet
 from stories.views import StoryViewSet
 from movements.views import MovementViewSet
-# from stories.views import StoryListAPI
+from bobi.views import SensorViewSet
 from django.views.generic import TemplateView
 
 router = routers.DefaultRouter()
 router.register('stories', StoryViewSet)
 router.register('movements', MovementViewSet)
+router.register('sensors', SensorViewSet)
+router.register('users', UserViewSet)
+router.register('archiveimages', ArchiveImageViewSet)
+router.register('archivevideos', ArchiveVideoViewSet)
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html')),
