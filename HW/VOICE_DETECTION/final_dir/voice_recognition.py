@@ -14,6 +14,8 @@ from google.cloud import speech
 import voice_porcupine_custom
 from voice_s3_mssg import VoiceMessage
 import robot
+import go_oled
+import oled_touch
 
 
 class VoiceRecognition():
@@ -52,19 +54,30 @@ class VoiceRecognition():
     def map_commands(self):
         # map robot func according to the cmd
         if self.var == "앉아":
+            go_oled.state = "sit"
+            oled_touch.closeness += 10
             robot.sit()
         elif self.var == "일어나":
+            go_oled.state = "always"
             robot.standUp()
         elif self.var == "오른손":
+            oled_touch.closeness += 10
             robot.rightHand()
         elif self.var == "왼손":
+            oled_touch.closeness += 10
             robot.leftHand()
         elif self.var == "엎드려":
+            oled_touch.closeness += 10
+            go_oled.state = "down"
             robot.lower()
         elif self.var == "잘했어":
+            go_oled.state = "always"
             robot.upper()
         elif self.var == "메시지":
+            oled_touch.closeness += 10
+            go_oled.state = "msg"
             self.record_voice()
+            go_oled.state = "always"
         else:
             print("Unknown command!!")
 
@@ -84,11 +97,14 @@ class VoiceRecognition():
         """record cmd if hot word detected -> parse -> map
         """
         if voice_porcupine_custom.hot_word_flag:
+            go_oled.state = "record"
             cmd = "arecord --device=hw:1,0 --format S16_LE -d3 --rate 48000 -V mono -c1 " + \
                 self.local_file_path
             os.system(cmd)
+            go_oled.state = "always"
             print("\nFinish recording\n Start parsing")
             self.parse_command()
             print("\nFinish parsing\n command: " + self.var)
             print("command mapping...")
             self.map_commands()
+            print("exp : " + oled_touch.closeness)
