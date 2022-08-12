@@ -22,7 +22,7 @@ ls /usr/local/lib/
 
 ## 회로 연결
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/31d10285-1eda-4f2c-b20e-9e8819990126/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184351381-1202e767-f4be-4093-b671-0bea2f2af569.png)
 
 ### Vim 설치
 
@@ -57,7 +57,7 @@ sudo vi /usr/local/lib/python3.7/dist-packages/Adafruit_DHT-1.4.0-py3.7-linux-ar
 
 해당 파일에서 다음 내용을 추가하자!
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/958b1e55-0cb9-402a-b28f-296770dd5428/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184351438-467d1e07-f29a-4d4d-8568-dde1d5a10eec.png)
 
 ### dht11 테스트 코드
 
@@ -97,15 +97,15 @@ python3 [파일명].py
 
 ### sudo python3 setup.py install 설치 오류
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/eef4bfcc-11a9-48a4-bf1f-0f0dfbc96730/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184351486-5c5357e5-454a-4e8d-b380-e100cfc3b26c.png)
 
 해결 방법 : 그냥 SD카드 엎었더니 잘됨
 
 ## python3 [파일명].py 실행 오류
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c6c5ed19-33a1-4738-8430-fe652b5ae07d/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184351626-eb08ec22-95fd-44aa-aeaf-8efa0040573c.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/968a1f8c-354f-4861-9d05-999e2ea2e7a3/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184351595-957e6c4d-ef76-4117-8e8f-63044af8ec6f.png)
 
 해결책 : 구글링을 통해 여러 시간 들여 해봐도 안됨, 모르겠음
 
