@@ -34,7 +34,7 @@ db = mysql.connector.connect(host='i7a208.p.ssafy.io', port = '3306', user='pjt_
 cur = db.cursor()
 lock = Lock()
 closeness = 0
-tilt_pin = 14 #터치 센서의 경우 센서만 바꾸면 됨
+tilt_pin = 4 #터치 센서의 경우 센서만 바꾸면 됨
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(tilt_pin, GPIO.IN)
 
