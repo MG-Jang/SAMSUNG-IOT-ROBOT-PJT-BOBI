@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AudioPlayer from 'react-h5-audio-player';
+import ReactPlayer from "react-player"
 
 function VoicePlay () {
 
@@ -25,12 +26,22 @@ function VoicePlay () {
     <>
       <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>음성 수신</h1>
       <br />
-      <AudioPlayer
+      {/* <AudioPlayer
         src={source}
         showDownloadProgress={true}
         autoPlay={false}
         volume={0.8}
-      />
+      /> */}
+      <div>
+        <ReactPlayer
+          url={source}
+          width="400px"
+          height="50px"
+          playing={false}
+          controls={true}
+          style={{margin:"0 auto"}}
+        />
+      </div>
     </>
   );
 };
