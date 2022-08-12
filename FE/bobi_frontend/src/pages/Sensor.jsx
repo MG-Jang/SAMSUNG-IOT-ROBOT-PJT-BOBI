@@ -5,7 +5,7 @@ function Sensor() {
   const [ sensor, setSensor ] = useState([]);
 
   useEffect(() => {
-    fetch("http://i7a208.p.ssafy.io/api/v1/sensors/")
+    fetch("https://i7a208.p.ssafy.io/api/v1/sensors/")
       .then(res => {
         return res.json();
     })

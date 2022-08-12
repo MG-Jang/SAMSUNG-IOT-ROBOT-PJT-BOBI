@@ -5,7 +5,7 @@ function StoryItem3() {
   const [ story, setStory ] = useState([]);
 
   useEffect(() => {
-    fetch("http://i7a208.p.ssafy.io/api/v1/stories/3/")
+    fetch("https://i7a208.p.ssafy.io/api/v1/stories/3/")
       .then(res => {
         return res.json();
     })
