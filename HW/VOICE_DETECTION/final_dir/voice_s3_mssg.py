@@ -15,7 +15,7 @@ import paho.mqtt.client as mqtt
 
 
 class VoiceMessage():
-    """_summary_
+    """Upload and download voice file to/from S3
     """
     def __init__(self):
         super(VoiceMessage, self).__init__()

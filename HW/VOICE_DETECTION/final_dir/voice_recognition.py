@@ -10,6 +10,7 @@
 '''
 import os
 import io
+import time
 from google.cloud import speech
 import voice_porcupine_custom
 from voice_s3_mssg import VoiceMessage
@@ -97,6 +98,9 @@ class VoiceRecognition():
         """record cmd if hot word detected -> parse -> map
         """
         if voice_porcupine_custom.hot_word_flag:
+            robot.buzzerCtrl(1, 0)
+            time.sleep(0.5)
+            robot.buzzerCtrl(0, 0)
             go_oled.state = "record"
             cmd = "arecord --device=hw:1,0 --format S16_LE -d3 --rate 48000 -V mono -c1 " + \
                 self.local_file_path
