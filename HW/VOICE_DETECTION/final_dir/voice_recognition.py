@@ -92,14 +92,15 @@ class VoiceRecognition():
             mssg_file_path
         os.system(cmd)
         voice_mssg = VoiceMessage()
-        voice_mssg.upload_file(mssg_file_path, self.user_id)
+        if(voice_mssg.upload_file(mssg_file_path, self.user_id)):
+            robot.ok()
 
     def run(self):
         """record cmd if hot word detected -> parse -> map
         """
         if voice_porcupine_custom.hot_word_flag:
             robot.buzzerCtrl(1, 0)
-            time.sleep(0.5)
+            time.sleep(0.2)
             robot.buzzerCtrl(0, 0)
             go_oled.state = "record"
             cmd = "arecord --device=hw:1,0 --format S16_LE -d3 --rate 48000 -V mono -c1 " + \
