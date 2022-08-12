@@ -1,5 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { uploadFile } from "react-s3";
+import Modal from "../modal/Modal"
+
 window.Buffer = window.Buffer || require("buffer").Buffer; 
 // ReferenceError: Buffer is not defined 에러때문에 넣음
 
@@ -16,6 +18,15 @@ function VoiceRecord () {
   const [analyser, setAnalyser] = useState();
   const [audioUrl, setAudioUrl] = useState();
   const [audioFile, setAudioFile] = useState();
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // const openModal = () => {
+  //   setModalOpen(true);
+  // };
+  
+  // const closeModal = () => {
+  //   setModalOpen(false);
+  // };
   
   const onRecAudio = () => {
     // 음원정보를 담은 노드를 생성하거나 음원을 실행또는 디코딩 시키는 일을 한다
@@ -90,8 +101,9 @@ function VoiceRecord () {
     // File 생성자를 사용해 파일로 변환
     const sound = new File([audioUrl], "1_from_web.wav", { lastModified: new Date().getTime(), type: "audio" });
     console.log(sound); // File 정보 출력
-    setAudioFile(sound)
-    console.log(soundUrl)
+    setAudioFile(sound);
+    console.log(soundUrl);
+    setModalOpen(true);
   }, [audioUrl]);
   
   // 여기부터 s3 업로드 관련 코드
@@ -107,15 +119,22 @@ function VoiceRecord () {
     uploadFile(file, config)
       .then(data => console.log(data))
       .catch(err => console.error(err))
+      setModalOpen(false);
   };
   
   // 여기까지 s3
+
+
+
   
   return (
     <>
       <button onClick={onRec ? onRecAudio : offRecAudio}>녹음</button>
       <button onClick={onSubmitAudioFile}>결과 확인</button>
-      <button onClick={() => handleUpload(audioFile)}>업로드</button>
+      <Modal open={modalOpen} close={() => handleUpload(audioFile)}>
+        <p>제출하시겠습니까?</p>
+      </Modal>
+      {/* <button onClick={() => handleUpload(audioFile)}>업로드</button> */}
     </>
   );
 };
