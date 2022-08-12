@@ -17,8 +17,6 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe(_user_id + "/move/left")
     client.subscribe(_user_id + "/move/right")
     client.subscribe(_user_id + "/voice/torobot")
-    client.subscribe(_user_id + "/powersaving/on")
-    client.subscribe(_user_id + "/powersaving/off")
     client.subscribe(_user_id + "/gesture")
 
 
@@ -108,8 +106,6 @@ client.message_callback_add(_user_id + "/move/backward", on_backward)
 client.message_callback_add(_user_id + "/move/left", on_left)
 client.message_callback_add(_user_id + "/move/right", on_right)
 client.message_callback_add(_user_id + "/voice/torobot", on_torobot)
-client.message_callback_add(_user_id + "/powersaving/on", on_powersaving_on)
-client.message_callback_add(_user_id + "/powersaving/off", on_powersaving_off)
 client.message_callback_add(_user_id + "/gesture", on_gesture)
 
 # connect to broker
