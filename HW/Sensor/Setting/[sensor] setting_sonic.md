@@ -10,7 +10,7 @@
 
 ### 1. 저항 연결 x
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c4bc7565-c2bc-4bea-87b1-59b9659e19ab/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184352148-51872406-e9f7-4c4b-b35c-874c703ab33f.png)
 
 ### 2. 저항 연결 o
 
@@ -18,7 +18,7 @@
 
 저항 연결 하는 이유는 송수신 할 때의 제한 전압과 전류를 초과하기 때문에 사용해준다고 한다. 하지만, 오랜 기간 동안 저항 없이 초음파 센서를 사용해보기도 하였다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e347f795-5236-41b5-8b8f-010c0e2c482b/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184352189-f9cc390c-4e18-4568-8a28-4ee5c99dcc97.png)
 
 ## 테스트 코드
 

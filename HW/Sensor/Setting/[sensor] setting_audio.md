@@ -24,7 +24,7 @@ sudo lsmod | grep bcm2835
 
 정상
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c29da034-1859-48a1-b936-7f09205f12f8/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184351235-d93d89d1-eb94-44da-80c2-d06736c13544.png)
 
 사운드 파일 실행
 

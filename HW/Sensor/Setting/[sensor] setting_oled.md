@@ -6,7 +6,7 @@
 
 핀 : VCC(3.3V) / GND / SDA / SCL
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/613e078b-b01d-4802-b1e1-71ee32f210d6/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184351817-218a0956-a55c-4f38-bc1d-d42e1796684a.png)
 
 ## 세팅
 
@@ -28,7 +28,7 @@ ls -al /dev/i2c*
 
 1. GUI로 켜기
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0e8db9d0-e49a-4c65-bd9a-29ce9c07693d/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184351849-289bcf37-7809-4584-92f8-2e71b76f8402.png)
 
 1. CLI로 켜기
 
@@ -70,7 +70,7 @@ vi image.py     # vim이 깔려있어야 함
 
 다음과 같이 코드 수정 후 저장(:wq)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/85a46a38-1b8b-47d2-85ce-a83e27380b8d/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184351887-f8662260-12ac-429b-92c9-eb389c0fca8c.png)
 
 ```python
 python3 image.py
@@ -82,17 +82,17 @@ python3 image.py
 
 ## 오류
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c60b51c1-7e4e-4114-90d0-b2b93390c247/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184351925-5c03aa69-1d54-41d0-9461-6ac1b2233c3b.png)
 
 ## 해결책
 
 SPI 통신에서는 RST 핀이 존재하여 RST 변수를 사용하지만, I2C 통신에서 RST핀을 사용하지 않기 때문에, 해당 변수를 설정해주면 위와 같은 에러가 발생한다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5767aa3a-e266-4882-a4d6-58b04ce0cede/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184351962-d014009b-b55f-4b9b-9007-7f77f54544ac.png)
 
 RST 변수를 다음 이미지와 같이 변경하고 저장 후 실행시키면 동작한다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/684e67ba-600c-4b66-af2d-7a72ad516e27/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184352002-55537493-28b5-4e56-adee-80392009a4f4.png)
 
 ## 다른 해결책
 
@@ -105,7 +105,7 @@ RST 변수를 다음 이미지와 같이 변경하고 저장 후 실행시키면
 
 - 사용가능한 I2C 핀 : 현재는 I2C-1번만 활성화 되어 있다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3511ebd5-51d3-4299-a9cd-15d7c25306a2/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184352048-fda8ac1d-db82-4f3b-a324-0fb934848810.png)
 
 ## 다중 I2C 핀 설정
 
@@ -120,7 +120,11 @@ sudo reboot -h now
 sudo i2cdetect -l  # 활성환 I2C 포트 확인
 ```
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b73576e5-4faa-4426-9f58-5f0adf665d7d/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184352078-a56e06c6-8a72-486a-adf9-04197eaadd3c.png)
+
+## 해결책
+
+OLED 주소가 (0x3C)로 고정되어 있지만, 해당 주소를 바꿀 방법을 찾지 못함
 
 ## 참고사이트
 
