@@ -27,7 +27,7 @@ function StoryItem2() {
   return (
     <React.Fragment>
       <button onClick={openModal}>2. {story["title"]}</button>
-      <Modal open={modalOpen} close={closeModal} header={story.title}>
+      <Modal open={modalOpen} close={closeModal} header={story.title} submit={closeModal} submitMessage="close">
         <p>{story["content"]}</p>
       </Modal>
     </React.Fragment>

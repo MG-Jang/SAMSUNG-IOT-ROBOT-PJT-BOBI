@@ -1,6 +1,8 @@
 import React, { useState, useCallback } from "react";
 import { uploadFile } from "react-s3";
 import Modal from "../modal/Modal"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay, faPause, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 window.Buffer = window.Buffer || require("buffer").Buffer; 
 // ReferenceError: Buffer is not defined 에러때문에 넣음
@@ -16,6 +18,7 @@ function VoiceRecord () {
   const [onRec, setOnRec] = useState(true);
   const [source, setSource] = useState();
   const [analyser, setAnalyser] = useState();
+  const [isRecorded, setIsRecorded] = useState(false);
   const [audioUrl, setAudioUrl] = useState();
   const [audioFile, setAudioFile] = useState();
   const [modalOpen, setModalOpen] = useState(false);
@@ -90,6 +93,7 @@ function VoiceRecord () {
     // 메서드가 호출 된 노드 연결 해제
     analyser.disconnect();
     source.disconnect();
+    setIsRecorded(true)
   };
 
   
@@ -102,7 +106,6 @@ function VoiceRecord () {
     const sound = new File([audioUrl], "1_from_web.wav", { lastModified: new Date().getTime(), type: "audio" });
     console.log(sound); // File 정보 출력
     setAudioFile(sound);
-    console.log(soundUrl);
     setModalOpen(true);
   }, [audioUrl]);
   
@@ -124,16 +127,43 @@ function VoiceRecord () {
   
   // 여기까지 s3
 
-
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   
   return (
     <>
-      <button onClick={onRec ? onRecAudio : offRecAudio}>녹음</button>
-      <button onClick={onSubmitAudioFile}>결과 확인</button>
-      <Modal open={modalOpen} close={() => handleUpload(audioFile)}>
-        <p>제출하시겠습니까?</p>
+      <br />
+        <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>음성 송신</h1>
+      <br />
+      <div>
+        {onRec 
+          ? 
+          <h3 style={{ color: "#696969" }} onClick={onRecAudio}>
+            <FontAwesomeIcon icon={faPlay} />&nbsp;&nbsp;&nbsp;
+            보비에게 말하기 
+          </h3> 
+          : 
+          <h3 style={{ color: "#696969" }} onClick={offRecAudio}>
+            <FontAwesomeIcon icon={faPause}  />&nbsp;&nbsp;&nbsp;
+            보비에게 말하는 중 
+          </h3>
+        }
+      </div>
+      <br />
+      {isRecorded
+        ? 
+        <h3 style={{ color: "#696969" }} onClick={onSubmitAudioFile}>
+          <FontAwesomeIcon icon={faPaperPlane} />&nbsp;&nbsp;&nbsp; 보비에게 보내기
+        </h3>
+        : 
+        <h3>&nbsp;</h3>
+      }
+      <Modal open={modalOpen} close={closeModal} header="보비에게 보내기" submit={() => handleUpload(audioFile)} submitMessage="보내기">
+        <p>&nbsp;&nbsp;제출하시겠습니까?</p>
       </Modal>
+      <br />
       {/* <button onClick={() => handleUpload(audioFile)}>업로드</button> */}
     </>
   );

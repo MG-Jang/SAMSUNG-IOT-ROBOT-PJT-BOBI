@@ -35,7 +35,7 @@ const StyledModal = styled.div`
   }
   .modal > section > header button {
     position: absolute;
-    top: 15px;
+    top: 12px;
     right: 15px;
     width: 30px;
     font-size: 21px;
@@ -45,7 +45,7 @@ const StyledModal = styled.div`
     background-color: transparent;
   }
   .modal > section > main {
-    padding: 16px;
+    padding: 25px 16px 10px;
     border-bottom: 1px solid #dee2e6;
     border-top: 1px solid #dee2e6;
   }
@@ -54,11 +54,11 @@ const StyledModal = styled.div`
     text-align: right;
   }
   .modal > section > footer button {
-    padding: 6px 12px;
+    padding: 8px 12px 5px;
     color: #fff;
     background-color: #6c757d;
     border-radius: 5px;
-    font-size: 13px;
+    font-size: 15px;
   }
   .modal.openModal {
     display: flex;
@@ -88,7 +88,7 @@ const StyledModal = styled.div`
 
 function Modal (props) {
   // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
-  const { open, close, header } = props;
+  const { open, close, header, submit, submitMessage } = props;
 
   return (
     // 모달이 열릴때 openModal 클래스가 생성된다.
@@ -97,15 +97,15 @@ function Modal (props) {
         {open ? (
           <section>
             <header>
-              {header}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{header}
               <button className="close" onClick={close}>
                 &times;
               </button>
             </header>
             <main>{props.children}</main>
             <footer>
-              <button className="close" onClick={close}>
-                close
+              <button className="submit" onClick={submit}>
+                {submitMessage}
               </button>
             </footer>
           </section>

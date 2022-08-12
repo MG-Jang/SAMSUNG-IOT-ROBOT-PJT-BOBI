@@ -23,6 +23,8 @@ function VoicePlay () {
 
   return (
     <>
+      <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>음성 수신</h1>
+      <br />
       <AudioPlayer
         src={source}
         showDownloadProgress={true}
