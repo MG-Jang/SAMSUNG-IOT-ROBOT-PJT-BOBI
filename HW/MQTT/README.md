@@ -12,4 +12,6 @@ date: 2022-08-11
 
 ## 테스트
 - [X] RPI에서 [user_id]/voice/torobot에 MQTT 받았을 때 [user_id]_from_web.wav 다운 받기
+- [X] MQTT 동작 받을 때 robot_test.py랑 연결
 - [ ] MQTT 동작 받을 때 robot.py랑 연결
+- [ ] Web이랑 MQTT 동작 연결
