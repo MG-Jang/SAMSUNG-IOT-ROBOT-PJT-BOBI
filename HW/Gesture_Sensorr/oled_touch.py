@@ -10,9 +10,9 @@ def up():
     dotouch = GPIO.input(tilt_pin)  # 터치 누르면 1 안누르면 0 출력
     if dotouch :   
         closeness += 10
-        go_oled.state = 'always'
+        go_oled.state = 'heart'
         sleep(3)
-        go_oled.state= 'heart'
+        go_oled.state= 'always'
         sleep(10)
 
     timer = Timer(0.1, up)
