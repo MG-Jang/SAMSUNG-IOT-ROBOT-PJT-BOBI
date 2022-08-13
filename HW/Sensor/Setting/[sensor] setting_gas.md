@@ -1,4 +1,4 @@
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9be87f66-6bf4-495a-8b65-6b9ac5eb7730/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184351758-e31bfa70-c32a-4b84-a282-70b3d229f657.png)
 
 - 센서명 : MQ-135
 - 동작전압 : 3.3V or 5V ⇒ 5V 연결시 센서가 조금 뜨거워지는 경향이 있다. 3.3V도 정상 작동한다.

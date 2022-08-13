@@ -24,7 +24,7 @@ sudo lsmod | grep bcm2835
 
 정상
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c29da034-1859-48a1-b936-7f09205f12f8/Untitled.png)
+![image](https://user-images.githubusercontent.com/99601412/184351235-d93d89d1-eb94-44da-80c2-d06736c13544.png)
 
 사운드 파일 실행
 
@@ -36,7 +36,7 @@ aplay /usr/share/sounds/alsa/Side_Right.wav
 
 - 3.5mm 잭 이어폰 과 USB 이어폰은 아무 설치 없이 연결만 해도 들린다.
 - 스피커 또한 다음과 같이 간단히 실행되는지도 테스트 해봐야한다.
-- 블루투스 스피커로 테스트 해본 결과 잘 작동된다.
+- 블루투스 스피커로 테스트를 해본 결과 잘 작동된다.
 
 ### 참고사이트
 
