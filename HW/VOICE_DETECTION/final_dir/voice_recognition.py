@@ -102,6 +102,10 @@ class VoiceRecognition():
             robot.buzzerCtrl(1, 0)
             time.sleep(0.2)
             robot.buzzerCtrl(0, 0)
+            time.sleep(0.2)
+            robot.buzzerCtrl(1, 0)
+            time.sleep(0.2)
+            robot.buzzerCtrl(0, 0)
             go_oled.state = "record"
             cmd = "arecord --device=hw:1,0 --format S16_LE -d3 --rate 48000 -V mono -c1 " + \
                 self.local_file_path
