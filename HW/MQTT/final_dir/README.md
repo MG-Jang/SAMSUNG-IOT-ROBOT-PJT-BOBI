@@ -8,6 +8,29 @@ date: 2022-08-12
     - move
     - S3 message sent flag
 
+## Topic
+```
+# topic structure
+#   payload(choose one of them)
+user_id
+    /move
+        /forward
+            on
+            off
+        /backward
+            on
+            off
+        /left
+            on
+            off
+        /right
+            on
+            off
+    /voice
+        /torobot
+            upload
+```
+
 ## How to run
 1. activate virtual env
     ```
