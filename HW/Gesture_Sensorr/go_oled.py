@@ -73,6 +73,34 @@ def speak() :
     disp.image(image)
     disp.display()
 
+def success() :
+    global disp
+    image = Image.open(path + 'success.png').convert('1')
+    disp.image(image)
+    disp.display()
+
+def fail() :
+    global disp
+    image = Image.open(path + 'fail.png').convert('1')
+    disp.image(image)
+    disp.display()
+
+def what():
+    global disp
+    image = Image.open(path + 'what.png').convert('1')
+    disp.image(image)
+    disp.display()
+    #sleep(2)
+    #always()
+
+def delay():
+    if(state == 'what') :
+        sleep(2)
+        always()
+    
+    timer2 = Timer(0.1, emotion)
+    timer2.start()
+
 def emotion() :
     global state, timer
     if(state == 'always') :
@@ -89,11 +117,19 @@ def emotion() :
         down()
     elif(state == 'speak') :
         speak()
-    
+    elif(state == 'success') :
+        success()
+    elif(state == 'fail') :
+        fail()
+    elif(state == 'what'):
+        what()
+
     timer = Timer(0.1, emotion)
     timer.start()
 state = None
 timer = None
+timer2 = None
+delay()
 always()
 emotion()
     
