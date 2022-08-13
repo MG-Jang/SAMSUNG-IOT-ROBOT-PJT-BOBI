@@ -1,5 +1,6 @@
 import React from "react";
 import ControlButton from "../components/ControlButton";
+import ControlButtonDummy from "../components/ControlButtonDummy";
 import styled from "styled-components";
 
 const StyledMain = styled.main`
@@ -29,7 +30,8 @@ function Control() {
         </div>
       </StyledMain>
       <br />
-      <ControlButton />
+      {/* <ControlButton /> */}
+      <ControlButtonDummy />
     </div>
   )
 };

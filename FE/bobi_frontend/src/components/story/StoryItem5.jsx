@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Modal from "../modal/Modal";
 
-function StoryItem4() {
+function StoryItem5() {
   const [ story, setStory ] = useState([]);
 
   useEffect(() => {
@@ -34,4 +34,4 @@ function StoryItem4() {
   )
 };
 
-export default StoryItem4;
+export default StoryItem5;

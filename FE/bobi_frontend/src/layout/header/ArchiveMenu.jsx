@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-// import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
+import ArchiveDropdown from "../../components/ArchiveDropdown";
 
 const StyledArchive = styled.menu`
 
@@ -17,19 +18,22 @@ const StyledArchive = styled.menu`
     margin-top: 0;
     margin-bottom: 0;
   }
+
+  .Archive-menu > article > ul > li > a {
+    text-decoration: none; 
+    color: #000000;
+  }
+
+  .Archive-menu > article > ul > li > a.active {
+    color: #ffffff;
+  }
+
 `;
 
-function ArchiveDropdown (props) {
-  return (
-    <article>
-      { props.visibility && props.children }
-    </article>
-  )
-};
 
 function ArchiveMenu (props) {
   const [dropdownVisibility, setDropdownVisibility ] = React.useState(false);
-
+  
   return (
     <StyledArchive>
       <div className='Archive-menu'>
@@ -40,10 +44,10 @@ function ArchiveMenu (props) {
             : '▶ 아카이브'
           }
         </p>
-        <ArchiveDropdown visibility={dropdownVisibility}>
+        <ArchiveDropdown visibility={dropdownVisibility} className="Archive-dropdown">
           <ul>
-            <li>사진</li>
-            <li>영상</li>
+            <li><NavLink to="/archiveImage">사진</NavLink></li>
+            <li><NavLink to="/archiveVideo">영상</NavLink></li>
           </ul>
         </ArchiveDropdown>
       </div>

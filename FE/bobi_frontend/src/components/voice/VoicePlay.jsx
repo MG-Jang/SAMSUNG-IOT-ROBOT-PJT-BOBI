@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import AudioPlayer from 'react-h5-audio-player';
 import ReactPlayer from "react-player"
 
 function VoicePlay () {
@@ -41,6 +42,14 @@ function VoicePlay () {
           style={{margin:"0 auto"}}
         />
       </div>
+      {/* <ReactPlayer
+          url={"https://bobivoicebucket.s3.ap-northeast-2.amazonaws.com/1_from_bobi.wav"}
+          width="400px"
+          height="50px"
+          playing={false}
+          controls={true}
+          style={{margin:"0 auto"}}
+        /> */}
     </>
   );
 };

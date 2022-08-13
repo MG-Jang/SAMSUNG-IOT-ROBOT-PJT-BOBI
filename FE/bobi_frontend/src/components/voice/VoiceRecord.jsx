@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { uploadFile } from "react-s3";
-import Modal from "../modal/Modal"
+import VoiceModal from "../modal/VoiceModal"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
@@ -131,6 +131,10 @@ function VoiceRecord () {
     setModalOpen(false);
   };
 
+  const recordCancel = () => {
+    setIsRecorded(false);
+    setModalOpen(false);
+  };
   
   return (
     <>
@@ -160,9 +164,9 @@ function VoiceRecord () {
         : 
         <h3>&nbsp;</h3>
       }
-      <Modal open={modalOpen} close={closeModal} header="보비에게 보내기" submit={() => handleUpload(audioFile)} submitMessage="보내기">
+      <VoiceModal open={modalOpen} close={closeModal} header="보비에게 보내기" submit={() => handleUpload(audioFile)} submitMessage="보내기" cancel={recordCancel}>
         <p>&nbsp;&nbsp;제출하시겠습니까?</p>
-      </Modal>
+      </VoiceModal>
       <br />
       {/* <button onClick={() => handleUpload(audioFile)}>업로드</button> */}
     </>
