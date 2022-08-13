@@ -55,29 +55,59 @@ class VoiceRecognition():
     def map_commands(self):
         # map robot func according to the cmd
         if self.var == "앉아":
-            go_oled.state = "sit"
-            oled_touch.closeness += 10
-            robot.sit()
+            if oled_touch.closeness < 100 :
+                print("작음")
+                go_oled.state = "what"   
+            else :
+                go_oled.state = "sit"
+                oled_touch.closeness += 10
+                robot.sit()
         elif self.var == "일어나":
-            go_oled.state = "always"
-            robot.standUp()
+            if oled_touch.closeness < 100 :
+                print("작음")   
+                go_oled.state = "what" 
+            else :
+                go_oled.state = "always"
+                robot.standUp()
         elif self.var == "오른손":
-            oled_touch.closeness += 10
-            robot.rightHand()
+            if oled_touch.closeness < 100 :
+                print("작음")
+                go_oled.state = "what"    
+            else :
+                oled_touch.closeness += 10
+                robot.rightHand()
         elif self.var == "왼손":
-            oled_touch.closeness += 10
-            robot.leftHand()
+            if oled_touch.closeness < 100 :
+                print("작음")
+                go_oled.state = "what"    
+            else :
+                oled_touch.closeness += 10
+                robot.leftHand()
         elif self.var == "엎드려":
-            oled_touch.closeness += 10
-            go_oled.state = "down"
-            robot.lower()
+            if oled_touch.closeness < 100 :
+                print("작음")
+                go_oled.state = "what"    
+            else :
+                oled_touch.closeness += 10
+                go_oled.state = "down"
+                robot.lower()
         elif self.var == "잘했어":
-            go_oled.state = "always"
-            robot.upper()
+            if oled_touch.closeness < 100 :
+                print("작음")
+                go_oled.state = "what"    
+            else :
+                go_oled.state = "always"
+                robot.upper()
         elif self.var == "메시지":
+            '''
+            if oled_touch.closeness < 100 :
+                print("작음")    
+            else :
+            '''
             oled_touch.closeness += 10
             go_oled.state = "msg"
             self.record_voice()
+            # time.sleep(1) # OLED에 송신 O/X 표시 
             go_oled.state = "always"
         else:
             print("Unknown command!!")
@@ -90,10 +120,13 @@ class VoiceRecognition():
             '/home/pi/WAVEGO/RPi', file_name)
         cmd = "arecord --device=hw:1,0 --format S16_LE -d7 --rate 48000 -V mono -c1 " + \
             mssg_file_path
-        os.system(cmd)
+        os.system(cmd)  
         voice_mssg = VoiceMessage()
         if(voice_mssg.upload_file(mssg_file_path, self.user_id)):
+            go_oled.state = "success"
             robot.ok()
+        else :
+            go_oled.state = "fail"
 
     def run(self):
         """record cmd if hot word detected -> parse -> map
@@ -116,4 +149,4 @@ class VoiceRecognition():
             print("\nFinish parsing\n command: " + self.var)
             print("command mapping...")
             self.map_commands()
-            print("exp : " + oled_touch.closeness)
+            print("exp : " + str(oled_touch.closeness))
