@@ -17,7 +17,7 @@ from voice_s3_mssg import VoiceMessage
 import robot
 import go_oled
 import oled_touch
-
+from voice_speaker import Speaker
 
 class VoiceRecognition():
     """Get voice cmd file -> google stt -> parse the result -> map functions
@@ -35,6 +35,7 @@ class VoiceRecognition():
             language_code="ko-KR"
         )
         self.user_id = user_id
+        self.speaker = Speaker()
 
     def parse_command(self):
         with io.open(self.local_file_path, 'rb') as f:
@@ -80,6 +81,7 @@ class VoiceRecognition():
             self.record_voice()
             go_oled.state = "always"
         elif self.var == "이야기":
+            self.speaker.speak_story()
             print("가장 최신 이야기 들려주기")
         else:
             print("Unknown command!!")
@@ -119,3 +121,5 @@ class VoiceRecognition():
             print("command mapping...")
             self.map_commands()
             print("exp : " + str(oled_touch.closeness))
+            if(self.speaker.is_story_available()):
+                self.speaker.new_story_available()
