@@ -8,8 +8,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'; // router
 import './index.css';
 import App from './App';
 import Main from './pages/Main';
-import ArchiveImage from './pages/ArchiveImage';
-import ArchiveVideo from './pages/ArchiveVideo';
+import ArchiveImage from './pages/archive/ArchiveImage';
+import ArchiveImageDetail from './pages/archive/ArchiveImageDetail';
+import ArchiveImageUpdate from './pages/archive/ArchiveImageUpdate';
+import ArchiveVideo from './pages/archive/ArchiveVideo';
+import ArchiveVideoWrite from './pages/archive/ArchiveVideoWrite';
+import ArchiveVideoDetail from './pages/archive/ArchiveVideoDetail';
+import ArchiveVideoUpdate from './pages/archive/ArchiveVideoUpdate';
 import Config from './pages/Config';
 import Control from './pages/Control';
 import Friendliness from './pages/Friendliness';
@@ -32,7 +37,12 @@ root.render(
           <Route path="/" element={<App />}></Route>
           <Route path="/main" element={<Main />}></Route>
           <Route path="/archiveImage" element={<ArchiveImage />}></Route>
+          <Route path="/archiveImage/:id" element={<ArchiveImageDetail />}></Route>
+          <Route path="/archiveImage/:id/update" element={<ArchiveImageUpdate />}></Route>
           <Route path="/archiveVideo" element={<ArchiveVideo />}></Route>
+          <Route path="/archiveVideo/write" element={<ArchiveVideoWrite />}></Route>
+          <Route path="/archiveVideo/:id" element={<ArchiveVideoDetail />}></Route>
+          <Route path="/archiveVideo/:id/update" element={<ArchiveVideoUpdate />}></Route>
           <Route path="/config" element={<Config />}></Route>
           <Route path="/control" element={<Control />}></Route>
           <Route path="/friendliness" element={<Friendliness />}></Route>
