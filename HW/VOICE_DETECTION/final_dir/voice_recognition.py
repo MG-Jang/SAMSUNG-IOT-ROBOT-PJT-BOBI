@@ -56,39 +56,45 @@ class VoiceRecognition():
         # map robot func according to the cmd
         if self.var == "앉아":
             if oled_touch.closeness < 100 :
-                print("작음")    
+                print("작음")
+                go_oled.state = "what"   
             else :
                 go_oled.state = "sit"
                 oled_touch.closeness += 10
                 robot.sit()
         elif self.var == "일어나":
             if oled_touch.closeness < 100 :
-                print("작음")    
+                print("작음")   
+                go_oled.state = "what" 
             else :
                 go_oled.state = "always"
                 robot.standUp()
         elif self.var == "오른손":
             if oled_touch.closeness < 100 :
-                print("작음")    
+                print("작음")
+                go_oled.state = "what"    
             else :
                 oled_touch.closeness += 10
                 robot.rightHand()
         elif self.var == "왼손":
             if oled_touch.closeness < 100 :
-                print("작음")    
+                print("작음")
+                go_oled.state = "what"    
             else :
                 oled_touch.closeness += 10
                 robot.leftHand()
         elif self.var == "엎드려":
             if oled_touch.closeness < 100 :
-                print("작음")    
+                print("작음")
+                go_oled.state = "what"    
             else :
                 oled_touch.closeness += 10
                 go_oled.state = "down"
                 robot.lower()
         elif self.var == "잘했어":
             if oled_touch.closeness < 100 :
-                print("작음")    
+                print("작음")
+                go_oled.state = "what"    
             else :
                 go_oled.state = "always"
                 robot.upper()
