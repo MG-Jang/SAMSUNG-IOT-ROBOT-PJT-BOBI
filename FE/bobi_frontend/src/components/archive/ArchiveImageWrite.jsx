@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import ArchiveVideoForm from "../../components/archive/ArchiveVideoForm";
+import ArchiveImageForm from "../../components/archive/ArchiveImageForm";
 
-function ArchiveVideoWrite() {
+function ArchiveImageWrite() {
   const [ titleValue, setTitleValue ] = useState("");
   const [ contentValue, setContentValue ] = useState("");  
-  const [ urlValue, setUrlValue ] = useState("")
   const date = new Date();
 
   const onTitleChange = (event) => {
@@ -15,13 +14,10 @@ function ArchiveVideoWrite() {
     setContentValue(event.currentTarget.value);
   };
 
-  const onUrlChange = (event) => {
-    setUrlValue(event.currentTarget.value);
-  }
 
   const ArchiveVideoSubmit = (event) => {
     event.preventDefault();
-    fetch("https://i7a208.p.ssafy.io/api/v1/archivevideos/", {
+    fetch("https://i7a208.p.ssafy.io/api/v1/archiveimages/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,26 +25,24 @@ function ArchiveVideoWrite() {
       body : JSON.stringify({
         title: titleValue,
         contents: contentValue,
-        video_url: urlValue,
+        // video_url: urlValue,
         datetime: date
       }),
       })
       .then((res) => res.json())
       .catch((err) => console.log("error : ", err))
-      .then(window.location.href="/archiveVideo")
+      .then(window.location.href="/archiveImage")
   };
 
   return (
     <div>
       <br />
-      <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>영상 아카이브 작성</h1>
+      <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>사진 아카이브 작성</h1>
       <br />
-      <ArchiveVideoForm
+      <ArchiveImageForm
         titleValue={titleValue}
-        urlValue={urlValue}
         contentValue={contentValue}
         handleTitleChange={onTitleChange}
-        handleUrlChange={onUrlChange}
         handleContentChange={onContentChange}
         handleSubmit={ArchiveVideoSubmit}
         updateRequest={false}
@@ -57,4 +51,4 @@ function ArchiveVideoWrite() {
   )
 };
 
-export default ArchiveVideoWrite;
+export default ArchiveImageWrite;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import ArchiveForm from "../../components/archive/ArchiveForm";
+import ArchiveVideoForm from "../../components/archive/ArchiveVideoForm";
 
 function ArchiveVideoUpdate() {
   // state라는 props를 받아서 적용시킬 수 있다!
@@ -52,7 +52,7 @@ function ArchiveVideoUpdate() {
       <br />
       <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>영상 아카이브 수정</h1>
       <br />
-      <ArchiveForm
+      <ArchiveVideoForm
         titleValue={titleValue}
         urlValue={urlValue}
         contentValue={contentValue}

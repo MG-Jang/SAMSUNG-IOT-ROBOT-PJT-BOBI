@@ -25,6 +25,7 @@ import Sensor from './pages/Sensor';
 import Story from './pages/Story';
 import Voice from './pages/Voice';
 import UserDetail from './pages/UserDetail';
+import UserDetailEdit from './pages/UserDetailEdit';
 import reportWebVitals from './reportWebVitals';
 import Layout from './layout/Layout';
 
@@ -54,6 +55,7 @@ root.render(
           <Route path="/story" element={<Story />}></Route>
           <Route path="/voice" element={<Voice />}></Route>
           <Route path="/userDetail" element={<UserDetail />}></Route>
+          <Route path="/userDetailEdit" element={<UserDetailEdit />}></Route>
         </Routes>
       </Layout>
     </BrowserRouter>

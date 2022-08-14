@@ -39,15 +39,21 @@ function Login() {
     console.log('FAILED', response);
   };
   // const onLogoutSuccess = () => {
-  //   console.log('SUCESS LOG OUT');
+  //   console.log('SUCCESS LOG OUT');
   // };
 
   return (
     <div>
+      <br />
+      <br />
+      <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>로그인</h1>
+      <br />
       <GoogleLogin
         clientId={googleClientId}
         onSuccess={onSuccess}
         onFailure={onFailure}
+        buttonText="구글로 시작하기"
+        // icon={false}
       />
       {/* <GoogleLogout
         clientId={googleClientId}
