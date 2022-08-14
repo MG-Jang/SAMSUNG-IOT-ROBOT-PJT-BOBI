@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Modal from "../modal/Modal";
 
-function StoryItem5() {
+function StoryItem4() {
   const [ story, setStory ] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,10 @@ function StoryItem5() {
 
   return (
     <React.Fragment>
-      <button onClick={openModal}>4. {story["title"]}</button>
+      <div style={{ width: "80%", height: "10%", marginLeft: "10%", marginTop: "5%", marginBottom: "5%", padding: "1%", backgroundColor: "#A0C4FF"}}>
+        <span style={{ fontSize: "20px", marginTop: "1%", marginBottom: "1%" }} onClick={openModal} >5. {story["title"]}</span>
+      </div>
+      {/* <button onClick={openModal}>4. {story["title"]}</button> */}
       <Modal open={modalOpen} close={closeModal} header={story.title} submit={closeModal} submitMessage="close">
         <p>{story["content"]}</p>
       </Modal>
@@ -34,4 +37,4 @@ function StoryItem5() {
   )
 };
 
-export default StoryItem5;
+export default StoryItem4;

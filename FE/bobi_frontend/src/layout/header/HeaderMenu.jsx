@@ -9,6 +9,7 @@ import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
 
 const StyledMenu = styled.menu`
   width: 12rem;
+  font-family: 'GangwonEdu_OTFBoldA';
 
   @keyframes slide-fade-in-dropdown-animation {
     0% {
@@ -99,8 +100,7 @@ function HeaderMenu (props) {
         </p>
         <Dropdown visibility={dropdownVisibility}>
           <ul>
-            <li><NavLink to="/main">메인 페이지</NavLink></li>
-            <li><NavLink to="/Intro">BoBi?</NavLink></li>
+            <li><NavLink to="/intro">BoBi?</NavLink></li>
             <li><NavLink to="/live">실시간 영상</NavLink></li>
             <li><NavLink to="/friendliness">친밀도</NavLink></li>
             <li><ArchiveMenu /></li>

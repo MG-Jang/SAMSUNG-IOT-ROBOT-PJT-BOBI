@@ -56,7 +56,7 @@ function ArchiveVideoDetail() {
       <br />
       <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>영상 아카이브</h1>
       <br />
-      <iframe src={archiveVideo.video_url} width="560" height="315" frameborder="0"/>
+      <iframe title="ArchiveVideo" src={archiveVideo.video_url} width="560" height="315" frameborder="0"/>
       <br />
       <br />
       <button onClick={updateButton}>수정</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

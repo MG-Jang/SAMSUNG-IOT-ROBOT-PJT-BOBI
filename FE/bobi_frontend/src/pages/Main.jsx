@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import styled from "styled-components";
 // import "./Main.css"
 
@@ -25,11 +26,17 @@ const StyledMain = styled.main`
 
   .Main-title {
   color: #000000;
-  font-family: 'GangwonEdu_OTFBoldA';
+  font-family: 'EF_hyunydororong';
   }
 `;
 
 function Main() {
+  if (localStorage.getItem("user_name") === null) {
+    return (
+      <Navigate to="/login" />
+    )
+  };
+  
   return (
     <div>
       <StyledMain>

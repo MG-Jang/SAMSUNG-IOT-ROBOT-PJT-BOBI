@@ -6,7 +6,7 @@ function Voice () {
 
   return (
     <>
-      <VoiceRecord />
+      <VoiceRecord/>
       <VoicePlay />
     </>
   )

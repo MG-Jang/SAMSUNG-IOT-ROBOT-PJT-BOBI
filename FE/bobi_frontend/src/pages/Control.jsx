@@ -1,6 +1,6 @@
 import React from "react";
-import ControlButton from "../components/ControlButton";
-// import ControlButtonDummy from "../components/ControlButtonDummy";
+// import ControlButton from "../components/ControlButton";
+import ControlButtonDummy from "../components/ControlButtonDummy";
 import styled from "styled-components";
 
 const StyledMain = styled.main`
@@ -26,12 +26,12 @@ function Control() {
       <br />
       <StyledMain>
         <div className="div">
-          <iframe title="Live" width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel=UC0Hu-_pAlzKFhiZPqDAUbIw" frameBorder="0" allowFullScreen></iframe>
+          <iframe title="Live" width="60%" src="https://www.youtube.com/embed/live_stream?channel=UC0Hu-_pAlzKFhiZPqDAUbIw" frameBorder="0" allowFullScreen></iframe>
         </div>
       </StyledMain>
       <br />
-      <ControlButton />
-      {/* <ControlButtonDummy /> */}
+      {/* <ControlButton /> */}
+      <ControlButtonDummy />
     </div>
   )
 };
