@@ -13,14 +13,14 @@ class Archive(models.Model):
 
 
 class ArchiveImage(models.Model):
-    img_url = models.CharField(max_length=100)
+    img_url = models.CharField(max_length=500)
     datetime = models.DateTimeField(null=True)
     title = models.CharField(max_length=20)
     contents = models.TextField(max_length=200, null=True)
 
 
 class ArchiveVideo(models.Model):
-    video_url = models.CharField(max_length=100)
+    video_url = models.CharField(max_length=500)
     datetime = models.DateTimeField(null=True)
     title = models.CharField(max_length=20)
     contents = models.TextField(max_length=200, null=True)

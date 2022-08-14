@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 from rest_framework import routers
-from accounts.views import UserViewSet
+from accounts.views import FakeUserViewSet, UserViewSet
+from bobi.views import RobotViewSet
 from archives.views import ArchiveImageViewSet, ArchiveVideoViewSet
 from stories.views import StoryViewSet
 from movements.views import MovementViewSet
-from bobi.views import SensorViewSet
+from bobi.views import RobotViewSet, SensorViewSet
 from django.views.generic import TemplateView
 
 router = routers.DefaultRouter()
@@ -31,9 +32,30 @@ router.register('sensors', SensorViewSet)
 router.register('users', UserViewSet)
 router.register('archiveimages', ArchiveImageViewSet)
 router.register('archivevideos', ArchiveVideoViewSet)
+router.register('fakeusers', FakeUserViewSet)
+router.register('robots', RobotViewSet)
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html')),
+    path('main/', TemplateView.as_view(template_name='index.html')),
+    path('archiveImage/', TemplateView.as_view(template_name='index.html')),
+    path('archiveImage/<int:archiveimage_pk>/', TemplateView.as_view(template_name='index.html')),
+    path('archiveImage/<int:archiveimage_pk>/update/', TemplateView.as_view(template_name='index.html')),
+    path('archiveVideo/', TemplateView.as_view(template_name='index.html')),
+    path('archiveVideo/write/', TemplateView.as_view(template_name='index.html')),
+    path('archiveVideo/<int:archivevideo_pk>/', TemplateView.as_view(template_name='index.html')),
+    path('archiveVideo/<int:archivevideo_pk>/update/', TemplateView.as_view(template_name='index.html')),
+    path('config/', TemplateView.as_view(template_name='index.html')),
+    path('control/', TemplateView.as_view(template_name='index.html')),
+    path('friendliness/', TemplateView.as_view(template_name='index.html')),
+    path('intro/', TemplateView.as_view(template_name='index.html')),
+    path('live/', TemplateView.as_view(template_name='index.html')),
+    path('login/', TemplateView.as_view(template_name='index.html')),
+    path('sensor/', TemplateView.as_view(template_name='index.html')),
+    path('story/', TemplateView.as_view(template_name='index.html')),
+    path('userDetail/', TemplateView.as_view(template_name='index.html')),
+    path('userDetailEdit/', TemplateView.as_view(template_name='index.html')),
+    path('voice/', TemplateView.as_view(template_name='index.html')),
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
     # path('api/v1/stories/', StoryListAPI.as_view()),
