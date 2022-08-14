@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 
 const googleClientId = process.env.REACT_APP_GOOGLE_API_KEY;
 
-function Login() {  
+function Login() {
 
   useEffect(() => {
     function start() {
@@ -14,10 +14,10 @@ function Login() {
         scope: 'email',
       });
     }
-    
     gapi.load('client:auth2', start);
   }, []);
 
+  // 로컬스토리지에 user_name이 이미 있다는 것은 로그인을 한 상태이므로 메인으로 돌림
   if (localStorage.getItem("user_name") !== null) {
     return (
       <Navigate to="/" />
@@ -28,11 +28,11 @@ function Login() {
   // const accessToken = gapi.auth.getToken().access_token;
   // console.log(accessToken);
 
-  const onSuccess = response => {
+  function onSuccess(response) {
     window.localStorage.setItem("user_name", response.profileObj.name);
     window.localStorage.setItem("email", response.profileObj.email);
     console.log('SUCCESS', response);
-    window.location.reload()
+    window.location.href = "http://localhost:3000/userDetail"
   };
 
   const onFailure = response => {

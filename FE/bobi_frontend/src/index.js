@@ -24,6 +24,7 @@ import Login from './pages/Login';
 import Sensor from './pages/Sensor';
 import Story from './pages/Story';
 import Voice from './pages/Voice';
+import UserDetail from './pages/UserDetail';
 import reportWebVitals from './reportWebVitals';
 import Layout from './layout/Layout';
 
@@ -37,7 +38,7 @@ root.render(
           <Route path="/" element={<App />}></Route>
           <Route path="/main" element={<Main />}></Route>
           <Route path="/archiveImage" element={<ArchiveImage />}></Route>
-          <Route path="/archiveImage/:id" element={<ArchiveImageDetail />}></Route>
+          <Route path="/archiveImage/:id" element={<ArchiveImageDetail /> }></Route>
           <Route path="/archiveImage/:id/update" element={<ArchiveImageUpdate />}></Route>
           <Route path="/archiveVideo" element={<ArchiveVideo />}></Route>
           <Route path="/archiveVideo/write" element={<ArchiveVideoWrite />}></Route>
@@ -52,6 +53,7 @@ root.render(
           <Route path="/sensor" element={<Sensor />}></Route>
           <Route path="/story" element={<Story />}></Route>
           <Route path="/voice" element={<Voice />}></Route>
+          <Route path="/userDetail" element={<UserDetail />}></Route>
         </Routes>
       </Layout>
     </BrowserRouter>
