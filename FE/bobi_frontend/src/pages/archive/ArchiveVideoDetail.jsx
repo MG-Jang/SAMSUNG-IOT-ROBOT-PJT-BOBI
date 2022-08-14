@@ -14,7 +14,7 @@ function ArchiveVideoDetail() {
       .then((data) => {
         setArchiveVideo(data);
       })
-  }, []);
+  });
 
   const datetime = archiveVideo.datetime
   const date = (datetime||"").split("T")[0];

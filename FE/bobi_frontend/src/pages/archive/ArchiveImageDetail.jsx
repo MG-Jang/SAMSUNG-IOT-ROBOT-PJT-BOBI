@@ -14,7 +14,7 @@ function ArchiveImageDetail() {
       .then((data) => {
         setArchiveImage(data);
       });
-  }, []);
+  });
   console.log(archiveImage.datetime)
   const datetime = archiveImage.datetime
 
