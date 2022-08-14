@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 function ArchiveImageDetail() {
   const url = window.location.href;
   const id = url.split('/')[4];
+  
 
   const [ archiveImage, setArchiveImage ] = useState([]);
 
@@ -15,7 +16,6 @@ function ArchiveImageDetail() {
         setArchiveImage(data);
       });
   });
-  console.log(archiveImage.datetime)
   const datetime = archiveImage.datetime
 
   const date = (datetime||"").split("T")[0];

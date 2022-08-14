@@ -8,9 +8,11 @@ function ArchiveImageItem({item}) {
       <img src={item.img_url} alt="archiveImage" width="60%" />
       <br />
       <br />
-      <NavLink to={`/archiveImage/${item.id}`} style={{textDecoration: "none", color: "#000000"}}>
-        <h2>{item.title}</h2>
-      </NavLink>
+      <h2>
+        <NavLink to={`/archiveImage/${item.id}`} style={{textDecoration: "none", color: "#000000"}}>
+          {item.title}
+        </NavLink>
+      </h2>
       {/* <p>{item.contents}</p> */}
       <br />
     </div>

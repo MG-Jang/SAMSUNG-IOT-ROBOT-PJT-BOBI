@@ -34,8 +34,8 @@ function ArchiveVideoWrite() {
       }),
       })
       .then((res) => res.json())
-      .catch((err) => console.log("error : ", err));
-      window.location.href="/archiveVideo"
+      .catch((err) => console.log("error : ", err))
+      .then(window.location.href="/archiveVideo")
   };
 
   return (
