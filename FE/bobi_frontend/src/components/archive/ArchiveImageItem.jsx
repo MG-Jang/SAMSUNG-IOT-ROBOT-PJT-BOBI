@@ -5,9 +5,7 @@ function ArchiveImageItem({item}) {
   
   return (
     <div>
-      <img src={item.img_url} alt="archiveImage" width="60%" />
-      <br />
-      <br />
+      <img src={item.img_url} alt="archiveImage" width="60%" style={{marginBottom: "3%"}}/>
       <h2>
         <NavLink to={`/archive-image/${item.id}`} style={{textDecoration: "none", color: "#000000"}}>
           {item.title}

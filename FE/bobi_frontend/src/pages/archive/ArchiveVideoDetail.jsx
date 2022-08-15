@@ -66,22 +66,19 @@ function ArchiveVideoDetail() {
       <br />
       <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>영상 아카이브</h1>
       <br />
-      <iframe title="ArchiveVideo" src={archiveVideo.video_url} width="560" height="315" frameborder="0"/>
+      <iframe title="ArchiveVideo" src={archiveVideo.video_url} width="60%" frameborder="0" style={{marginBottom: "1%"}}/>
       <br />
-      <br />
-      <button onClick={updateButton}>수정</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button onClick={updateButton} style={{marginLeft: "35%"}}>수정</button>&nbsp;&nbsp;&nbsp;
       <button onClick={openModal}>삭제</button>
       <Modal open={modalOpen} close={closeModal} header="아카이브 삭제" submit={deleteButton} submitMessage="삭제">
         <p>삭제하시겠습니까?</p>
       </Modal>
       <br />
+      <h1>{archiveVideo.title}</h1>
       <br />
-      <h2>{archiveVideo.title}</h2>
-      <br />
-      <h5>작성일 : {year}년 {month}월 {day}일</h5>
-      <h5>작성시간 : {hour}시 {minute}분</h5>
-      <br />
-      <p>{archiveVideo.contents}</p>
+      <p style={{marginBottom: "0", marginRight: "18%"}}>작성일 : {year}년 {month}월 {day}일</p>
+      <p style={{marginRight: "27%"}}>작성시간 : {hour}시 {minute}분</p>
+      <p style={{marginLeft: "20%", marginRight: "20%", textAlign:"left"}}>{archiveVideo.contents}</p>
     </div>
   )
 };

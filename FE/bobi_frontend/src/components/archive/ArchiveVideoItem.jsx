@@ -5,12 +5,10 @@ function ArchiveVideoItem({item}) {
   
   return (
     <div>
-      <iframe title="VideoItem" src={item.video_url} width="560" height="315" frameBorder="0"/>
-      <br />
-      <br />
-      <NavLink to={`/archive-video/${item.id}`} style={{textDecoration: "none", color: "#000000"}}>
-        <h2>{item.title}</h2>
-      </NavLink>
+      <iframe title="VideoItem" src={item.video_url} width="80%" height="200" frameBorder="0" style={{marginBottom: "3%"}}/>
+      <h2>
+        <NavLink to={`/archive-video/${item.id}`} style={{textDecoration: "none", color: "#000000"}}>{item.title}</NavLink>
+      </h2>
       {/* <p>{item.contents}</p> */}
       <br />
     </div>

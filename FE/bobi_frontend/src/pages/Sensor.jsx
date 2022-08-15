@@ -22,6 +22,7 @@ function Sensor() {
     return (
         <div>
           <br />
+          <br />
           <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>센서 데이터</h1>
           <br />
           
