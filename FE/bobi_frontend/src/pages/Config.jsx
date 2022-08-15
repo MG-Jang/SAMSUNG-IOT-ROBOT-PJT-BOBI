@@ -69,7 +69,7 @@ function Config() {
     <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>환경설정</h1>
     <br />
     <br />
-    <h4><NavLink to="/userDetailEdit" style={{textDecoration: "none", color: "#000000"}}>회원정보수정</NavLink></h4>
+    <h4><NavLink to="/user-detail-edit" style={{textDecoration: "none", color: "#000000"}}>회원정보수정</NavLink></h4>
     <br />
     <br />
     <h4 onClick={openLogoutModal}>로그아웃</h4>

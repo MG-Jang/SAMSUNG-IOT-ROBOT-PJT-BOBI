@@ -108,6 +108,7 @@ function HeaderMenu (props) {
             <li><NavLink to="/control">로봇 조작</NavLink></li>
             <li><NavLink to="/sensor">센서</NavLink></li>
             <li><NavLink to="/voice">음성 송수신</NavLink></li>
+            <li><NavLink to="/user">회원정보</NavLink></li>
             <li><NavLink to="/config">환경설정</NavLink></li>
           </ul>
         </Dropdown>

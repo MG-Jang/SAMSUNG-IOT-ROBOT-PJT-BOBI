@@ -48,7 +48,7 @@ function Login() {
   // 로컬스토리지에 user_name이 이미 있다는 것은 로그인을 한 상태이므로 메인으로 돌림
   if (localStorage.getItem("user_name") !== null) {
     return (
-      <Navigate to="/userDetail" />
+      <Navigate to="/user-detail" />
     )
   };
 

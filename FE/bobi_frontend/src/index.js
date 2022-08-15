@@ -25,6 +25,7 @@ import Live from './pages/Live'
 import Login from './pages/Login';
 import Sensor from './pages/Sensor';
 import Story from './pages/Story';
+import User from './pages/User';
 import UserDetail from './pages/UserDetail';
 import UserDetailEdit from './pages/UserDetailEdit';
 import Voice from './pages/Voice';
@@ -40,13 +41,13 @@ root.render(
         <Routes>
           <Route path="/app" element={<App />}></Route>
           <Route path="/" element={<Main />}></Route>
-          <Route path="/archiveImage" element={<ArchiveImage />}></Route>
-          <Route path="/archiveImage/:id" element={<ArchiveImageDetail />}></Route>
-          <Route path="/archiveImage/:id/update" element={<ArchiveImageUpdate />}></Route>
-          <Route path="/archiveVideo" element={<ArchiveVideo />}></Route>
-          <Route path="/archiveVideo/write" element={<ArchiveVideoWrite />}></Route>
-          <Route path="/archiveVideo/:id" element={<ArchiveVideoDetail />}></Route>
-          <Route path="/archiveVideo/:id/update" element={<ArchiveVideoUpdate />}></Route>
+          <Route path="/archive-image" element={<ArchiveImage />}></Route>
+          <Route path="/archive-image/:id" element={<ArchiveImageDetail />}></Route>
+          <Route path="/archive-image/:id/update" element={<ArchiveImageUpdate />}></Route>
+          <Route path="/archive-video" element={<ArchiveVideo />}></Route>
+          <Route path="/archive-video/write" element={<ArchiveVideoWrite />}></Route>
+          <Route path="/archive-video/:id" element={<ArchiveVideoDetail />}></Route>
+          <Route path="/archive-video/:id/update" element={<ArchiveVideoUpdate />}></Route>
           <Route path="/config" element={<Config />}></Route>
           <Route path="/control" element={<Control />}></Route>
           <Route path="/friendliness" element={<Friendliness />}></Route>
@@ -55,8 +56,9 @@ root.render(
           <Route path="/login" element={<Login />}></Route>
           <Route path="/sensor" element={<Sensor />}></Route>
           <Route path="/story" element={<Story />}></Route>
-          <Route path="/userDetail" element={<UserDetail />}></Route>
-          <Route path="/userDetailEdit" element={<UserDetailEdit />}></Route>
+          <Route path="/user" element={<User />}></Route>
+          <Route path="/user-detail" element={<UserDetail />}></Route>
+          <Route path="/user-detail-edit" element={<UserDetailEdit />}></Route>
           <Route path="/voice" element={<Voice />}></Route>
         </Routes>
       </Layout>

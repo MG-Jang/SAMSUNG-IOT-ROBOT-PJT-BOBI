@@ -46,8 +46,8 @@ function ArchiveMenu (props) {
         </p>
         <ArchiveDropdown visibility={dropdownVisibility} className="Archive-dropdown">
           <ul>
-            <li><NavLink to="/archiveImage">사진</NavLink></li>
-            <li><NavLink to="/archiveVideo">영상</NavLink></li>
+            <li><NavLink to="/archive-image">사진</NavLink></li>
+            <li><NavLink to="/archive-video">영상</NavLink></li>
           </ul>
         </ArchiveDropdown>
       </div>

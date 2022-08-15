@@ -24,7 +24,7 @@ function ArchiveVideoDetail() {
   // useNavigate로 경로설정해서 state로 props 값을 넘겨주면
   const navigate = useNavigate();
   const updateButton = () => {
-    navigate(`/archiveVideo/${id}/update`, {
+    navigate(`/archive-video/${id}/update`, {
       state: {
         title: propTitle,
         contents: propContents,
@@ -40,7 +40,7 @@ function ArchiveVideoDetail() {
       })
       .then(data=>console.log(data))
       .catch(error=>console.log(error));
-    navigate(`/archiveVideo`)
+    navigate(`/archive-video`)
   };
 
   // datetime값을 clientside에서 파싱

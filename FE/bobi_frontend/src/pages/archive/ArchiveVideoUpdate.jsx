@@ -44,7 +44,7 @@ function ArchiveVideoUpdate() {
     })
     .then((res) => res.json())
     .catch((err) => console.log("error : ", err))
-    window.location.href=`/archiveVideo/${id}`
+    window.location.href=`/archive-video/${id}`
   };
 
   return (

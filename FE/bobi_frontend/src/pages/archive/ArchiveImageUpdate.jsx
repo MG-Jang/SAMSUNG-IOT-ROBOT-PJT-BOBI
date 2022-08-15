@@ -37,7 +37,7 @@ function ArchiveImageUpdate() {
     .then((res) => res.json())
     .then((data)=> console.log(data))
     .catch((err) => console.log("error : ", err))
-    window.location.href=`/archiveImage/${id}`
+    window.location.href=`/archive-image/${id}`
   };
 
 

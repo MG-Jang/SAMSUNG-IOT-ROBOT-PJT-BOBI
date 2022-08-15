@@ -8,7 +8,7 @@ function ArchiveVideoItem({item}) {
       <iframe title="VideoItem" src={item.video_url} width="560" height="315" frameBorder="0"/>
       <br />
       <br />
-      <NavLink to={`/archiveVideo/${item.id}`} style={{textDecoration: "none", color: "#000000"}}>
+      <NavLink to={`/archive-video/${item.id}`} style={{textDecoration: "none", color: "#000000"}}>
         <h2>{item.title}</h2>
       </NavLink>
       {/* <p>{item.contents}</p> */}

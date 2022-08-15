@@ -9,7 +9,7 @@ function ArchiveImageItem({item}) {
       <br />
       <br />
       <h2>
-        <NavLink to={`/archiveImage/${item.id}`} style={{textDecoration: "none", color: "#000000"}}>
+        <NavLink to={`/archive-image/${item.id}`} style={{textDecoration: "none", color: "#000000"}}>
           {item.title}
         </NavLink>
       </h2>

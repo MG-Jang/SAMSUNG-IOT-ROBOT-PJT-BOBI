@@ -31,7 +31,7 @@ function ArchiveImageWrite() {
       })
       .then((res) => res.json())
       .catch((err) => console.log("error : ", err))
-      .then(window.location.href="/archiveImage")
+      .then(window.location.href="/archive-image")
   };
 
   return (

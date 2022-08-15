@@ -28,7 +28,7 @@ function ControlButton() {
   const host = 'i7a208.p.ssafy.io';
   const port = '9001';
   const clientId = `mqtt_${Math.random().toString(16).slice(3)}`;
-  const connectUrl = `ws://${host}:${port}/mqtt`;
+  const connectUrl = `wss://${host}:${port}/mqtt`;
   const client = mqtt.connect(connectUrl, {
     clientId,
     clean: true,
