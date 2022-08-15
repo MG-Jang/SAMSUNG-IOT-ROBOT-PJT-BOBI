@@ -2,7 +2,8 @@ import React, { useState, useCallback } from "react";
 import { uploadFile } from "react-s3";
 import VoiceModal from "../modal/VoiceModal"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { faPause, faPaperPlane, faMicrophoneLines } from "@fortawesome/free-solid-svg-icons";
+import mqtt from 'mqtt/dist/mqtt';
 
 window.Buffer = window.Buffer || require("buffer").Buffer; 
 // ReferenceError: Buffer is not defined 에러때문에 넣음
@@ -109,24 +110,42 @@ function VoiceRecord () {
     setModalOpen(true);
   }, [audioUrl]);
   
-  // 여기부터 s3 업로드 관련 코드
-  
+  //s3 업로드 관련 코드
   const config = {
     bucketName: S3_BUCKET,
     region: REGION,
     accessKeyId: ACCESS_KEY,
     secretAccessKey: SECRET_ACCESS_KEY,
   };
+
+  // mqtt 연결
+  const host = 'i7a208.p.ssafy.io';
+  const port = '9001';
+  const clientId = `mqtt_${Math.random().toString(16).slice(3)}`;
+  const connectUrl = `ws://${host}:${port}/mqtt`;
+  const client = mqtt.connect(connectUrl, {
+    clientId,
+    clean: true,
+    connectTimeout: 4000,
+    reconnectPeriod: 1000,
+  });
   
   const handleUpload = async (file) => {
+    const topic = `WebSendVoice`
+    const payload = 'on'
+    client.publish(topic, payload, error => {
+      if (error) {
+        console.log('Publish error: ', error);
+      }
+      console.log('Published!');
+    });
+
     uploadFile(file, config)
       .then(data => console.log(data))
       .catch(err => console.error(err))
       setModalOpen(false);
   };
   
-  // 여기까지 s3
-
   const closeModal = () => {
     setModalOpen(false);
   };
@@ -139,13 +158,14 @@ function VoiceRecord () {
   return (
     <>
       <br />
+      <br />
         <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>음성 송신</h1>
       <br />
       <div>
         {onRec 
           ? 
           <h3 style={{ color: "#696969" }} onClick={onRecAudio}>
-            <FontAwesomeIcon icon={faPlay} />&nbsp;&nbsp;&nbsp;
+            <FontAwesomeIcon icon={faMicrophoneLines} />&nbsp;&nbsp;&nbsp;
             보비에게 말하기 
           </h3> 
           : 

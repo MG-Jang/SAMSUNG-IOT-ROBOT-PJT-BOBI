@@ -38,6 +38,7 @@ function Friendliness() {
     return (
         <div>
             <br />
+            <br />
             <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>보비와 친해져요</h1>
             <br />
             <br />

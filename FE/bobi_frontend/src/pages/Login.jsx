@@ -60,8 +60,8 @@ function Login() {
     window.localStorage.setItem("user_name", response.profileObj.name);
     window.localStorage.setItem("email", response.profileObj.email);
     console.log('SUCCESS', response);
-    // window.location.href = "https://i7a208.p.ssafy.io/userDetail"
-    window.location.reload()
+    window.location.reload();
+    // window.location.href = "https://i7a208.p.ssafy.io/user-detail"
   };
 
   const onFailure = response => {

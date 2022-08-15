@@ -22,12 +22,12 @@ function User () {
     .then(data => {
       const emails = users.map(user => user.email)
       const index = emails.indexOf(email);
-      console.log(users[index].nickname)
+      // console.log(users[index].nickname)
       setNickname(users[index].nickname)
       setYoutubeId(users[index].youtube_id)
       setRobotId(users[index].robot_id)
     })
-  }, []);
+  });
 
   // const nickname = users[index].nickname;
   // const youtube_id = users[index].youtube_id;

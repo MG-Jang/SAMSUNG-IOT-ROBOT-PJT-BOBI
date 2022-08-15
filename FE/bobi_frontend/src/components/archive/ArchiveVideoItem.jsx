@@ -5,7 +5,7 @@ function ArchiveVideoItem({item}) {
   
   return (
     <div>
-      <iframe title="VideoItem" src={item.video_url} width="80%" height="200" frameBorder="0" style={{marginBottom: "3%"}}/>
+      <iframe title="VideoItem" src={item.video_url} width="60%" frameBorder="0" style={{marginBottom: "3%"}}/>
       <h2>
         <NavLink to={`/archive-video/${item.id}`} style={{textDecoration: "none", color: "#000000"}}>{item.title}</NavLink>
       </h2>

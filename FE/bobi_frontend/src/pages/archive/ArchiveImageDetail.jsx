@@ -67,6 +67,7 @@ function ArchiveImageDetail() {
   return (
     <div>
       <br />
+      <br />
       <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>사진 아카이브</h1>
       <br />
       <img src={archiveImage.img_url} alt="archiveImage" width="60%" style={{marginBottom: "3%"}}/>

@@ -9,6 +9,7 @@ function UserDetail() {
   const [ youtube, setYoutube ] = useState("");
   const [ robotId, setRobotId ] = useState("");
   const [ users, setUsers ] = useState([]);
+  const [ id, setId ] = useState("");
 
 
   useEffect(() => {
@@ -25,6 +26,7 @@ function UserDetail() {
   const emails = users.map(user => user.email)
   for (var i in emails) {
     if (localStorage.getItem("email") === emails[i]) {
+      window.localStorage.setItem("id", id)
       return (
         <Navigate to="/" />
       )
@@ -59,9 +61,13 @@ function UserDetail() {
       }),
       })
       .then((res) => res.json())
+      .then((data) => {
+        console.log(data.id)
+        const userId = data.id
+        setId(userId)
+        window.localStorage.setItem("id", id)
+      })
       .catch((err) => console.log("error : ", err))
-      window.localStorage.setItem("nickname", nickname);
-      window.location.reload()
   };
 
   return (

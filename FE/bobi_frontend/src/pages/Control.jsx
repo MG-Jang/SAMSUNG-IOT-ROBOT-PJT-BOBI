@@ -23,6 +23,7 @@ function Control() {
   return (
     <div>
       <br />
+      <br />
       <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>로봇 조작</h1>
       <br />
       <StyledMain>

@@ -19,6 +19,7 @@ function Live() {
           <StyledMain>
             <div className="div">
               <br />
+              <br />
               <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>실시간 영상</h1>
               <br />
               {/* BoBi 계정의 가장 최신 스트리밍 영상 */}
