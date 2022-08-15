@@ -48,7 +48,7 @@ function Login() {
   // 로컬스토리지에 user_name이 이미 있다는 것은 로그인을 한 상태이므로 메인으로 돌림
   if (localStorage.getItem("user_name") !== null) {
     return (
-      <Navigate to="/" />
+      <Navigate to="/userDetail" />
     )
   };
 
@@ -60,7 +60,8 @@ function Login() {
     window.localStorage.setItem("user_name", response.profileObj.name);
     window.localStorage.setItem("email", response.profileObj.email);
     console.log('SUCCESS', response);
-    window.location.href = "https://i7a208.p.ssafy.io/userDetail"
+    // window.location.href = "https://i7a208.p.ssafy.io/userDetail"
+    window.location.reload()
   };
 
   const onFailure = response => {
@@ -72,7 +73,6 @@ function Login() {
 
   return (
     <div>
-      <div>
       <StyledMain>
         <div className="Main">
           <header className="Main-header">
@@ -82,20 +82,13 @@ function Login() {
             <br />
             <p style={{ color: "black"}}>보비를 만나려면 로그인해주세요!</p>
             <GoogleLogin
-        clientId={googleClientId}
-        onSuccess={onSuccess}
-        onFailure={onFailure}
-      />
+              clientId={googleClientId}
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+            />
           </header>
-          
         </div>
       </StyledMain>
-    </div>
-      
-      {/* <GoogleLogout
-        clientId={googleClientId}
-        onLogoutSuccess={onLogoutSuccess}
-      /> */}
     </div>
   );
 }

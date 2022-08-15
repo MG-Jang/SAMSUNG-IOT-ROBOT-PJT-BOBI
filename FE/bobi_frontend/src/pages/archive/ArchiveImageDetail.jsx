@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Modal from "../../components/modal/Modal";
 
 function ArchiveImageDetail() {
   const url = window.location.href;
@@ -33,7 +34,7 @@ function ArchiveImageDetail() {
   };
 
   const deleteButton = () => {
-    fetch(`https://i7a208.p.ssafy.io/api/v1/archiveImages/${id}/`, {
+    fetch(`https://i7a208.p.ssafy.io/api/v1/archiveimages/${id}/`, {
       method: "DELETE"})
       .then(res => {
         return res.json();
@@ -53,6 +54,16 @@ function ArchiveImageDetail() {
   const [hour, minute] = [(time||'').split(":")[0], (time||'').split(":")[1]]
   // 진짜 이렇게까지 해야하나
 
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+
   return (
     <div>
       <br />
@@ -62,7 +73,10 @@ function ArchiveImageDetail() {
       <br />
       <br />
       <button onClick={updateButton}>수정</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button onClick={deleteButton}>삭제</button>
+      <button onClick={openModal}>삭제</button>
+      <Modal open={modalOpen} close={closeModal} header="아카이브 삭제" submit={deleteButton} submitMessage="삭제">
+        <p>삭제하시겠습니까?</p>
+      </Modal>
       <br />
       <br />
       <h2>{archiveImage.title}</h2>

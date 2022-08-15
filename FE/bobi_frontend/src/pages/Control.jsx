@@ -1,5 +1,5 @@
 import React from "react";
-// import ControlButton from "../components/ControlButton";
+import ControlButton from "../components/ControlButton";
 import ControlButtonDummy from "../components/ControlButtonDummy";
 import styled from "styled-components";
 
@@ -18,6 +18,7 @@ const StyledMain = styled.main`
 
 function Control() {
 
+  const email = localStorage.getItem("email");
 
   return (
     <div>
@@ -30,8 +31,12 @@ function Control() {
         </div>
       </StyledMain>
       <br />
-      {/* <ControlButton /> */}
-      <ControlButtonDummy />
+      {email === "carerobotbobi@gmail.com"
+        ?
+        <ControlButton />
+        :
+        <ControlButtonDummy />
+      }
     </div>
   )
 };

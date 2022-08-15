@@ -26,8 +26,8 @@ function StoryItem2() {
 
   return (
     <React.Fragment>
-      <div style={{ width: "80%", height: "10%", marginLeft: "10%", marginTop: "5%", marginBottom: "5%", padding: "1%", backgroundColor: "#FFD6A5"}}>
-        <span style={{ fontSize: "20px", marginTop: "1%", marginBottom: "1%" }} onClick={openModal} >2. {story["title"]}</span>
+      <div style={{ width: "80%", height: "10%", marginLeft: "10%", marginTop: "5%", marginBottom: "5%", padding: "1%", backgroundColor: "#FFD6A5"}} onClick={openModal}>
+        <span style={{ fontSize: "20px", marginTop: "1%", marginBottom: "1%" }}>2. {story["title"]}</span>
       </div>
       {/* <button onClick={openModal}>2. {story["title"]}</button> */}
       <Modal open={modalOpen} close={closeModal} header={story.title} submit={closeModal} submitMessage="close">

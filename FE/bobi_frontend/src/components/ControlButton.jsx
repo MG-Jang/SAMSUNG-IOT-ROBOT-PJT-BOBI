@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import mqtt from 'mqtt/dist/mqtt';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleChevronUp, faChevronUp, faCircleChevronDown, faChevronDown, faCircleChevronLeft, faChevronLeft, faCircleChevronRight, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faCircleChevronUp, faCircleChevronDown, faCircleChevronLeft, faCircleChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 
 function ControlButton() {
@@ -136,46 +136,34 @@ function ControlButton() {
 
   return (
     <div>
-        {/* <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>로봇 조작</h1> */}
-        {/* <p>userId: {userId}</p> */}
       <br />
-      <div onMouseDown={() => moveForward()} onMouseUp={() => stopForward()} style={{width: "60px", margin:"0 auto"}}>
+      <div onPointerDown={() => moveForward()} onPointerUp={() => stopForward()} style={{width: "60px", margin:"0 auto"}}>
         {isForward
           ? <FontAwesomeIcon icon={faCircleChevronUp} style={{height: "55px", color:"#a6eae2"}}/>
-          // : <FontAwesomeIcon icon={faChevronUp} style={{height: "60px"}}/>
           : <img style={{ height: "60px" }} src="https://cdn-icons-png.flaticon.com/512/992/992703.png"  alt="buttonForward"/>
         }
       </div>
-        {/* <img style={{ height: "60px" }} src="https://cdn-icons-png.flaticon.com/512/992/992703.png"  alt="buttonForward"/> */}
       <div style={{display: "flex"}}>
-        <div onMouseDown={() => moveLeft()} onMouseUp={() => stopLeft()} style={{width: "60px", margin:"0 35px 0 auto"}}>
+        <div onPointerDown={() => moveLeft()} onPointerUp={() => stopLeft()} style={{width: "60px", margin:"0 35px 0 auto"}}>
           {isLeft
             ? <FontAwesomeIcon icon={faCircleChevronLeft} style={{height: "55px", color:"#a6eae2"}}/>
-            // : <FontAwesomeIcon icon={faChevronLeft} style={{height: "60px", color:"IndianRed"}}/>
             : <img src="https://cdn-icons-png.flaticon.com/512/318/318276.png" style={{height:"60px"}} alt="buttonLeft"/>
           }
         </div>
-        <div onMouseDown={() => moveRight()} onMouseUp={() => stopRight()} style={{width: "60px", margin:"0 auto 0 35px"}}>
+        <div onPointerDown={() => moveRight()} onPointerUp={() => stopRight()} style={{width: "60px", margin:"0 auto 0 35px"}}>
           {isRight
             ? <FontAwesomeIcon icon={faCircleChevronRight} style={{height: "55px", color:"#a6eae2"}}/>
-            // : <FontAwesomeIcon icon={faChevronRight} style={{height: "60px", color:"#a6eae2"}}/>
             : <img style={{ height: "60px" }} src="https://cdn-icons-png.flaticon.com/512/318/318275.png" alt="buttonRight" />
           }
         </div>
-        {/* <img style={{ height: "60px", marginRight: "5rem" }} src="https://cdn-icons-png.flaticon.com/512/318/318276.png" onMouseDown={() => moveLeft()} onMouseUp={() => stopLeft()} alt="buttonForward"/>
-        <img style={{ height: "60px" }} src="https://cdn-icons-png.flaticon.com/512/318/318275.png" onMouseDown={() => moveRight()} onMouseUp={() => stopRight()} alt="buttonForward"/> */}
       </div>
-      <div onMouseDown={() => moveBack()} onMouseUp={() => stopBack()} style={{width: "60px", margin:"0 auto"}}>
+      <div onPointerDown={() => moveBack()} onPointerUp={() => stopBack()} style={{width: "60px", margin:"0 auto"}}>
         {isBackward
           ? <FontAwesomeIcon icon={faCircleChevronDown} style={{height: "55px", color:"#a6eae2"}}/>
-          // : <FontAwesomeIcon icon={faChevronDown} style={{height: "60px", color:"#a6eae2"}}/>
           : <img style={{ height: "60px" }} src="https://cdn-icons-png.flaticon.com/512/318/318278.png" alt="buttonBackward"/>
         }
-      
       </div>
       <br />
-      {/* <img style={{ height: "60px" }} src="https://cdn-icons-png.flaticon.com/512/318/318278.png" onMouseDown={() => moveBack()} onMouseUp={() => stopBack()} alt="buttonForward"/> */}
-
     </div>
   )
 };
