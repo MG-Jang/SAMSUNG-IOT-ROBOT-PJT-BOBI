@@ -15,8 +15,8 @@ from google.cloud import speech
 import voice_porcupine_custom
 from voice_s3_mssg import VoiceMessage
 import robot
-import go_oled
-import oled_touch
+import sensor_oled
+import sensor_mysql
 from voice_speaker import Speaker
 
 class VoiceRecognition():
@@ -56,30 +56,30 @@ class VoiceRecognition():
     def map_commands(self):
         # map robot func according to the cmd
         if self.var == "앉아":
-            go_oled.state = "sit"
-            oled_touch.closeness += 10
+            sensor_oled.state = "sit"
+            sensor_mysql.closeness += 10
             robot.sit()
         elif self.var == "일어나":
-            go_oled.state = "always"
+            sensor_oled.state = "always"
             robot.standUp()
         elif self.var == "오른손":
-            oled_touch.closeness += 10
+            sensor_mysql.closeness += 10
             robot.rightHand()
         elif self.var == "왼손":
-            oled_touch.closeness += 10
+            sensor_mysql.closeness += 10
             robot.leftHand()
         elif self.var == "엎드려":
-            oled_touch.closeness += 10
-            go_oled.state = "down"
+            sensor_mysql.closeness += 10
+            sensor_oled.state = "down"
             robot.lower()
         elif self.var == "잘했어":
-            go_oled.state = "always"
+            sensor_oled.state = "always"
             robot.upper()
         elif self.var == "메시지":
-            oled_touch.closeness += 10
-            go_oled.state = "msg"
+            sensor_mysql.closeness += 10
+            sensor_oled.state = "msg"
             self.record_voice()
-            go_oled.state = "always"
+            sensor_oled.state = "always"
         elif self.var == "이야기":
             self.speaker.speak_story()
             print("가장 최신 이야기 들려주기")
@@ -110,16 +110,16 @@ class VoiceRecognition():
             robot.buzzerCtrl(1, 0)
             time.sleep(0.2)
             robot.buzzerCtrl(0, 0)
-            go_oled.state = "record"
+            sensor_oled.state = "record"
             cmd = "arecord --device=hw:1,0 --format S16_LE -d3 --rate 48000 -V mono -c1 " + \
                 self.local_file_path
             os.system(cmd)
-            go_oled.state = "always"
+            sensor_oled.state = "always"
             print("\nFinish recording\n Start parsing")
             self.parse_command()
             print("\nFinish parsing\n command: " + self.var)
             print("command mapping...")
             self.map_commands()
-            print("exp : " + str(oled_touch.closeness))
+            print("exp : " + str(sensor_mysql.closeness))
             if(self.speaker.is_story_available()):
                 self.speaker.new_story_available()
