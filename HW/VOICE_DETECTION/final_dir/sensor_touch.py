@@ -3,17 +3,22 @@ import mysql.connector
 import sensor_oled
 from time import sleep
 import RPi.GPIO as GPIO
+from voice_speaker import Speaker
 
 def up():
-    global closeness, timer
+    global closeness, timer, speaker
     
     dotouch = GPIO.input(tilt_pin)  # 터치 누르면 1 안누르면 0 출력
     if dotouch : 
         closeness += 10
+        if(speaker.is_new_story_available()):
+                speaker.new_story_available()
+        print(closeness)
         sensor_oled.state = 'heart'
         sleep(3)
         sensor_oled.state= 'always'
-        sleep(10)
+        sleep(3)
+        
 
     timer = Timer(0.1, up)
     timer.start()
@@ -37,6 +42,7 @@ closeness = 0
 tilt_pin = 4 #터치 센서의 경우 센서만 바꾸면 됨
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(tilt_pin, GPIO.IN)
+speaker = Speaker()
 
 polling()
 up()

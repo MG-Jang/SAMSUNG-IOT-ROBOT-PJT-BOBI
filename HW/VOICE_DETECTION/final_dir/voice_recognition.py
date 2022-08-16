@@ -107,7 +107,9 @@ class VoiceRecognition():
             # time.sleep(1) # OLED에 송신 O/X 표시
             sensor_oled.state = "always"
         elif self.var == "이야기":
+            sensor_oled.state = "sit"
             self.speaker.speak_story()
+            sensor_oled.state = "always"
             print("가장 최신 이야기 들려주기")
         else:
             print("Unknown command!!")
