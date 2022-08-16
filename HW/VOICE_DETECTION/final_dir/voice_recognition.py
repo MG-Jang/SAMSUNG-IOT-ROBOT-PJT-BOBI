@@ -15,8 +15,9 @@ from google.cloud import speech
 import voice_porcupine_custom
 from voice_s3_mssg import VoiceMessage
 import robot
-import sensor_oled
 import sensor_mysql
+import sensor_oled
+import sensor_touch
 from voice_speaker import Speaker
 
 class VoiceRecognition():
@@ -56,51 +57,51 @@ class VoiceRecognition():
     def map_commands(self):
         # map robot func according to the cmd
         if self.var == "앉아":
-            if sensor_mysql.closeness < 100 :
+            if sensor_touch.closeness < 100 :
                 print("exp 100 미만")
                 sensor_oled.state = "what"   
             else :
                 sensor_oled.state = "sit"
-                sensor_mysql.closeness += 10
+                sensor_touch.closeness += 10
                 robot.sit()
         elif self.var == "일어나":
-            if sensor_mysql.closeness < 100 :
+            if sensor_touch.closeness < 100 :
                 print("exp 100 미만")
                 sensor_oled.state = "what"   
             else :
                 sensor_oled.state = "always"
                 robot.standUp()
         elif self.var == "오른손":
-            if sensor_mysql.closeness < 100 :
+            if sensor_touch.closeness < 100 :
                 print("exp 300 미만")
                 sensor_oled.state = "what"   
             else :
-                sensor_mysql.closeness += 10
+                sensor_touch.closeness += 10
                 robot.rightHand()
         elif self.var == "왼손":
-            if sensor_mysql.closeness < 100 :
+            if sensor_touch.closeness < 100 :
                 print("exp 300 미만")
                 sensor_oled.state = "what"   
             else :
-                sensor_mysql.closeness += 10
+                sensor_touch.closeness += 10
                 robot.leftHand()
         elif self.var == "엎드려":
-            if sensor_mysql.closeness < 200 :
+            if sensor_touch.closeness < 200 :
                 print("exp 200 미만")
                 sensor_oled.state = "what"   
             else :
                 sensor_oled.state = "down"
-                sensor_mysql.closeness += 10
+                sensor_touch.closeness += 10
                 robot.lower()
         elif self.var == "잘했어":
-            if sensor_mysql.closeness < 200 :
+            if sensor_touch.closeness < 200 :
                 print("exp 200 미만")
                 sensor_oled.state = "what"   
             else :
                 sensor_oled.state = "always"
                 robot.upper()
         elif self.var == "메시지":
-            sensor_mysql.closeness += 10
+            sensor_touch.closeness += 10
             sensor_oled.state = "msg"
             self.record_voice()
             # time.sleep(1) # OLED에 송신 O/X 표시
@@ -148,6 +149,6 @@ class VoiceRecognition():
             print("\nFinish parsing\n command: " + self.var)
             print("command mapping...")
             self.map_commands()
-            print("exp : " + str(sensor_mysql.closeness))
+            print("exp : " + str(sensor_touch.closeness))
             if(self.speaker.is_new_story_available()):
                 self.speaker.new_story_available()

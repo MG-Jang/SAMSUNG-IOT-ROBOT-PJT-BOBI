@@ -3,7 +3,7 @@ from threading import Timer, Lock
 from time import sleep
 import signal
 import sys
-import go_oled
+import sensor_touch
 
 import board
 import adafruit_dht
@@ -35,6 +35,7 @@ def sensing():
 
     time = str(datetime.datetime.now().strftime('%Y-%m-%d   %I:%M:%S'))
     battery = 1
+    closeness = sensor_touch.closeness
 
     msg = "Temp : " + str(temperature_c) + "  Humid : " + str(humidity) + " Gas : " + str(gas)
     print(msg)
@@ -59,55 +60,23 @@ def sensing():
     timer = Timer(60, sensing)
     timer.start()
 
-def up():
-    global closeness, timer
-    
-    dotouch = GPIO.input(tilt_pin)  # 터치 누르면 1 안누르면 0 출력
-    if dotouch : 
-        closeness += 10
-        go_oled.state = 'heart'
-        sleep(3)
-        go_oled.state= 'always'
-        sleep(10)
-
-    timer2 = Timer(0.1, up)
-    timer2.start()
-
-def polling():
-    global cur, db, closeness 
-    cur.execute("select * from bobi_robot order by robot_id desc limit 1")
-    for (robot_id, exp, level) in cur:
-        closeness = exp 
-
-    db.commit()
-
-
-
 # init
 db = mysql.connector.connect(host='i7a208.p.ssafy.io', port = '3306', user='pjt_bobi', password='mysql989312bobi#', database='bobi', auth_plugin='mysql_native_password')
 cur = db.cursor()
 
-lock = Lock()
-
 timer = None
-timer2 = None
 closeness = 0
 
 dhtDevice = adafruit_dht.DHT11(board.D18)
-
-GPIO.setmode(GPIO.BCM)
 gas_pin = 17
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(gas_pin, GPIO.IN)
-
-tilt_pin = 4 #터치 센서의 경우 센서만 바꾸면 됨
-GPIO.setup(tilt_pin, GPIO.IN)
 
 #sensor = DistanceSensor(27,22)
 
-signal.signal(signal.SIGINT, closeDB)
+lock = Lock()
 
-polling()
-up()
+signal.signal(signal.SIGINT, closeDB)
 sensing()
 
 '''
