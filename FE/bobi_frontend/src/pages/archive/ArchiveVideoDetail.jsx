@@ -5,6 +5,7 @@ import Modal from "../../components/modal/Modal";
 function ArchiveVideoDetail() {
   const url = window.location.href;
   const id = url.split("/")[4];
+  const email = localStorage.getItem("email");
 
   const [archiveVideo, setArchiveVideo] = useState([]);
 
@@ -34,15 +35,19 @@ function ArchiveVideoDetail() {
   };
 
   const deleteButton = () => {
-    fetch(`https://i7a208.p.ssafy.io/api/v1/archivevideos/${id}/`, {
-      method: "DELETE",
-    })
-      .then((res) => {
-        return res.json();
+    if (email === "carerobotbobi@gmail.com") {
+      fetch(`https://i7a208.p.ssafy.io/api/v1/archivevideos/${id}/`, {
+        method: "DELETE",
       })
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error));
-    navigate(`/archive-video`);
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error));
+      navigate(`/archive-video`);
+    } else {
+      alert("허가된 사용자가 아닙니다!");
+    };
   };
 
   // datetime값을 clientside에서 파싱

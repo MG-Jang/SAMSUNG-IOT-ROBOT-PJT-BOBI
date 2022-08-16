@@ -4,6 +4,8 @@ import Graph1 from "../components/Graph1";
 
 function Sensor() {
   const [sensor, setSensor] = useState([]);
+  const [gases, setGases] = useState([]);
+  const [isAlerted, setIsAlerted] = useState(false);
 
   useEffect(() => {
     fetch("https://i7a208.p.ssafy.io/api/v1/sensors/")
@@ -15,9 +17,32 @@ function Sensor() {
         const last = data.length - 1; // 가장 최신 데이터 값 불러옴
         const lastdata = data[last];
         setSensor(lastdata);
-        console.log(lastdata);
+        // console.log(lastdata);
       });
   }, []);
+
+  useEffect(() => {
+    fetch("https://i7a208.p.ssafy.io/api/v1/sensors/")
+      .then((res) => {
+        return res.json();
+      })
+      .then((resultsList) => {
+        const start = resultsList.length - 10;
+        const end = resultsList.length;
+        // console.log(start, end)
+        const newList = resultsList.slice(start, end);
+        const gas = newList.map((list) => list.gas);
+        setGases(gas)
+      });
+  }, []);
+  // console.log(gases)
+
+  for (var i in gases) {
+    if (gases[i]===0 && isAlerted===false) {
+      alert("위험해요! 가스가 누출됐어요!")
+      setIsAlerted(true)
+    };
+  };
 
   return (
     <div>
@@ -47,7 +72,7 @@ function Sensor() {
         <span style={{ fontSize: "4vw", backgroundColor: "#FCEBA4" }}>
           {sensor["temperature"]} °C
         </span>
-        <div style={{ marginLeft: "10%", zIndex: "-1" }}>
+        <div style={{ marginLeft: "10%", zIndex: "-1", position:"relative" }}>
           <Graph />
         </div>
       </div>
@@ -87,7 +112,6 @@ function Sensor() {
               color: "blue",
               fontSize: "4vw",
               backgroundColor: "#D3F9C0",
-              fontSize: "4vw",
             }}
           >
             안전해요!
