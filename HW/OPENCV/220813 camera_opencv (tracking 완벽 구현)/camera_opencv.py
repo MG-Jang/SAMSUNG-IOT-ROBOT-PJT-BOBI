@@ -8,6 +8,8 @@ import time
 import threading
 import imutils
 
+from gpiozero import DistanceSensor
+
 curpath = os.path.realpath(__file__)
 thisPath = "/" + os.path.dirname(curpath)
 
@@ -25,6 +27,8 @@ colorUpper = np.array([44, 255, 255])
 colorLower = np.array([24, 100, 100])
 
 speedMove = 100
+
+sensor = DistanceSensor(27,22)
 
 
 
@@ -359,7 +363,13 @@ class CVThread(threading.Thread):
             #     robot.stopFB()
             #     Y_LOCK = 1
 
-            if X < 220 : #320 - CVThread.tor:  # X is box's x axis, 320 is plane center 
+            if sensor.distance < 0.3:
+                time.sleep(0.05)
+                robot.stopLR()
+                time.sleep(0.05)
+                robot.stopFB()
+                
+            elif X < 220 : #320 - CVThread.tor:  # X is box's x axis, 320 is plane center 
                 #robot.lookLeft()
                 robot.stopFB()
                 robot.lightCtrl('blue', 0)
