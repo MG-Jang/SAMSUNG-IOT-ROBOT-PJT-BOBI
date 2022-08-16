@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import ArchiveImageForm from "../../components/archive/ArchiveImageForm";
 
 function ArchiveImageWrite() {
-  const [ titleValue, setTitleValue ] = useState("");
-  const [ contentValue, setContentValue ] = useState("");  
+  const [titleValue, setTitleValue] = useState("");
+  const [contentValue, setContentValue] = useState("");
   const date = new Date();
 
   const onTitleChange = (event) => {
@@ -14,7 +14,6 @@ function ArchiveImageWrite() {
     setContentValue(event.currentTarget.value);
   };
 
-
   const ArchiveVideoSubmit = (event) => {
     event.preventDefault();
     fetch("https://i7a208.p.ssafy.io/api/v1/archiveimages/", {
@@ -22,22 +21,30 @@ function ArchiveImageWrite() {
       headers: {
         "Content-Type": "application/json",
       },
-      body : JSON.stringify({
+      body: JSON.stringify({
         title: titleValue,
         contents: contentValue,
         // video_url: urlValue,
-        datetime: date
+        datetime: date,
       }),
-      })
+    })
       .then((res) => res.json())
       .catch((err) => console.log("error : ", err))
-      .then(window.location.href="/archive-image")
+      .then((window.location.href = "/archive-image"));
   };
 
   return (
     <div>
       <br />
-      <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>사진 아카이브 작성</h1>
+      <h1
+        style={{
+          textDecoration: "underline",
+          textDecorationColor: "#a6eae2",
+          textDecorationThickness: 5,
+        }}
+      >
+        사진 아카이브 작성
+      </h1>
       <br />
       <ArchiveImageForm
         titleValue={titleValue}
@@ -48,7 +55,7 @@ function ArchiveImageWrite() {
         updateRequest={false}
       />
     </div>
-  )
-};
+  );
+}
 
 export default ArchiveImageWrite;

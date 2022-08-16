@@ -2,14 +2,13 @@ import React from "react";
 import VoiceRecord from "../components/voice/VoiceRecord";
 import VoicePlay from "../components/voice/VoicePlay";
 
-function Voice () {
-
+function Voice() {
   return (
     <>
-      <VoiceRecord/>
+      <VoiceRecord />
       <VoicePlay />
     </>
-  )
-};
+  );
+}
 
 export default Voice;

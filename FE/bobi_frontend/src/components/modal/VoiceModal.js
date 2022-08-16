@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const StyledModal = styled.div`
   .modal {
@@ -91,20 +91,21 @@ const StyledModal = styled.div`
       opacity: 1;
     }
   }
-`
+`;
 
-function VoiceModal (props) {
+function VoiceModal(props) {
   // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
   const { open, close, header, submit, submitMessage, cancel } = props;
 
   return (
     // 모달이 열릴때 openModal 클래스가 생성된다.
     <StyledModal>
-      <div className={open ? 'openModal modal' : 'modal'}>
+      <div className={open ? "openModal modal" : "modal"}>
         {open ? (
           <section>
             <header>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{header}
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {header}
               <button className="close" onClick={close}>
                 &times;
               </button>
@@ -112,18 +113,20 @@ function VoiceModal (props) {
             <main>{props.children}</main>
             <footer>
               <span>
-                
                 <button className="submit" onClick={submit}>
-                    {submitMessage}
-                </button>&nbsp;&nbsp;&nbsp;
-                <button className="cancel" onClick={cancel}>취소</button>
-              </span>  
+                  {submitMessage}
+                </button>
+                &nbsp;&nbsp;&nbsp;
+                <button className="cancel" onClick={cancel}>
+                  취소
+                </button>
+              </span>
             </footer>
           </section>
         ) : null}
       </div>
     </StyledModal>
   );
-};
+}
 
 export default VoiceModal;

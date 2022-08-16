@@ -1,7 +1,6 @@
 import React from "react";
 
 function ArchiveForm(props) {
-
   return (
     <div>
       <form>
@@ -23,8 +22,8 @@ function ArchiveForm(props) {
             type="text"
             name="url"
           />
-        <br />
-        <br />
+          <br />
+          <br />
         </div>
         <div>
           <label>내용 : </label>

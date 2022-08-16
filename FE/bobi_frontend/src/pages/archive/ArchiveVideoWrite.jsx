@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import ArchiveVideoForm from "../../components/archive/ArchiveVideoForm";
 
 function ArchiveVideoWrite() {
-  const [ titleValue, setTitleValue ] = useState("");
-  const [ contentValue, setContentValue ] = useState("");  
-  const [ urlValue, setUrlValue ] = useState("")
+  const [titleValue, setTitleValue] = useState("");
+  const [contentValue, setContentValue] = useState("");
+  const [urlValue, setUrlValue] = useState("");
   const date = new Date();
 
   const onTitleChange = (event) => {
@@ -17,7 +17,7 @@ function ArchiveVideoWrite() {
 
   const onUrlChange = (event) => {
     setUrlValue(event.currentTarget.value);
-  }
+  };
 
   const ArchiveVideoSubmit = (event) => {
     event.preventDefault();
@@ -26,22 +26,30 @@ function ArchiveVideoWrite() {
       headers: {
         "Content-Type": "application/json",
       },
-      body : JSON.stringify({
+      body: JSON.stringify({
         title: titleValue,
         contents: contentValue,
         video_url: urlValue,
-        datetime: date
+        datetime: date,
       }),
-      })
+    })
       .then((res) => res.json())
       .catch((err) => console.log("error : ", err))
-      .then(window.location.href="/archive-video")
+      .then((window.location.href = "/archive-video"));
   };
 
   return (
     <div>
       <br />
-      <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>영상 아카이브 작성</h1>
+      <h1
+        style={{
+          textDecoration: "underline",
+          textDecorationColor: "#a6eae2",
+          textDecorationThickness: 5,
+        }}
+      >
+        영상 아카이브 작성
+      </h1>
       <br />
       <ArchiveVideoForm
         titleValue={titleValue}
@@ -54,7 +62,7 @@ function ArchiveVideoWrite() {
         updateRequest={false}
       />
     </div>
-  )
-};
+  );
+}
 
 export default ArchiveVideoWrite;

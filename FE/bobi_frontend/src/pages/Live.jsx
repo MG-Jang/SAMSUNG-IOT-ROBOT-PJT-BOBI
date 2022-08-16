@@ -27,7 +27,7 @@ function Live() {
               textDecorationThickness: 5,
             }}
           >
-            실시간 영상
+            보비의 시선
           </h1>
           <br />
           {/* BoBi 계정의 가장 최신 스트리밍 영상 */}

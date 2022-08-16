@@ -137,14 +137,14 @@ function VoiceRecord() {
   // });
 
   const handleUpload = async (file) => {
-  //   const topic = `WebSendVoice`;
-  //   const payload = "on";
-  //   client.publish(topic, payload, (error) => {
-  //     if (error) {
-  //       console.log("Publish error: ", error);
-  //     }
-  //     console.log("Published!");
-  //   });
+    //   const topic = `WebSendVoice`;
+    //   const payload = "on";
+    //   client.publish(topic, payload, (error) => {
+    //     if (error) {
+    //       console.log("Publish error: ", error);
+    //     }
+    //     console.log("Published!");
+    //   });
 
     uploadFile(file, config)
       .then((data) => console.log(data))
