@@ -1,11 +1,15 @@
 import React, { useState, useCallback } from "react";
 import { uploadFile } from "react-s3";
-import VoiceModal from "../modal/VoiceModal"
+import VoiceModal from "../modal/VoiceModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPause, faPaperPlane, faMicrophoneLines } from "@fortawesome/free-solid-svg-icons";
-import mqtt from 'mqtt/dist/mqtt';
+import {
+  faPause,
+  faPaperPlane,
+  faMicrophoneLines,
+} from "@fortawesome/free-solid-svg-icons";
+import mqtt from "mqtt/dist/mqtt";
 
-window.Buffer = window.Buffer || require("buffer").Buffer; 
+window.Buffer = window.Buffer || require("buffer").Buffer;
 // ReferenceError: Buffer is not defined 에러때문에 넣음
 
 const S3_BUCKET = process.env.REACT_APP_S3_BUCKET;
@@ -13,7 +17,7 @@ const REGION = process.env.REACT_APP_S3_REGION;
 const ACCESS_KEY = process.env.REACT_APP_S3_ACCESS_KEY;
 const SECRET_ACCESS_KEY = process.env.REACT_APP_S3_SECRET_ACCESS_KEY;
 
-function VoiceRecord () {
+function VoiceRecord() {
   const [stream, setStream] = useState();
   const [media, setMedia] = useState();
   const [onRec, setOnRec] = useState(true);
@@ -27,11 +31,11 @@ function VoiceRecord () {
   // const openModal = () => {
   //   setModalOpen(true);
   // };
-  
+
   // const closeModal = () => {
   //   setModalOpen(false);
   // };
-  
+
   const onRecAudio = () => {
     // 음원정보를 담은 노드를 생성하거나 음원을 실행또는 디코딩 시키는 일을 한다
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -94,22 +98,24 @@ function VoiceRecord () {
     // 메서드가 호출 된 노드 연결 해제
     analyser.disconnect();
     source.disconnect();
-    setIsRecorded(true)
+    setIsRecorded(true);
   };
 
-  
   const onSubmitAudioFile = useCallback(() => {
     if (audioUrl) {
       console.log(URL.createObjectURL(audioUrl)); // 출력된 링크에서 녹음된 오디오 확인 가능
     }
     // const soundUrl = URL.createObjectURL(audioUrl);
     // File 생성자를 사용해 파일로 변환
-    const sound = new File([audioUrl], "1_from_web.wav", { lastModified: new Date().getTime(), type: "audio" });
+    const sound = new File([audioUrl], "1_from_web.wav", {
+      lastModified: new Date().getTime(),
+      type: "audio",
+    });
     console.log(sound); // File 정보 출력
     setAudioFile(sound);
     setModalOpen(true);
   }, [audioUrl]);
-  
+
   //s3 업로드 관련 코드
   const config = {
     bucketName: S3_BUCKET,
@@ -119,8 +125,8 @@ function VoiceRecord () {
   };
 
   // mqtt 연결
-  const host = 'i7a208.p.ssafy.io';
-  const port = '9001';
+  const host = "i7a208.p.ssafy.io";
+  const port = "9001";
   const clientId = `mqtt_${Math.random().toString(16).slice(3)}`;
   const connectUrl = `ws://${host}:${port}/mqtt`;
   const client = mqtt.connect(connectUrl, {
@@ -129,23 +135,23 @@ function VoiceRecord () {
     connectTimeout: 4000,
     reconnectPeriod: 1000,
   });
-  
+
   const handleUpload = async (file) => {
-    const topic = `WebSendVoice`
-    const payload = 'on'
-    client.publish(topic, payload, error => {
+    const topic = `WebSendVoice`;
+    const payload = "on";
+    client.publish(topic, payload, (error) => {
       if (error) {
-        console.log('Publish error: ', error);
+        console.log("Publish error: ", error);
       }
-      console.log('Published!');
+      console.log("Published!");
     });
 
     uploadFile(file, config)
-      .then(data => console.log(data))
-      .catch(err => console.error(err))
-      setModalOpen(false);
+      .then((data) => console.log(data))
+      .catch((err) => console.error(err));
+    setModalOpen(false);
   };
-  
+
   const closeModal = () => {
     setModalOpen(false);
   };
@@ -154,43 +160,57 @@ function VoiceRecord () {
     setIsRecorded(false);
     setModalOpen(false);
   };
-  
+
   return (
     <>
       <br />
       <br />
-        <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>음성 송신</h1>
+      <h1
+        style={{
+          textDecoration: "underline",
+          textDecorationColor: "#a6eae2",
+          textDecorationThickness: 5,
+        }}
+      >
+        음성 송신
+      </h1>
       <br />
       <div>
-        {onRec 
-          ? 
+        {onRec ? (
           <h3 style={{ color: "#696969" }} onClick={onRecAudio}>
-            <FontAwesomeIcon icon={faMicrophoneLines} />&nbsp;&nbsp;&nbsp;
-            보비에게 말하기 
-          </h3> 
-          : 
-          <h3 style={{ color: "#696969" }} onClick={offRecAudio}>
-            <FontAwesomeIcon icon={faPause}  />&nbsp;&nbsp;&nbsp;
-            보비에게 말하는 중 
+            <FontAwesomeIcon icon={faMicrophoneLines} />
+            &nbsp;&nbsp;&nbsp; 보비에게 말하기
           </h3>
-        }
+        ) : (
+          <h3 style={{ color: "#696969" }} onClick={offRecAudio}>
+            <FontAwesomeIcon icon={faPause} />
+            &nbsp;&nbsp;&nbsp; 보비에게 말하는 중
+          </h3>
+        )}
       </div>
       <br />
-      {isRecorded
-        ? 
+      {isRecorded ? (
         <h3 style={{ color: "#696969" }} onClick={onSubmitAudioFile}>
-          <FontAwesomeIcon icon={faPaperPlane} />&nbsp;&nbsp;&nbsp; 보비에게 보내기
+          <FontAwesomeIcon icon={faPaperPlane} />
+          &nbsp;&nbsp;&nbsp; 보비에게 보내기
         </h3>
-        : 
+      ) : (
         <h3>&nbsp;</h3>
-      }
-      <VoiceModal open={modalOpen} close={closeModal} header="보비에게 보내기" submit={() => handleUpload(audioFile)} submitMessage="보내기" cancel={recordCancel}>
+      )}
+      <VoiceModal
+        open={modalOpen}
+        close={closeModal}
+        header="보비에게 보내기"
+        submit={() => handleUpload(audioFile)}
+        submitMessage="보내기"
+        cancel={recordCancel}
+      >
         <p>&nbsp;&nbsp;제출하시겠습니까?</p>
       </VoiceModal>
       <br />
       {/* <button onClick={() => handleUpload(audioFile)}>업로드</button> */}
     </>
   );
-};
+}
 
 export default VoiceRecord;

@@ -15,31 +15,42 @@ const StyledMain = styled.main`
   }
 `;
 
-
 function Control() {
-
   const email = localStorage.getItem("email");
 
   return (
     <div>
       <br />
       <br />
-      <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>로봇 조작</h1>
+      <h1
+        style={{
+          textDecoration: "underline",
+          textDecorationColor: "#a6eae2",
+          textDecorationThickness: 5,
+        }}
+      >
+        로봇 조작
+      </h1>
       <br />
       <StyledMain>
         <div className="div">
-          <iframe title="Live" width="60%" src="https://www.youtube.com/embed/live_stream?channel=UC0Hu-_pAlzKFhiZPqDAUbIw" frameBorder="0" allowFullScreen></iframe>
+          <iframe
+            title="Live"
+            width="60%"
+            src="https://www.youtube.com/embed/live_stream?channel=UC0Hu-_pAlzKFhiZPqDAUbIw"
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
         </div>
       </StyledMain>
       <br />
-      {email === "carerobotbobi@gmail.com"
-        ?
+      {email === "carerobotbobi@gmail.com" ? (
         <ControlButton />
-        :
+      ) : (
         <ControlButtonDummy />
-      }
+      )}
     </div>
-  )
-};
+  );
+}
 
 export default Control;

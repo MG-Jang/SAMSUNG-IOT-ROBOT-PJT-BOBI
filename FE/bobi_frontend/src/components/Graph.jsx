@@ -1,51 +1,66 @@
-import React, {useEffect, useState} from "react";
-import ApexCharts from 'react-apexcharts';
+import React, { useEffect, useState } from "react";
+import ApexCharts from "react-apexcharts";
 
 function Graph1() {
+  const [results, setResults] = useState([]);
+  const [temperatures, setTemperatures] = useState([]);
 
-  const [ results, setResults ] = useState([]);
-  const [ temperatures, setTemperatures ] = useState([]);
-
-  const series = [{
+  const series = [
+    {
       name: "온도",
-      data: temperatures
+      data: temperatures, // DB에서 가져온 최근 10개 값
     },
-  ]
-  
+  ];
+
   const options = {
+    colors: ["#FFDF65"],
     chart: {
-      height: 100,
-      type: 'line',
+      height: 20,
+      type: "line",
       zoom: {
-        enabled: false
+        enabled: false,
       },
     },
     dataLabels: {
-      enabled: false
+      enabled: false,
     },
     stroke: {
       width: [5, 7, 5],
-      curve: 'straight',
-      dashArray: [0, 8, 5]
+      curve: "straight",
+      dashArray: [0, 8, 5],
     },
-    title: {
-      text: 'Temperature',
-      align: 'left'
-    },
+    // title: {
+    //   text: "",
+    //   align: "left",
+    // },
     legend: {
-      tooltipHoverFormatter: function(val, opts) {
-        return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
-      }
+      tooltipHoverFormatter: function (val, opts) {
+        return (
+          val +
+          " - " +
+          opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] +
+          ""
+        );
+      },
     },
     markers: {
       size: 0,
       hover: {
-        sizeOffset: 6
-      }
+        sizeOffset: 6,
+      },
     },
     xaxis: {
-      categories: ['10분 전', '9분 전', '8분 전', '7분 전', '6분 전', '5분 전', '4분 전', '3분 전', '2분 전',
-        '1분 전'
+      categories: [
+        "10분 전",
+        "9분 전",
+        "8분 전",
+        "7분 전",
+        "6분 전",
+        "5분 전",
+        "4분 전",
+        "3분 전",
+        "2분 전",
+        "1분 전",
       ],
     },
     tooltip: {
@@ -53,47 +68,51 @@ function Graph1() {
         {
           title: {
             formatter: function (val) {
-              return val
-            }
-          }
+              return val;
+            },
+          },
         },
-      ]
+      ],
     },
     grid: {
-      borderColor: '#f1f1f1',
-    }
-  }
-
+      borderColor: "#f1f1f1",
+    },
+  };
 
   useEffect(() => {
     fetch("https://i7a208.p.ssafy.io/api/v1/sensors/")
-    .then((response) => response.json())
-    .then(resultsList => {
-      // console.log(resultsList)
-      const start = resultsList.length - 10
-      const end = resultsList.length
-      // console.log(start, end)
-      const newList = resultsList.slice(start, end)
-      const temperature = newList.map(list => list.temperature)
-      setTemperatures(temperature)
-      // console.log(temperatures)
-      // console.log(newList[0].temperature)
-      setResults(newList);
-    });
+      .then((response) => response.json())
+      .then((resultsList) => {
+        // console.log(resultsList)
+        const start = resultsList.length - 10;
+        const end = resultsList.length;
+        // console.log(start, end)
+        const newList = resultsList.slice(start, end);
+        const temperature = newList.map((list) => list.temperature);
+        setTemperatures(temperature);
+        // console.log(temperatures)
+        // console.log(newList[0].temperature)
+        setResults(newList);
+      });
     // setSensors()
-   
-  })
+  });
 
   return (
     <>
-      <ApexCharts width="80%" options={options} series={series} type="line" height={350} />
+      <ApexCharts
+        options={options}
+        series={series}
+        type="line"
+        height={180}
+        width="90%"
+      />
       {/* <ul>
         {this.state.results.map((result) => (
           <li key={result.sensor_id}>{result.humidity}</li>
         ))}
       </ul> */}
     </>
-  )
-};
+  );
+}
 
 export default Graph1;

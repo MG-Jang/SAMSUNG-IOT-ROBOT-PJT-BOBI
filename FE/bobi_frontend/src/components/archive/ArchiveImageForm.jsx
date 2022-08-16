@@ -35,4 +35,3 @@ function ArchiveImageForm(props) {
 }
 
 export default ArchiveImageForm;
-

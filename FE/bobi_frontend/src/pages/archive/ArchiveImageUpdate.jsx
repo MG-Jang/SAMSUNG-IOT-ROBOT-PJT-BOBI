@@ -3,12 +3,12 @@ import { useLocation } from "react-router-dom";
 import ArchiveImageForm from "../../components/archive/ArchiveImageForm";
 
 function ArchiveImageUpdate() {
-  const {state} = useLocation();
+  const { state } = useLocation();
   const url = window.location.href;
-  const id = url.split('/')[4];
+  const id = url.split("/")[4];
 
-  const [ titleValue, setTitleValue ] = useState(state.title);
-  const [ contentValue, setContentValue ] = useState(state.contents);  
+  const [titleValue, setTitleValue] = useState(state.title);
+  const [contentValue, setContentValue] = useState(state.contents);
   const date = new Date();
   const imageUrl = state.url;
 
@@ -27,25 +27,32 @@ function ArchiveImageUpdate() {
       headers: {
         "Content-Type": "application/json",
       },
-      body : JSON.stringify({
+      body: JSON.stringify({
         title: titleValue,
         contents: contentValue,
         img_url: imageUrl,
         datetime: date,
       }),
     })
-    .then((res) => res.json())
-    .then((data)=> console.log(data))
-    .catch((err) => console.log("error : ", err))
-    window.location.href=`/archive-image/${id}`
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log("error : ", err));
+    window.location.href = `/archive-image/${id}`;
   };
-
 
   return (
     <div>
       <br />
       <br />
-      <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>사진 아카이브 수정</h1>
+      <h1
+        style={{
+          textDecoration: "underline",
+          textDecorationColor: "#a6eae2",
+          textDecorationThickness: 5,
+        }}
+      >
+        사진 아카이브 수정
+      </h1>
       <br />
       <ArchiveImageForm
         titleValue={titleValue}
@@ -56,7 +63,7 @@ function ArchiveImageUpdate() {
         updateRequest={false}
       />
     </div>
-  )
-};
+  );
+}
 
 export default ArchiveImageUpdate;
