@@ -129,7 +129,7 @@ class VoiceRecognition():
             robot.ok()
         else :
             sensor_oled.state = "fail"
-
+    
     def run(self):
         """record cmd if hot word detected -> parse -> map
         """
@@ -152,5 +152,3 @@ class VoiceRecognition():
             print("command mapping...")
             self.map_commands()
             print("exp : " + str(sensor_touch.closeness))
-            if(self.speaker.is_new_story_available()):
-                self.speaker.new_story_available()

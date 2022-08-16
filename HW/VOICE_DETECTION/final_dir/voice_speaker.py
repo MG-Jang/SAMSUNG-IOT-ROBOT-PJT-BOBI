@@ -28,7 +28,7 @@ class Speaker():
 
     def is_new_story_available(self):
         result = False
-        print("prev" + str(self.prev_closeness) + " cur " + str(sensor_touch.closeness))
+        #print("prev" + str(self.prev_closeness) + " cur " + str(sensor_touch.closeness))
         if(self.prev_closeness < 100 and sensor_touch.closeness>=100):
             result = True 
         elif(self.prev_closeness < 200 and sensor_touch.closeness>=200):
