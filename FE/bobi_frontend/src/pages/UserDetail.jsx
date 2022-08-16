@@ -9,7 +9,7 @@ function UserDetail() {
   const [youtube, setYoutube] = useState("");
   const [robotId, setRobotId] = useState("");
   const [users, setUsers] = useState([]);
-  const [id, setId] = useState("");
+  // const [ id, setId ] = useState("");
 
   useEffect(() => {
     fetch("https://i7a208.p.ssafy.io/api/v1/fakeusers")
@@ -25,7 +25,7 @@ function UserDetail() {
   const emails = users.map((user) => user.email);
   for (var i in emails) {
     if (localStorage.getItem("email") === emails[i]) {
-      window.localStorage.setItem("id", id);
+      // window.localStorage.setItem("id", id)
       return <Navigate to="/" />;
     }
   }
@@ -58,13 +58,14 @@ function UserDetail() {
       }),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data.id);
-        const userId = data.id;
-        setId(userId);
-        window.localStorage.setItem("id", id);
-      })
+      // .then((data) => {
+      // console.log(data.id)
+      // const userId = data.id
+      // setId(userId)
+      // window.localStorage.setItem("id", id)
+      // })
       .catch((err) => console.log("error : ", err));
+    window.location.reload();
   };
 
   return (

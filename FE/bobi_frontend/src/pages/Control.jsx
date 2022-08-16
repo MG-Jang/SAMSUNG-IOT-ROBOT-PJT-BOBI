@@ -29,7 +29,7 @@ function Control() {
           textDecorationThickness: 5,
         }}
       >
-        로봇 조작
+        보비 움직이기
       </h1>
       <br />
       <StyledMain>

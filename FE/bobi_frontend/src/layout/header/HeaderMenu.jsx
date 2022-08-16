@@ -1,53 +1,51 @@
 import React from "react";
 import Dropdown from "../../components/Dropdown";
 import styled from "styled-components";
-import ArchiveMenu from "./ArchiveMenu"
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
 
-
 const StyledMenu = styled.menu`
   width: 12rem;
-  font-family: 'GangwonEdu_OTFBoldA';
+  font-family: "GangwonEdu_OTFBoldA";
 
   @keyframes slide-fade-in-dropdown-animation {
     0% {
       transform: translateY(-100%);
     }
-  
+
     100% {
       transform: translateY(0);
     }
   }
-  
+
   .slide-fade-in-dropdown {
     overflow: hidden;
   }
-  
+
   .slide-fade-in-dropdown > ul {
-    animation: slide-fade-in-dropdown-animation .4s ease;
+    animation: slide-fade-in-dropdown-animation 0.4s ease;
   }
-  
+
   @keyframes slide-fade-out-dropdown-animation {
     0% {
       transform: translateY(0);
     }
-  
+
     100% {
       transform: translateY(-100%);
     }
   }
-  
+
   .slide-fade-out-dropdown {
     overflow: hidden;
   }
-  
+
   .slide-fade-out-dropdown > ul {
     animation: slide-fade-out-dropdown-animation 0.4s ease;
     animation-fill-mode: forwards;
   }
-  
+
   .components-dropdown > ul {
     position: relative;
     top: 5px;
@@ -60,7 +58,7 @@ const StyledMenu = styled.menu`
     list-style: none;
     background-color: #a6eae2;
   }
-  
+
   .components-dropdown > ul > li {
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;
@@ -85,36 +83,59 @@ const StyledMenu = styled.menu`
 //   return window.location.pathname.startsWith(path);
 // }
 
-function HeaderMenu (props) {
-  const [dropdownVisibility, setDropdownVisibility ] = React.useState(false);
+function HeaderMenu(props) {
+  const [dropdownVisibility, setDropdownVisibility] = React.useState(false);
 
   return (
-    <div className='Header-menu'>
+    <div className="Header-menu">
       <StyledMenu>
-        <p className='Header-icon' onClick={e => setDropdownVisibility(!dropdownVisibility)}>
-          {
-            dropdownVisibility
-            ? <FontAwesomeIcon icon={faX} size="2x"/>
-            : <FontAwesomeIcon icon={faBars} size="2x"/>
-          }
+        <p
+          className="Header-icon"
+          onClick={(e) => setDropdownVisibility(!dropdownVisibility)}
+        >
+          {dropdownVisibility ? (
+            <FontAwesomeIcon icon={faX} size="2x" />
+          ) : (
+            <FontAwesomeIcon icon={faBars} size="2x" />
+          )}
         </p>
         <Dropdown visibility={dropdownVisibility}>
           <ul>
-            <li><NavLink to="/intro">BoBi?</NavLink></li>
-            <li><NavLink to="/live">실시간 영상</NavLink></li>
-            <li><NavLink to="/friendliness">친밀도</NavLink></li>
-            <li><ArchiveMenu /></li>
-            <li><NavLink to="/story">스토리</NavLink></li>
-            <li><NavLink to="/control">로봇 조작</NavLink></li>
-            <li><NavLink to="/sensor">센서</NavLink></li>
-            <li><NavLink to="/voice">음성 송수신</NavLink></li>
-            <li><NavLink to="/user">회원정보</NavLink></li>
-            <li><NavLink to="/config">환경설정</NavLink></li>
+            <li>
+              <NavLink to="/intro">BoBi 🚀</NavLink>
+            </li>
+            <li>
+              <NavLink to="/live">보비의 시선</NavLink>
+            </li>
+            <li>
+              <NavLink to="/friendliness">보비와 친해져요</NavLink>
+            </li>
+            <li>
+              <NavLink to="/archive-video">기억할 순간들</NavLink>
+            </li>
+            <li>
+              <NavLink to="/story">숨겨진 이야기</NavLink>
+            </li>
+            <li>
+              <NavLink to="/control">보비 움직이기</NavLink>
+            </li>
+            <li>
+              <NavLink to="/sensor">지금 우리집은?</NavLink>
+            </li>
+            <li>
+              <NavLink to="/voice">보비와 소통하기</NavLink>
+            </li>
+            <li>
+              <NavLink to="/user">회원정보</NavLink>
+            </li>
+            <li>
+              <NavLink to="/config">환경설정</NavLink>
+            </li>
           </ul>
         </Dropdown>
       </StyledMenu>
     </div>
-  )
-};
+  );
+}
 
 export default HeaderMenu;

@@ -46,17 +46,75 @@ function User() {
       >
         회원정보
       </h1>
-      <br />
-      <br />
-      <h5>이름 : {username}</h5>
-      <br />
-      <h5>이메일 : {email}</h5>
-      <br />
-      <h5>닉네임 : {nickname}</h5>
-      <br />
-      <h5>유튜브 계정 : {youtubeId}</h5>
-      <br />
-      <h5>로봇 등록 :{robotId !== null ? " 등록 완료" : " 미등록 상태"}</h5>
+      <div style={{ textAlign: "left", marginLeft: "10%" }}>
+        <br />
+        <br />
+        <div style={{ fontSize: "6vw" }}>
+          <span
+            style={{
+              backgroundColor: "#CEECF5",
+              borderRadius: "3px",
+              marginRight: "2%",
+            }}
+          >
+            이름
+          </span>
+          <span> {username}</span>
+        </div>
+        <br />
+        <div style={{ fontSize: "6vw" }}>
+          <span
+            style={{
+              backgroundColor: "#FFF5DA",
+              borderRadius: "3px",
+              marginRight: "2%",
+            }}
+          >
+            이메일
+          </span>
+          <span> {email}</span>
+        </div>
+        <br />
+        <div style={{ fontSize: "6vw" }}>
+          <span
+            style={{
+              backgroundColor: "#CDF0EA",
+              borderRadius: "3px",
+              marginRight: "2%",
+            }}
+          >
+            닉네임
+          </span>
+          <span> {nickname}</span>
+        </div>
+
+        <br />
+        <div style={{ fontSize: "6vw" }}>
+          <span
+            style={{
+              backgroundColor: "#F7DBF0",
+              borderRadius: "3px",
+              marginRight: "2%",
+            }}
+          >
+            유튜브 계정
+          </span>
+          <span> {youtubeId}</span>
+        </div>
+        <br />
+        <div style={{ fontSize: "6vw" }}>
+          <span
+            style={{
+              backgroundColor: "#F4E3DC",
+              borderRadius: "3px",
+              marginRight: "2%",
+            }}
+          >
+            로봇 등록
+          </span>
+          <span>{robotId !== null ? " 등록 완료" : " 미등록 상태"}</span>
+        </div>
+      </div>
     </div>
   );
 }

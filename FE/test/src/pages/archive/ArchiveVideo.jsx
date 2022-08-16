@@ -50,9 +50,16 @@ function ArchiveVideo() {
         close={closeModal}
         header="영상 올리는 방법"
         submit={closeModal}
-        submitMessage="close"
-      >
-        <p>유투브 스튜디오에서 영상 올리는 방법 여따가 쓰기</p>
+        submitMessage="닫기"
+      > 
+      
+      <div style={{ fontFamily: "Pretendard-Regular"}}>
+        <p>유튜브 계정의 "내 채널"로 들어가서, 저장하고 싶은 순간이 포함된 영상을 클릭해주세요!</p>
+        <p>영상 아래의 "클립"을 누른 후, 자르고 싶은 부분을 선택한 후 "클립 공유"를 눌러주세요!</p>
+        <p>공유 아래의 "퍼가기"를 누른 후에 텍스트 안의 "https://www.youtube.com/embed/"로 시작되는 링크를 전체 복사해주세요!</p>
+        <p>[영상 올리기] 버튼을 누른 후 복사해 둔 유튜브 링크를 입력해주세요. 제목과 내용도 모두 입력해야 업로드 가능한 것, 잊지 마세요!</p>
+      </div>
+        
       </Modal>
       <br />
       <br />

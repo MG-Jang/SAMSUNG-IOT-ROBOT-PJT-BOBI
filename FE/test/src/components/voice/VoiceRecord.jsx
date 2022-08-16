@@ -185,7 +185,7 @@ function VoiceRecord () {
         <h3>&nbsp;</h3>
       }
       <VoiceModal open={modalOpen} close={closeModal} header="보비에게 보내기" submit={() => handleUpload(audioFile)} submitMessage="보내기" cancel={recordCancel}>
-        <p>&nbsp;&nbsp;제출하시겠습니까?</p>
+        <p>&nbsp;&nbsp;보비에게 메시지를 보낼까요?</p>
       </VoiceModal>
       <br />
       {/* <button onClick={() => handleUpload(audioFile)}>업로드</button> */}

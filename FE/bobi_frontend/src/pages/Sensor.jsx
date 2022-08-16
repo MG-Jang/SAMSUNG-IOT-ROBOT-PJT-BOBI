@@ -31,7 +31,7 @@ function Sensor() {
           textDecorationThickness: 5,
         }}
       >
-        센서 데이터
+        지금 우리집은?
       </h1>
 
       {/* 감지 시각 알림 */}

@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const StyledModal = styled.div`
   .modal {
@@ -84,25 +84,30 @@ const StyledModal = styled.div`
       opacity: 1;
     }
   }
-`
+`;
 
-function Modal (props) {
+function Modal(props) {
   // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
   const { open, close, header, submit, submitMessage } = props;
 
   return (
     // 모달이 열릴때 openModal 클래스가 생성된다.
     <StyledModal>
-      <div className={open ? 'openModal modal' : 'modal'}>
+      <div className={open ? "openModal modal" : "modal"}>
         {open ? (
           <section>
             <header>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{header}
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {header}
               <button className="close" onClick={close}>
                 &times;
               </button>
             </header>
-            <main>{props.children}</main>
+            <main
+              style={{ textAlign: "left", fontFamily: "Pretendard-Regular" }}
+            >
+              {props.children}
+            </main>
             <footer>
               <button className="submit" onClick={submit}>
                 {submitMessage}
@@ -113,6 +118,6 @@ function Modal (props) {
       </div>
     </StyledModal>
   );
-};
+}
 
 export default Modal;

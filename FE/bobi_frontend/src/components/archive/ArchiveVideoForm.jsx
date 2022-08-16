@@ -6,7 +6,7 @@ function ArchiveVideoForm(props) {
     <div>
       <form>
         {/* <label>제목 : </label> */}
-        <p style={{marginRight: "48%", marginBottom: "0"}}>닉네임</p>
+        <p style={{marginRight: "48%", marginBottom: "0"}}> 제목</p>
         <input
           onChange={props.handleTitleChange}
           value={props.titleValue}
