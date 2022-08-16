@@ -56,29 +56,54 @@ class VoiceRecognition():
     def map_commands(self):
         # map robot func according to the cmd
         if self.var == "앉아":
-            sensor_oled.state = "sit"
-            sensor_mysql.closeness += 10
-            robot.sit()
+            if sensor_mysql.closeness < 100 :
+                print("exp 100 미만")
+                sensor_oled.state = "what"   
+            else :
+                sensor_oled.state = "sit"
+                sensor_mysql.closeness += 10
+                robot.sit()
         elif self.var == "일어나":
-            sensor_oled.state = "always"
-            robot.standUp()
+            if sensor_mysql.closeness < 100 :
+                print("exp 100 미만")
+                sensor_oled.state = "what"   
+            else :
+                sensor_oled.state = "always"
+                robot.standUp()
         elif self.var == "오른손":
-            sensor_mysql.closeness += 10
-            robot.rightHand()
+            if sensor_mysql.closeness < 100 :
+                print("exp 300 미만")
+                sensor_oled.state = "what"   
+            else :
+                sensor_mysql.closeness += 10
+                robot.rightHand()
         elif self.var == "왼손":
-            sensor_mysql.closeness += 10
-            robot.leftHand()
+            if sensor_mysql.closeness < 100 :
+                print("exp 300 미만")
+                sensor_oled.state = "what"   
+            else :
+                sensor_mysql.closeness += 10
+                robot.leftHand()
         elif self.var == "엎드려":
-            sensor_mysql.closeness += 10
-            sensor_oled.state = "down"
-            robot.lower()
+            if sensor_mysql.closeness < 200 :
+                print("exp 200 미만")
+                sensor_oled.state = "what"   
+            else :
+                sensor_oled.state = "down"
+                sensor_mysql.closeness += 10
+                robot.lower()
         elif self.var == "잘했어":
-            sensor_oled.state = "always"
-            robot.upper()
+            if sensor_mysql.closeness < 200 :
+                print("exp 200 미만")
+                sensor_oled.state = "what"   
+            else :
+                sensor_oled.state = "always"
+                robot.upper()
         elif self.var == "메시지":
             sensor_mysql.closeness += 10
             sensor_oled.state = "msg"
             self.record_voice()
+            # time.sleep(1) # OLED에 송신 O/X 표시
             sensor_oled.state = "always"
         elif self.var == "이야기":
             self.speaker.speak_story()
@@ -97,7 +122,10 @@ class VoiceRecognition():
         os.system(cmd)
         voice_mssg = VoiceMessage()
         if(voice_mssg.upload_file(mssg_file_path, self.user_id)):
+            sensor_oled.state = "success"
             robot.ok()
+        else :
+            sensor_oled.state = "fail"
 
     def run(self):
         """record cmd if hot word detected -> parse -> map
@@ -121,5 +149,6 @@ class VoiceRecognition():
             print("command mapping...")
             self.map_commands()
             print("exp : " + str(sensor_mysql.closeness))
+             # voice_speaker에는 is_story_available이 아닌 is_new_story_available인데 잘못썼는지 확인할것!
             if(self.speaker.is_story_available()):
                 self.speaker.new_story_available()
