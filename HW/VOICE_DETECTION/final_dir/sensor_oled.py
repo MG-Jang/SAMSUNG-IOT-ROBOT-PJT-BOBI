@@ -95,7 +95,7 @@ def what():
 def delay():
     global state
     if(state == 'what') :
-        sleep(2)
+        sleep(4)
         state = 'always'
     
     timer2 = Timer(0.1, delay)
