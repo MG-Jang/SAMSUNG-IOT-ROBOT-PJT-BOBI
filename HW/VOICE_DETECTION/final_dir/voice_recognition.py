@@ -149,6 +149,5 @@ class VoiceRecognition():
             print("command mapping...")
             self.map_commands()
             print("exp : " + str(sensor_mysql.closeness))
-             # voice_speaker에는 is_story_available이 아닌 is_new_story_available인데 잘못썼는지 확인할것!
-            if(self.speaker.is_story_available()):
+            if(self.speaker.is_new_story_available()):
                 self.speaker.new_story_available()
