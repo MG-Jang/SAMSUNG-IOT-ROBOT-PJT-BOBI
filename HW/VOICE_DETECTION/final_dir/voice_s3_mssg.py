@@ -12,6 +12,8 @@ import boto3
 from botocore.exceptions import ClientError
 import os
 import paho.mqtt.client as mqtt
+import mysql.connector
+import datetime
 
 
 class VoiceMessage():
@@ -23,7 +25,9 @@ class VoiceMessage():
         self.bucket_name = "bobivoicebucket"
         self.mqtt_client = mqtt.Client()
         self.mqtt_client.connect("i7a208.p.ssafy.io", 1883, 60)
-
+        self.db = mysql.connector.connect(host='i7a208.p.ssafy.io', port = '3306', user='pjt_bobi', password='mysql989312bobi#', database='bobi', auth_plugin='mysql_native_password')
+        self.cur = self.db.cursor()
+        
     def upload_file(self, file_name, user_id):
         """Upload a file to an S3 bucket
 
@@ -41,8 +45,17 @@ class VoiceMessage():
             print("upload failed")
             return False
         print("upload success")
+        # mqtt
         print("mqtt topic " + user_id + "/voice/toweb")
         topic = user_id + "/voice/toweb"
+        
+        # db
+        time = str(datetime.datetime.now().strftime('%Y-%m-%d   %I:%M:%S'))
+        query = "insert into voices_voicecheck(datetime, is_checked) values (%s, %s)"
+        value = (time, 0)
+
+        self.cur.execute(query, value)
+        self.db.commit()
         
         self.mqtt_client.publish(topic, "upload")
         return True
