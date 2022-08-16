@@ -4,10 +4,12 @@ VCC 빨강
 GND 검은
 
 OLED 
-SDA : 2번핀 노란색
-SCL : 3번핀 흰색
+SDA : 2번핀 노란색   보라색   888888                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+SCL : 3번핀 흰색  파랑색
 
 Touch : 4번핀 주황색
 Gas : 17번핀 초록
 dht11 : 18번핀 파랑
 초음파 : 27,22핀 보라
+
+vcc gnd scl sda
