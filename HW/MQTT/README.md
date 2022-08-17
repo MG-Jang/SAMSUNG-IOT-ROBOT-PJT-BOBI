@@ -32,6 +32,12 @@ user_id
 ```
 
 ## How to run
+### use bash file 
+```
+$ ~/WAVEGO/RPi/mqtt.sh [user id]
+```
+or 
+### manually run the code
 1. activate virtual env
     ```
     $ cd ~/google_stt
@@ -46,4 +52,5 @@ user_id
 ## File structure
 ```
 |  mqtt_subscribe.py
+|  mqtt.sh
 ```
