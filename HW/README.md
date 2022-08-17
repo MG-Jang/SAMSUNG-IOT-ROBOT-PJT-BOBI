@@ -5,7 +5,7 @@ date: 2022-08-17
 # HW(robot)
 - 로봇에서는 영상 인식, 음성 인식, 센서 등은 라즈베리파이에서 담당하고 모터, 부저는 ESP32에서 담당
 - 로봇 사용을 위해 기본 세팅을 진행 후 프로젝트 세팅 진행 
-- 자세한 내용, version 등은 [**wiki**](https://lab.ssafy.com/s07-webmobile3-sub2/S07P12A208/-/wikis/home) 혹은 각 requirements 참고
+- 자세한 내용, version 등은 [**wiki**](https://lab.ssafy.com/s07-webmobile3-sub2/S07P12A208/-/wikis/home) 혹은 각 기능의 requirements.txt 참고
 
 ## 기본 세팅
 ### How to set RPI
