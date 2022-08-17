@@ -230,3 +230,17 @@ date: 2022-08-17
     ```
     $ ffmpeg -re -i /dev/video0 -f lavfi -i anullsrc -vb 2500k -s 1280x720 -f flv [youtube streaming 키]
     ```
+
+### S3 access key 등록
+1. AWS에 로그인
+2. [IAM console](https://console.aws.amazon.com/iam) 로 이동
+3. `My Security Credentials → Access Keys` 로 이동
+4. `Create New Access Key` 로 새로운 키 만들기
+5. csv 파일 다운 받기
+6. 라즈베리파이에 원격으로 접속해서 받은 키 등록
+    ```
+    $ aws configure
+    ```
+    - 개인 PC로 받은 csv 파일을 열어 적혀 있는 access key, secret key 등록
+ [AWS key 만들기](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey)
+ [key 등록](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html)
