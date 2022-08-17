@@ -17,32 +17,15 @@ function Sensor() {
         const last = data.length - 1; // 가장 최신 데이터 값 불러옴
         const lastdata = data[last];
         setSensor(lastdata);
-        // console.log(lastdata);
+        console.log(lastdata);
       });
   }, []);
 
-  useEffect(() => {
-    fetch("https://i7a208.p.ssafy.io/api/v1/sensors/")
-      .then((res) => {
-        return res.json();
-      })
-      .then((resultsList) => {
-        const start = resultsList.length - 10;
-        const end = resultsList.length;
-        // console.log(start, end)
-        const newList = resultsList.slice(start, end);
-        const gas = newList.map((list) => list.gas);
-        setGases(gas)
-      });
-  }, []);
-  // console.log(gases)
-
-  for (var i in gases) {
-    if (gases[i]===0 && isAlerted===false) {
-      alert("위험해요! 가스가 누출됐어요!")
-      setIsAlerted(true)
-    };
+  if (sensor.gas===0 && isAlerted===false) {
+    setIsAlerted(true)
+    alert("위험해요! 가스가 누출됐어요!")
   };
+
 
   return (
     <div>
