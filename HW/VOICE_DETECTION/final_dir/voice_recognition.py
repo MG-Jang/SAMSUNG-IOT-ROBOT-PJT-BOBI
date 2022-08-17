@@ -72,14 +72,14 @@ class VoiceRecognition():
                 sensor_oled.state = "always"
                 robot.standUp()
         elif self.var == "오른손":
-            if sensor_touch.closeness < 100 :
+            if sensor_touch.closeness < 300 :
                 print("exp 300 미만")
                 sensor_oled.state = "what"   
             else :
                 sensor_touch.closeness += 10
                 robot.rightHand()
         elif self.var == "왼손":
-            if sensor_touch.closeness < 100 :
+            if sensor_touch.closeness < 300 :
                 print("exp 300 미만")
                 sensor_oled.state = "what"   
             else :
