@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ApexCharts from "react-apexcharts";
 
 function Graph1() {
-  const [results, setResults] = useState([]);
+  // const [results, setResults] = useState([]);
   const [humidities, setHumidities] = useState([]);
 
   const series = [
@@ -92,7 +92,7 @@ function Graph1() {
         setHumidities(humidity);
         // console.log(temperatures)
         // console.log(newList[0].temperature)
-        setResults(newList);
+        // setResults(newList);
       });
     // setSensors()
   });

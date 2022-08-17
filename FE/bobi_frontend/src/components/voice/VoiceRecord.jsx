@@ -7,7 +7,7 @@ import {
   faPaperPlane,
   faMicrophoneLines,
 } from "@fortawesome/free-solid-svg-icons";
-import mqtt from "mqtt/dist/mqtt";
+// import mqtt from "mqtt/dist/mqtt";
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 // ReferenceError: Buffer is not defined 에러때문에 넣음
@@ -28,13 +28,7 @@ function VoiceRecord() {
   const [audioFile, setAudioFile] = useState();
   const [modalOpen, setModalOpen] = useState(false);
 
-  // const openModal = () => {
-  //   setModalOpen(true);
-  // };
-
-  // const closeModal = () => {
-  //   setModalOpen(false);
-  // };
+  const email = localStorage.getItem("email");
 
   const onRecAudio = () => {
     // 음원정보를 담은 노드를 생성하거나 음원을 실행또는 디코딩 시키는 일을 한다
@@ -125,31 +119,35 @@ function VoiceRecord() {
   };
 
   // mqtt 연결
-  const host = "i7a208.p.ssafy.io";
-  const port = "9001";
-  const clientId = `mqtt_${Math.random().toString(16).slice(3)}`;
-  const connectUrl = `ws://${host}:${port}/mqtt`;
-  const client = mqtt.connect(connectUrl, {
-    clientId,
-    clean: true,
-    connectTimeout: 4000,
-    reconnectPeriod: 1000,
-  });
+  // const host = "i7a208.p.ssafy.io";
+  // const port = "9001";
+  // const clientId = `mqtt_${Math.random().toString(16).slice(3)}`;
+  // const connectUrl = `ws://${host}:${port}/mqtt`;
+  // const client = mqtt.connect(connectUrl, {
+  //   clientId,
+  //   clean: true,
+  //   connectTimeout: 4000,
+  //   reconnectPeriod: 1000,
+  // });
 
   const handleUpload = async (file) => {
-    const topic = `WebSendVoice`;
-    const payload = "on";
-    client.publish(topic, payload, (error) => {
-      if (error) {
-        console.log("Publish error: ", error);
-      }
-      console.log("Published!");
-    });
-
-    uploadFile(file, config)
-      .then((data) => console.log(data))
-      .catch((err) => console.error(err));
-    setModalOpen(false);
+    if (email === "carerobotbobi@gmail.com") {
+      //   const topic = `WebSendVoice`;
+      //   const payload = "on";
+      //   client.publish(topic, payload, (error) => {
+      //     if (error) {
+      //       console.log("Publish error: ", error);
+      //     }
+      //     console.log("Published!");
+      //   });
+  
+      uploadFile(file, config)
+        .then((data) => console.log(data))
+        .catch((err) => console.error(err));
+      setModalOpen(false);
+    } else {
+      alert("허가된 사용자가 아닙니다!");
+    };
   };
 
   const closeModal = () => {
@@ -205,7 +203,7 @@ function VoiceRecord() {
         submitMessage="보내기"
         cancel={recordCancel}
       >
-        <p>&nbsp;&nbsp;제출하시겠습니까?</p>
+        <p>&nbsp;&nbsp;보비에게 메시지를 보낼까요?</p>
       </VoiceModal>
       <br />
       {/* <button onClick={() => handleUpload(audioFile)}>업로드</button> */}

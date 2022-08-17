@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ApexCharts from "react-apexcharts";
 
 function Graph1() {
-  const [results, setResults] = useState([]);
+  // const [results, setResults] = useState([]);
   const [temperatures, setTemperatures] = useState([]);
 
   const series = [
@@ -90,12 +90,12 @@ function Graph1() {
         const newList = resultsList.slice(start, end);
         const temperature = newList.map((list) => list.temperature);
         setTemperatures(temperature);
-        // console.log(temperatures)
         // console.log(newList[0].temperature)
-        setResults(newList);
-      });
-    // setSensors()
-  });
+        // setResults(newList);
+      })
+  }, []);
+  // console.log(results)
+  // console.log(temperatures)
 
   return (
     <>

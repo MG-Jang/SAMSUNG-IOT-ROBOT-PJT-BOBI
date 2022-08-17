@@ -9,6 +9,7 @@ function VoicePlay() {
   const [source, setSource] = useState(""); // 재생할 오디오 소스 값
   const [isChecked, setIsChecked] = useState(false);
   const [id, setId] = useState("");
+  const email = localStorage.getItem("email");
 
   useEffect(() => {
     fetch(`https://i7a208.p.ssafy.io/api/v1/voicecheck`)
@@ -38,19 +39,23 @@ function VoicePlay() {
   }, []);
 
   const onCheck = () => {
-    fetch(`https://i7a208.p.ssafy.io/api/v1/voicecheck/${id}/`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        is_checked: true,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.log("error : ", err));
-    setIsChecked(true);
+    if (email === "carerobotbobi@gmail.com") {
+      fetch(`https://i7a208.p.ssafy.io/api/v1/voicecheck/${id}/`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          is_checked: true,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        .catch((err) => console.log("error : ", err));
+      setIsChecked(true);
+    } else {
+      alert("허가된 사용자가 아닙니다!");
+    };
   };
 
   return (

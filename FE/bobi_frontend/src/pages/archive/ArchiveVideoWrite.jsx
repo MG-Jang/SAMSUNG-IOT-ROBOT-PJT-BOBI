@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import ArchiveVideoForm from "../../components/archive/ArchiveVideoForm";
 
 function ArchiveVideoWrite() {
-  const [ titleValue, setTitleValue ] = useState("");
-  const [ contentValue, setContentValue ] = useState("");  
-  const [ urlValue, setUrlValue ] = useState("")
+  const [titleValue, setTitleValue] = useState("");
+  const [contentValue, setContentValue] = useState("");
+  const [urlValue, setUrlValue] = useState("");
   const date = new Date();
+  const email = localStorage.getItem("email");
 
   const onTitleChange = (event) => {
     setTitleValue(event.currentTarget.value);
@@ -17,31 +18,43 @@ function ArchiveVideoWrite() {
 
   const onUrlChange = (event) => {
     setUrlValue(event.currentTarget.value);
-  }
+  };
 
   const ArchiveVideoSubmit = (event) => {
     event.preventDefault();
-    fetch("https://i7a208.p.ssafy.io/api/v1/archivevideos/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body : JSON.stringify({
-        title: titleValue,
-        contents: contentValue,
-        video_url: urlValue,
-        datetime: date
-      }),
+    if (email === "carerobotbobi@gmail.com") {
+      fetch("https://i7a208.p.ssafy.io/api/v1/archivevideos/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: titleValue,
+          contents: contentValue,
+          video_url: urlValue,
+          datetime: date,
+        }),
       })
-      .then((res) => res.json())
-      .catch((err) => console.log("error : ", err))
-      .then(window.location.href="/archive-video")
+        .then((res) => res.json())
+        .catch((err) => console.log("error : ", err))
+        .then((window.location.href = "/archive-video"));
+    } else {
+      alert("허가된 사용자가 아닙니다!");
+    };
   };
 
   return (
     <div>
       <br />
-      <h1 style={{textDecoration: "underline", textDecorationColor: "#a6eae2", textDecorationThickness: 5}}>영상 아카이브 작성</h1>
+      <h1
+        style={{
+          textDecoration: "underline",
+          textDecorationColor: "#a6eae2",
+          textDecorationThickness: 5,
+        }}
+      >
+        영상 아카이브 작성
+      </h1>
       <br />
       <ArchiveVideoForm
         titleValue={titleValue}
@@ -54,7 +67,7 @@ function ArchiveVideoWrite() {
         updateRequest={false}
       />
     </div>
-  )
-};
+  );
+}
 
 export default ArchiveVideoWrite;
