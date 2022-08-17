@@ -48,7 +48,7 @@ cur = db.cursor()
 timer = None
 timer2 = None
 lock = Lock()
-closeness = 0
+closeness = 500
 tilt_pin = 4 #터치 센서의 경우 센서만 바꾸면 됨
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(tilt_pin, GPIO.IN)

@@ -104,8 +104,6 @@ class VoiceRecognition():
             sensor_touch.closeness += 10
             sensor_oled.state = "msg"
             self.record_voice()
-            # time.sleep(1) # OLED에 송신 O/X 표시
-            sensor_oled.state = "always"
         elif self.var == "이야기":
             sensor_oled.state = "sit"
             self.speaker.speak_story()

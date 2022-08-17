@@ -97,6 +97,9 @@ def delay():
     if(state == 'what') :
         sleep(3)
         state = 'always'
+    if(state == 'success' or state == 'fail') :
+        sleep(3)
+        state = 'always'
     
     timer2 = Timer(0.1, delay)
     timer2.start()
