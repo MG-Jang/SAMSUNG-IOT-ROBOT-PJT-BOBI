@@ -67,7 +67,7 @@ function Sensor() {
       </span>
 
       <br />
-      <div style={{ marginLeft: "10%" }}>
+      <div style={{ marginLeft: "10%", zIndex: "-1", position:"relative"  }}>
         <Graph1 />
       </div>
 
