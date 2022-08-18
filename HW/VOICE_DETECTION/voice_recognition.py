@@ -20,11 +20,13 @@ import sensor_oled
 import sensor_touch
 from voice_speaker import Speaker
 
+
 class VoiceRecognition():
     """Get voice cmd file -> google stt -> parse the result -> map functions
     :param user_id: user id from DB (primary key) as str(integer).
     :param voice_file_name: file name for cmd voice file.
     """
+
     def __init__(self, user_id, voice_file_name='cmd.wav'):
         super(VoiceRecognition, self).__init__()
         self.local_file_path = os.path.join(
@@ -57,47 +59,47 @@ class VoiceRecognition():
     def map_commands(self):
         # map robot func according to the cmd
         if self.var == "앉아":
-            if sensor_touch.closeness < 100 :
+            if sensor_touch.closeness < 100:
                 print("exp 100 미만")
-                sensor_oled.state = "what"   
-            else :
+                sensor_oled.state = "what"
+            else:
                 sensor_oled.state = "sit"
                 sensor_touch.closeness += 10
                 robot.sit()
         elif self.var == "일어나":
-            if sensor_touch.closeness < 100 :
+            if sensor_touch.closeness < 100:
                 print("exp 100 미만")
-                sensor_oled.state = "what"   
-            else :
+                sensor_oled.state = "what"
+            else:
                 sensor_oled.state = "always"
                 robot.standUp()
         elif self.var == "오른손":
-            if sensor_touch.closeness < 300 :
+            if sensor_touch.closeness < 300:
                 print("exp 300 미만")
-                sensor_oled.state = "what"   
-            else :
+                sensor_oled.state = "what"
+            else:
                 sensor_touch.closeness += 10
                 robot.rightHand()
         elif self.var == "왼손":
-            if sensor_touch.closeness < 300 :
+            if sensor_touch.closeness < 300:
                 print("exp 300 미만")
-                sensor_oled.state = "what"   
-            else :
+                sensor_oled.state = "what"
+            else:
                 sensor_touch.closeness += 10
                 robot.leftHand()
         elif self.var == "엎드려":
-            if sensor_touch.closeness < 200 :
+            if sensor_touch.closeness < 200:
                 print("exp 200 미만")
-                sensor_oled.state = "what"   
-            else :
+                sensor_oled.state = "what"
+            else:
                 sensor_oled.state = "down"
                 sensor_touch.closeness += 10
                 robot.lower()
         elif self.var == "잘했어":
-            if sensor_touch.closeness < 200 :
+            if sensor_touch.closeness < 200:
                 print("exp 200 미만")
-                sensor_oled.state = "what"   
-            else :
+                sensor_oled.state = "what"
+            else:
                 sensor_oled.state = "always"
                 robot.upper()
         elif self.var == "메시지":
@@ -109,6 +111,16 @@ class VoiceRecognition():
             self.speaker.speak_story()
             sensor_oled.state = "always"
             print("가장 최신 이야기 들려주기")
+        elif self.var == "춤추자":
+            if sensor_touch.closeness < 400:
+                print("exp 400 미만")
+                sensor_oled.state = "what"
+            else:
+                sensor_oled.state = "sit"
+                sensor_touch.closeness += 10
+                robot.dance()
+                sensor_oled.state = "always"
+
         else:
             print("Unknown command!!")
 
@@ -125,9 +137,9 @@ class VoiceRecognition():
         if(voice_mssg.upload_file(mssg_file_path, self.user_id)):
             sensor_oled.state = "success"
             robot.ok()
-        else :
+        else:
             sensor_oled.state = "fail"
-    
+
     def run(self):
         """record cmd if hot word detected -> parse -> map
         """
