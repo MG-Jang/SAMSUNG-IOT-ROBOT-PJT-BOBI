@@ -6,18 +6,33 @@
 `SSAFY 공통 프로젝트`  
 `SSAFY 7기 2반 8팀`
 
-> 보비 [명] 보조하여 돌봄
-`아이용 케어 로봇 친구`
+> 보비 [명] 보조하여 돌봄  
 
-- 👀 부모님에게는 실시간으로 아이를 볼 수 있는 기능
-    - 👯 아이를 인식하여 따라다니는 기능
-    - 🗂️ 아이의 특별한 순간을 아카이빙 하여 저장 가능
-    - 🚨 실시간으로 위험 상황 확인 가능
-    - 💌 아이와 음성 메시지 주고 받기 가능
+## 👫 아이용 케어 로봇 친구
 
-- 👫 아이에게는 함께 해주는 친구로서의 기능
-    - 🔉 친해지면 특별한 이야기를 들려주는 친구 기능
-    - 💌 부모님과 음성 메시지로 소통하는 기능
+[![bobi](https://img.youtube.com/vi/Bp4MuVhe0w8/0.jpg)](https://youtu.be/Bp4MuVhe0w8)
+
+## 👀 부모님에게는 실시간으로 아이를 볼 수 있는 기능  
+- 👯 아이를 인식하여 따라다니는 기능  
+- 🗂️ 아이의 특별한 순간을 아카이빙 하여 저장 가능  
+- 🚨 실시간으로 위험 상황 확인 가능  
+- 💌 아이와 음성 메시지 주고 받기 가능  
+
+## 👫 아이에게는 함께 해주는 친구로서의 기능
+- 🔉 친해지면 특별한 이야기를 들려주는 친구 기능
+- 💌 부모님과 음성 메시지로 소통하는 기능
+
+## BoBi can do...
+1. 음성 명령에 따른 제스처
+- 앉아  
+[![bobi sit](https://img.youtube.com/vi/QayOqNE-Qvk/0.jpg)](https://youtu.be/QayOqNE-Qvk)
+- 일어나  
+[![bobi stand up](https://img.youtube.com/vi/nqKIE4EKs0M/0.jpg)](https://youtu.be/nqKIE4EKs0M)
+2. 아이 팔로잉
+3. 사족 보행  
+[![bobi left right](https://img.youtube.com/vi/R6O0f2qAB7g/0.jpg)](https://youtu.be/R6O0f2qAB7g)
+4. 전용 웹페이지
+  - 
 
 > for more info, visit our [**wiki!!**](https://lab.ssafy.com/s07-webmobile3-sub2/S07P12A208/-/wikis/home)
 
@@ -33,24 +48,22 @@
 - (HW)
   - /HW/DOCS/ideas: HW가 볼 기획 내용
   - /HW/DOCS/tips: HW 볼 팁 내용
-  - /HW: 개발 내용을 dir 등 사용하여 기재
+  - /HW: HW 소스 코드
   
 - (FE)
   - /FE/DOCS/ideas: FE가 볼 기획 내용
   - /FE/DOCS/tips: FE가 볼 팁 내용
-  - /FE: 개발 내용을 dir 등 사용하여 기재
+  - /FE: FE 소스 코드
   
 - (BE)
-  - /BE/DOCS/ideas: BE가 볼 기획 내용
-  
-  - /BE/DOCS/tips: BE가 볼 팁 내용
-  
-  - /BE: 개발 내용을 dir 등 사용하여 기재
+  - /BE/DOCS/ideas: BE가 볼 기획 내용  
+  - /BE/DOCS/tips: BE가 볼 팁 내용  
+  - /BE: BE 소스 코드
   
     
 ## Total Architecture
 
-- 기획
+- 기획  
 ![total_architecture_refined.drawio](/uploads/a5c85dfe389a1280565afa1ecd76e5ae/total_architecture_refined.drawio.png)
 
 - 최종  
@@ -61,8 +74,8 @@
 |---|---|---|
 |곽다원 | wings4608@gmail.com | 3D modeling, Robot movement |
 |김동원 | kdw324400@gmail.com | Voice recognition, MQTT |
-|신선영 | sunyeong0412@naver.com | BE |
-|이승훈 | a01038517287@gmail.com | FE |
+|신선영 | sunyeong0412@naver.com | BE, Deploy, Server, FE(Sensor, Story), Design|
+|이승훈 | a01038517287@gmail.com | FE(Login, Archive, Voice, Remote Control)|
 |장명근 | jang23mg@naver.com | Robot movement, Video detection |
 |정재훈 | jaeung644@gmail.com | Voice recognition, Video detection, Sensors |
 
