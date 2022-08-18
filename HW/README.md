@@ -270,7 +270,7 @@ last modified: 2022-08-18
 │  ├─mqtt.sh
 │  └─mqtt_subscribe.py
 │
-├─OBJECT LEARNING  // 아이 학습
+├─OBJECT_DETECTION  // 아이 학습
 │  ├─object_img
 │  ├─test_img
 │  └─output.xml
@@ -279,7 +279,7 @@ last modified: 2022-08-18
 │  ├─version_0
 │  └─camera_opencv.py
 │  
-├─Sensor           // 센서 세팅
+├─SENSORS           // 센서 세팅
 │  ├─test
 │  ├─version_0
 │  ├─[sensor] setting_audio.md
