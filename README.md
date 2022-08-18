@@ -89,14 +89,9 @@ last modified: 2022-08-18
   - [/HW/WAVEGO](./HW/WAVEGO): 로봇 구동을 위한 아두이노 파일
   
 - [/WEB](./WEB): 웹페이지 개발 내용
-
   - [/WEB/BE](./WEB/BE): Django 백엔드 프로젝트 파일
-
   - [/WEB/FE](./WEB/FE): React 프론트엔드 프로젝트 파일
-
   - [/WEB/FE + BE](./WEB/FE + BE): 실제 서버 배포 시 사용하는 프론트엔드 + 백엔드 빌드 파일
-
-    
 
 
 
