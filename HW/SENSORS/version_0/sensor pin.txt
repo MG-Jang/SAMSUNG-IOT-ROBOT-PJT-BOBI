@@ -1,0 +1,8 @@
+OLED SDA : 2핀
+SCL : 3핀
+
+GAS : 15핀
+DHT11 : 18핀
+touch : 14핀
+
+.
