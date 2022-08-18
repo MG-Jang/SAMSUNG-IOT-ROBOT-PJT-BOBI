@@ -2,7 +2,7 @@
 last modified: 2022-08-18
 ---
 # 🤖 HW(robot)
-- 로봇에서는 영상 인식, 음성 인식, 센서 등은 라즈베리파이에서 담당하고 모터, 부저는 ESP32에서 담당
+- 로봇에서는 영상 인식, 음성 인식, 센서 등은 라즈베리파이에서 담당하고 모터, LED, 부저는 ESP32에서 담당
 - 로봇 사용을 위해 기본 세팅을 진행 후 프로젝트 세팅 진행 
 - ESP32를 먼저 키고 라즈베리파이를 켜야 정상동작
 - 자세한 내용, version 등은 [**wiki**](https://lab.ssafy.com/s07-webmobile3-sub2/S07P12A208/-/wikis/home) 혹은 각 기능의 requirements.txt 참고
@@ -314,6 +314,24 @@ last modified: 2022-08-18
 │  └─voice_speaker.py
 |
 └─WAVEGO
+   ├─Demo_code
+   │  ├─WAVEGO_Demo_Code_(Arduino)_220128.zip
+   │  └─WAVEGO_Demo_Code_(Pi)_220128.zip
+   ├─version_0
+   │  ├─코드 수정 후 적용.md
+   │  ├─얼굴 학습 사용법 정리.md
+   │  ├─WebPage_0811.h
+   │  ├─WAVEGO_0811.ino
+   │  ├─ServoCtrl_0811.h
+   │  ├─robot_0811.py
+   │  ├─[WAVEGO] code_analysis.md
+   │  ├─camera_opencv_0810.py
+   │  ├─[WAVEGO] 0803_code_modify.md
+   │  ├─[WAVEGO] 0804_code_modify.md
+   │  ├─[WAVEGO] 0809_code_modify.md
+   │  ├─[WAVEGO] 0811_code_modify.md
+   ├─[WAVEGO] demo_code_flow.md
+   └─robot.py
 
  ```
 
