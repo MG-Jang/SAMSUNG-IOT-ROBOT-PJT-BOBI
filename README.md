@@ -1,6 +1,9 @@
 <p align='center'>
   <img src="./DOCS/etc/bobi_dot.png" alt="icon" width="400"> 
 </p>
+---
+last modified: 2022-08-18
+---
 
 # BoBi 
 `SSAFY 공통 프로젝트`  
@@ -58,28 +61,20 @@
   - [/DOCS/etc](./DOCS/etc)
   
 - (HW)
-  - /HW/DOCS/ideas: HW가 볼 기획 내용
-  - /HW/DOCS/tips: HW 볼 팁 내용
-  - /HW: HW 소스 코드
+  - [/HW/DOCS/ideas](./HW/DOCS/ideas): HW가 볼 기획 내용
+  - [/HW/DOCS/tips](./HW/DOCS/tips): HW 볼 팁 내용
+  - [/HW](./HW): HW 소스 코드
   
 - (FE)
-  - /FE/DOCS/ideas: FE가 볼 기획 내용
-  - /FE/DOCS/tips: FE가 볼 팁 내용
-  - /FE: FE 소스 코드
+  - [/FE/DOCS/ideas](./WEB/FE/DOCS/ideas): FE가 볼 기획 내용
+  - [/FE/DOCS/tips](./WEB/FE/DOCS/tips): FE가 볼 팁 내용
+  - [/FE](./WEB/FE): FE 소스 코드
   
 - (BE)
-<<<<<<< HEAD
-  - /BE/DOCS/ideas: BE가 볼 기획 내용  
-  - /BE/DOCS/tips: BE가 볼 팁 내용  
-  - /BE: BE 소스 코드
-=======
-  - [/BE/DOCS/ideas](./BE/DOCS/ideas): BE가 볼 기획 내용
-  
-  - [/BE/DOCS/tips](./BE/DOCS/tips): BE가 볼 팁 내용
-  
-  - [/BE](./BE): 개발 내용을 dir 등 사용하여 기재
->>>>>>> release
-  
+  - [/BE/DOCS/ideas](./WEB/BE/DOCS/ideas): BE가 볼 기획 내용  
+  - [/BE/DOCS/tips](./WEB/BE/DOCS/tips): BE가 볼 팁 내용  
+  - [/BE](./WEB/BE): BE 소스 코드
+
     
 ## Total Architecture
 
@@ -98,10 +93,3 @@
 |이승훈 | a01038517287@gmail.com | FE(Login, Archive, Voice, Remote Control)|
 |장명근 | jang23mg@naver.com | Robot movement, Video detection |
 |정재훈 | jaeung644@gmail.com | Voice recognition, Video detection, Sensors |
-
-
-<<<<<<< HEAD
-last modified on 18 Aug, 2022
-=======
-last modified on 22 July, 2022
->>>>>>> release
