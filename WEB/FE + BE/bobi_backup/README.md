@@ -54,7 +54,7 @@
 
 - 상세 메뉴
 
-  ![image-20220818010531167](C:\Users\SSAFY\Downloads\README.assets\image-20220818010531167.png)
+  ![image-20220818010531167](README.assets/image-20220818010531167.png)
 
 
 
@@ -62,7 +62,7 @@
 
 - 보비가 촬영중인 영상 유튜브라이브로 실시간 확인 가능
 
-  ![image-20220818010605159](C:\Users\SSAFY\Downloads\README.assets\image-20220818010605159.png)
+  ![image-20220818010605159](README.assets/image-20220818010605159.png)
 
 
 
@@ -70,7 +70,7 @@
 
 - 현재 친밀도 확인, 다음 레벨 (새로운 스토리와 행동 해금)까지 남은 친밀도 확인
 
-  ![image-20220818010725801](C:\Users\SSAFY\Downloads\README.assets\image-20220818010725801.png)
+  ![image-20220818010725801](README.assets/image-20220818010725801.png)
 
 
 
@@ -82,13 +82,13 @@
 
 - `0` 기본 스토리[1] 공개  `100` 달성 시 [2] 공개 `200` [3] `300` [4] `400` [5]
 
-  ![image-20220818010953622](C:\Users\SSAFY\Downloads\README.assets\image-20220818010953622.png)
+  ![image-20220818010953622](README.assets/image-20220818010953622.png)
 
-  ![image-20220818011032939](C:\Users\SSAFY\Downloads\README.assets\image-20220818011032939.png)
+  ![image-20220818011032939](README.assets/image-20220818011032939.png)
 
-  ![image-20220818011046108](C:\Users\SSAFY\Downloads\README.assets\image-20220818011046108.png)
+  ![image-20220818011046108](README.assets/image-20220818011046108.png)
 
-  ![image-20220818011054706](C:\Users\SSAFY\Downloads\README.assets\image-20220818011054706.png)
+  ![image-20220818011054706](README.assets/image-20220818011054706.png)
 
 
 
@@ -98,7 +98,7 @@
 
 - 허용된 이메일 (현재는 관리자인 carerobotbobi 계정)으로 접속해야 조작 가능
 
-  ![image-20220818011427504](C:\Users\SSAFY\Downloads\README.assets\image-20220818011427504.png)
+  ![image-20220818011427504](README.assets/image-20220818011427504.png)
 
 
 
@@ -112,7 +112,7 @@
 
 - 가스 위험 상태시 `위험해요! 가스가 누출됐어요!` 경고창 출력
 
-  ![image-20220818011454465](C:\Users\SSAFY\Downloads\README.assets\image-20220818011454465.png)
+  ![image-20220818011454465](README.assets/image-20220818011454465.png)
 
 
 
@@ -128,7 +128,7 @@
   - `보비에게 말하기` 버튼 클릭 후 녹음 완료 시 `보비에게 보내기` 버튼 생성
   - 클릭 시 `제출하시겠습니까?` 문구 출력
 
-  ![image-20220818011528052](C:\Users\SSAFY\Downloads\README.assets\image-20220818011528052.png)![image-20220818011537379](C:\Users\SSAFY\Downloads\README.assets\image-20220818011537379.png)
+  ![image-20220818011528052](README.assets/image-20220818011528052.png)![image-20220818011537379](README.assets/image-20220818011537379.png)
 
 
 
@@ -138,7 +138,7 @@
 
 - 로그인 완료 시 사용자 상세 정보 입력 페이지로 이동 (https://i7a208.p.ssafy.io/user-detail)
 
-  ![image-20220818011727130](C:\Users\SSAFY\Downloads\README.assets\image-20220818011727130.png)
+  ![image-20220818011727130](README.assets/image-20220818011727130.png)
 
 
 
@@ -146,7 +146,7 @@
 
 - 닉네임, 유튜브 계정 입력 시 회원정보 확인 가능
 
-  ![image-20220818011833632](C:\Users\SSAFY\Downloads\README.assets\image-20220818011833632.png)
+  ![image-20220818011833632](README.assets/image-20220818011833632.png)
 
 
 
@@ -154,7 +154,7 @@
 
 - 회원정보수정, 로그아웃, 회원탈퇴 가능
 
-  ![image-20220818012317809](C:\Users\SSAFY\Downloads\README.assets\image-20220818012317809.png)
+  ![image-20220818012317809](README.assets/image-20220818012317809.png)
 
   
 
