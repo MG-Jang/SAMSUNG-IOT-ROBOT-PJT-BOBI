@@ -88,7 +88,7 @@ function HeaderMenu(props) {
   const [dropdownVisibility, setDropdownVisibility] = React.useState(false);
 
   return (
-    <div className="Header-menu" style={{zIndex: 20, position:"relative"}}>
+    <div className="Header-menu" style={{ zIndex: 20, position: "relative" }}>
       <StyledMenu>
         <p
           className="Header-icon"
@@ -100,7 +100,7 @@ function HeaderMenu(props) {
             <FontAwesomeIcon icon={faBars} size="2x" />
           )}
         </p>
-        <Dropdown visibility={dropdownVisibility} style={{zIndex: 999}}>
+        <Dropdown visibility={dropdownVisibility} style={{ zIndex: 999 }}>
           <ul>
             <li>
               <NavLink to="/intro">BoBi 🚀</NavLink>

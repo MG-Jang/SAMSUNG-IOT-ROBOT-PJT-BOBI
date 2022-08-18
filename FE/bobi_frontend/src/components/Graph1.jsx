@@ -95,7 +95,7 @@ function Graph1() {
         // setResults(newList);
       });
     // setSensors()
-  });
+  }, []);
 
   return (
     <>

@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCommentDots, faFaceSmile } from "@fortawesome/free-solid-svg-icons";
-import AWS from 'aws-sdk';
-
+import AWS from "aws-sdk";
 
 function VoicePlay() {
   const S3ItemURL =
@@ -12,48 +11,45 @@ function VoicePlay() {
   const [isChecked, setIsChecked] = useState(false);
   const [id, setId] = useState("");
   // const email = localStorage.getItem("email");
-  
+
   AWS.config.update({
     accessKeyId: process.env.REACT_APP_S3_ACCESS_KEY,
     secretAccessKey: process.env.REACT_APP_S3_SECRET_ACCESS_KEY,
   });
-  
+
   const params = {
     Bucket: process.env.REACT_APP_S3_BUCKET,
     Key: `1_from_bobi.wav`,
   };
 
   const s3 = new AWS.S3();
-  
-  useEffect(()=> {
 
+  useEffect(() => {
     s3.getObject(params, (err, data) => {
       if (err) {
         console.log(err, err.stack);
-      } 
+      }
       const blob = new Blob([data.Body], {
-        type:"X-wav"
-      })
-      const blobURL = URL.createObjectURL(blob)
-      setSource(blobURL)
+        type: "X-wav",
+      });
+      const blobURL = URL.createObjectURL(blob);
+      setSource(blobURL);
     });
-  }, [])
-  console.log(source)
-
+  }, []);
+  console.log(source);
 
   // const handleClick = (e) => {
   //     e.preventDefault();
   //   };
-  
+
   //   const handleDownload = () => {
   //     const s3 = new AWS.S3();
-  
+
   //     const params = {
   //       Bucket: process.env.REACT_APP_S3_BUCKET,
   //       Key: `1_from_bobi.wav`,
   //     };
-  
-  
+
   //     function downloadBlob(blob, name = `1_from_bobi.wav`) {
   //       // Convert your blob into a Blob URL (a special url that points to an object in the browser's memory)
   //       const blobUrl = URL.createObjectURL(blob);
@@ -75,11 +71,11 @@ function VoicePlay() {
   //           view: window,
   //         })
   //       );
-  
+
   //       // Remove link from body
   //       document.body.removeChild(link);
   //     }
-  
+
   //     s3.getObject(params, (err, data) => {
   //       if (err) {
   //         console.log(err, err.stack);
@@ -91,16 +87,6 @@ function VoicePlay() {
   //       }
   //     });
   //   };
-  
-  
-
-
-
-
-
-
-
-
 
   useEffect(() => {
     fetch(`https://i7a208.p.ssafy.io/api/v1/voicecheck`)
@@ -132,21 +118,21 @@ function VoicePlay() {
 
   const onCheck = () => {
     // if (email === "carerobotbobi@gmail.com") {
-      fetch(`https://i7a208.p.ssafy.io/api/v1/voicecheck/${id}/`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          is_checked: true,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data))
-        .catch((err) => console.log("error : ", err));
-      setIsChecked(true);
+    fetch(`https://i7a208.p.ssafy.io/api/v1/voicecheck/${id}/`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        is_checked: true,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log("error : ", err));
+    setIsChecked(true);
     // } else {
-      // alert("허가된 사용자가 아닙니다!");
+    // alert("허가된 사용자가 아닙니다!");
     // };
   };
 

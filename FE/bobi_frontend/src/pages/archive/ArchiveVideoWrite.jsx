@@ -40,7 +40,7 @@ function ArchiveVideoWrite() {
         .then((window.location.href = "/archive-video"));
     } else {
       alert("허가된 사용자가 아닙니다!");
-    };
+    }
   };
 
   return (

@@ -187,9 +187,13 @@ uploadFile(file, config)
 
 7. 다운로드 할 때
 
-![image-20220818002039471](README.assets/image-20220818002039471.png)
+![image-20220818165731562](C:\Users\SSAFY\AppData\Roaming\Typora\typora-user-images\image-20220818165731562.png)
 
 
+
+
+
+![image-20220818165741537](C:\Users\SSAFY\AppData\Roaming\Typora\typora-user-images\image-20220818165741537.png)
 
 
 

@@ -47,7 +47,7 @@ function ArchiveVideoDetail() {
       navigate(`/archive-video`);
     } else {
       alert("허가된 사용자가 아닙니다!");
-    };
+    }
   };
 
   // datetime값을 clientside에서 파싱

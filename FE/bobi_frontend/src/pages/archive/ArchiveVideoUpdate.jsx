@@ -48,7 +48,7 @@ function ArchiveVideoUpdate() {
       window.location.href = `/archive-video/${id}`;
     } else {
       alert("허가된 사용자가 아닙니다!");
-    };
+    }
   };
 
   return (

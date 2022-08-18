@@ -21,11 +21,10 @@ function Sensor() {
       });
   }, []);
 
-  if (sensor.gas===0 && isAlerted===false) {
-    setIsAlerted(true)
-    alert("위험해요! 가스가 누출됐어요!")
-  };
-
+  if (sensor.gas === 0 && isAlerted === false) {
+    setIsAlerted(true);
+    alert("위험해요! 가스가 누출됐어요!");
+  }
 
   return (
     <div>
@@ -55,7 +54,7 @@ function Sensor() {
         <span style={{ fontSize: "4vw", backgroundColor: "#FCEBA4" }}>
           {sensor["temperature"]} °C
         </span>
-        <div style={{ marginLeft: "10%", zIndex: "-1", position:"relative" }}>
+        <div style={{ marginLeft: "10%", zIndex: "-1", position: "relative" }}>
           <Graph />
         </div>
       </div>
@@ -67,7 +66,7 @@ function Sensor() {
       </span>
 
       <br />
-      <div style={{ marginLeft: "10%", zIndex: "-1", position:"relative"  }}>
+      <div style={{ marginLeft: "10%", zIndex: "-1", position: "relative" }}>
         <Graph1 />
       </div>
 

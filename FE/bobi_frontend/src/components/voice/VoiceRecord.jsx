@@ -140,14 +140,14 @@ function VoiceRecord() {
       //     }
       //     console.log("Published!");
       //   });
-  
+
       uploadFile(file, config)
         .then((data) => console.log(data))
         .catch((err) => console.error(err));
       setModalOpen(false);
     } else {
       alert("허가된 사용자가 아닙니다!");
-    };
+    }
   };
 
   const closeModal = () => {

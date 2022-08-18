@@ -92,7 +92,7 @@ function Graph1() {
         setTemperatures(temperature);
         // console.log(newList[0].temperature)
         // setResults(newList);
-      })
+      });
   }, []);
   // console.log(results)
   // console.log(temperatures)
