@@ -93,11 +93,9 @@
 
 ![image-20220818172745645](C:\Users\SSAFY\Desktop\S07P12A208\WEB\BE\README.assets\image-20220818172745645.png)
 
-
-
 ##### 수정 ERD
 
-![image-20220818151705240](C:\Users\SSAFY\AppData\Roaming\Typora\typora-user-images\image-20220818151705240.png)
+![image-20220818151705240](C:\Users\SSAFY\Desktop\S07P12A208\WEB\BE\README.assets\image-20220818151705240.png)
 
 
 
