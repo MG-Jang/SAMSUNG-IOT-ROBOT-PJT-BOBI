@@ -40,7 +40,7 @@
 3. 사족 보행  
 [![bobi left right](https://img.youtube.com/vi/R6O0f2qAB7g/0.jpg)](https://youtu.be/R6O0f2qAB7g)
 4. 이야기 들려주기
-5. 음성 메시지 주고 받기
+5. 음성 메시지 주고 받기  
 [![bobi message](https://img.youtube.com/vi/tOKoOfi_7MY/0.jpg)](https://youtu.be/tOKoOfi_7MY)
 
 6. 전용 웹페이지  
