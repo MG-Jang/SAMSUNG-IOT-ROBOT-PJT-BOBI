@@ -6,29 +6,29 @@ import { faCircleChevronUp, faCircleChevronDown, faCircleChevronLeft, faCircleCh
 
 function ControlButton() {
   // userId 불러오기
-  const [ userId, setUserId ] = useState([]);
+  // const [ userId, setUserId ] = useState([]);
   const [ isForward, setIsForward ] = useState(false);
   const [ isBackward, setIsBackward ] = useState(false);
   const [ isLeft, setIsLeft ] = useState(false);
   const [ isRight, setIsRight ] = useState(false);
+  const userId = 1
 
-
-  useEffect(() => {
-    fetch("https://i7a208.p.ssafy.io/api/v1/users/1/")
-      .then(res => {
-        return res.json();
-    })
-      .then((data) => {
-        setUserId(data["id"]);
-    });
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://i7a208.p.ssafy.io/api/v1/users/1/")
+  //     .then(res => {
+  //       return res.json();
+  //   })
+  //     .then((data) => {
+  //       setUserId(data["id"]);
+  //   });
+  // }, []);
 
   // mqtt 연결
 
   const host = 'i7a208.p.ssafy.io';
   const port = '9001';
   const clientId = `mqtt_${Math.random().toString(16).slice(3)}`;
-  const connectUrl = `wss://${host}:${port}/mqtt`;
+  const connectUrl = `ws://${host}:${port}/mqtt`;
   const client = mqtt.connect(connectUrl, {
     clientId,
     clean: true,

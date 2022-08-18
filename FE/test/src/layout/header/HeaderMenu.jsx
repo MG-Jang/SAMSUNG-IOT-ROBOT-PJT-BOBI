@@ -8,6 +8,7 @@ import { faX, faBars } from "@fortawesome/free-solid-svg-icons";
 const StyledMenu = styled.menu`
   width: 12rem;
   font-family: "GangwonEdu_OTFBoldA";
+  z-index: 20;
 
   @keyframes slide-fade-in-dropdown-animation {
     0% {
@@ -87,7 +88,7 @@ function HeaderMenu(props) {
   const [dropdownVisibility, setDropdownVisibility] = React.useState(false);
 
   return (
-    <div className="Header-menu">
+    <div className="Header-menu" style={{zIndex: 20, position:"relative"}}>
       <StyledMenu>
         <p
           className="Header-icon"
@@ -99,7 +100,7 @@ function HeaderMenu(props) {
             <FontAwesomeIcon icon={faBars} size="2x" />
           )}
         </p>
-        <Dropdown visibility={dropdownVisibility}>
+        <Dropdown visibility={dropdownVisibility} style={{zIndex: 999}}>
           <ul>
             <li>
               <NavLink to="/intro">BoBi 🚀</NavLink>

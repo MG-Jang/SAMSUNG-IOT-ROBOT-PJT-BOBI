@@ -6,6 +6,7 @@ function ArchiveVideoWrite() {
   const [contentValue, setContentValue] = useState("");
   const [urlValue, setUrlValue] = useState("");
   const date = new Date();
+  const email = localStorage.getItem("email");
 
   const onTitleChange = (event) => {
     setTitleValue(event.currentTarget.value);
@@ -21,21 +22,25 @@ function ArchiveVideoWrite() {
 
   const ArchiveVideoSubmit = (event) => {
     event.preventDefault();
-    fetch("https://i7a208.p.ssafy.io/api/v1/archivevideos/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: titleValue,
-        contents: contentValue,
-        video_url: urlValue,
-        datetime: date,
-      }),
-    })
-      .then((res) => res.json())
-      .catch((err) => console.log("error : ", err))
-      .then((window.location.href = "/archive-video"));
+    if (email === "carerobotbobi@gmail.com") {
+      fetch("https://i7a208.p.ssafy.io/api/v1/archivevideos/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: titleValue,
+          contents: contentValue,
+          video_url: urlValue,
+          datetime: date,
+        }),
+      })
+        .then((res) => res.json())
+        .catch((err) => console.log("error : ", err))
+        .then((window.location.href = "/archive-video"));
+    } else {
+      alert("허가된 사용자가 아닙니다!");
+    };
   };
 
   return (

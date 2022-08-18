@@ -7,6 +7,7 @@ function ArchiveVideoUpdate() {
   const { state } = useLocation();
   const url = window.location.href;
   const id = url.split("/")[4];
+  const email = localStorage.getItem("email");
 
   // console.log([ fetchTitle, fetchContent, fetchUrl ])
 
@@ -29,21 +30,25 @@ function ArchiveVideoUpdate() {
 
   const ArchiveVideoUpdate = (event) => {
     event.preventDefault();
-    fetch(`https://i7a208.p.ssafy.io/api/v1/archivevideos/${id}/`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: titleValue,
-        contents: contentValue,
-        video_url: urlValue,
-        datetime: date,
-      }),
-    })
-      .then((res) => res.json())
-      .catch((err) => console.log("error : ", err));
-    window.location.href = `/archive-video/${id}`;
+    if (email === "carerobotbobi@gmail.com") {
+      fetch(`https://i7a208.p.ssafy.io/api/v1/archivevideos/${id}/`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: titleValue,
+          contents: contentValue,
+          video_url: urlValue,
+          datetime: date,
+        }),
+      })
+        .then((res) => res.json())
+        .catch((err) => console.log("error : ", err));
+      window.location.href = `/archive-video/${id}`;
+    } else {
+      alert("허가된 사용자가 아닙니다!");
+    };
   };
 
   return (

@@ -4,6 +4,8 @@ import Graph1 from "../components/Graph1";
 
 function Sensor() {
   const [sensor, setSensor] = useState([]);
+  const [gases, setGases] = useState([]);
+  const [isAlerted, setIsAlerted] = useState(false);
 
   useEffect(() => {
     fetch("https://i7a208.p.ssafy.io/api/v1/sensors/")
@@ -18,6 +20,12 @@ function Sensor() {
         console.log(lastdata);
       });
   }, []);
+
+  if (sensor.gas===0 && isAlerted===false) {
+    setIsAlerted(true)
+    alert("위험해요! 가스가 누출됐어요!")
+  };
+
 
   return (
     <div>
@@ -47,7 +55,7 @@ function Sensor() {
         <span style={{ fontSize: "4vw", backgroundColor: "#FCEBA4" }}>
           {sensor["temperature"]} °C
         </span>
-        <div style={{ marginLeft: "10%", zIndex: "-1" }}>
+        <div style={{ marginLeft: "10%", zIndex: "-1", position:"relative" }}>
           <Graph />
         </div>
       </div>
@@ -59,7 +67,7 @@ function Sensor() {
       </span>
 
       <br />
-      <div style={{ marginLeft: "10%" }}>
+      <div style={{ marginLeft: "10%", zIndex: "-1", position:"relative"  }}>
         <Graph1 />
       </div>
 
@@ -87,7 +95,6 @@ function Sensor() {
               color: "blue",
               fontSize: "4vw",
               backgroundColor: "#D3F9C0",
-              fontSize: "4vw",
             }}
           >
             안전해요!
