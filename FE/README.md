@@ -113,7 +113,7 @@ $ npm start
 
 
 
-1. CORS 정책 수정하기
+4. CORS 정책 수정하기
 
 ```jsx
 [
@@ -140,7 +140,7 @@ $ npm start
 ]
 ```
 
-1. 액세스 키 발급받기
+5. 액세스 키 발급받기
 
 우측 상단 보안자격증명 이동
 
@@ -189,8 +189,6 @@ uploadFile(file, config)
 
 ![image-20220818002039471](README.assets/image-20220818002039471.png)
 
-버킷에서 다운받을 파일로 들어가 객체 URL 복사한 뒤 해당 URL로 GET 요청 보내기
-
 
 
 
@@ -220,11 +218,11 @@ uploadFile(file, config)
 
 ![image-20220818002206552](README.assets/image-20220818002206552.png)
 
-애플리케이션 유형 정하기
+6. 애플리케이션 유형 정하기
 
 ![image-20220818002227749](README.assets/image-20220818002227749.png)
 
-이름 입력하고 구글 로그인 적용할 사이트 URI 쓰고 리디렉션 URI 입력하기
+7. 이름 입력하고 구글 로그인 적용할 사이트 URI 쓰고 리디렉션 URI 입력하기
 
 ![image-20220818002241595](README.assets/image-20220818002241595.png)
 
