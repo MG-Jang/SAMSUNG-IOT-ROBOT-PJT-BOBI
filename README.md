@@ -53,6 +53,11 @@ last modified: 2022-08-18
 3. 사족 보행  
 [![bobi left right](https://img.youtube.com/vi/R6O0f2qAB7g/0.jpg)](https://youtu.be/R6O0f2qAB7g)
 4. 이야기 들려주기
+- 새로운 기억이 생각났어  
+[![bobi left right](https://img.youtube.com/vi/73CELXdhnHQ/0.jpg)](https://youtu.be/73CELXdhnHQ)  
+- 이야기 들려주기  
+[![bobi left right](https://img.youtube.com/vi/Ghk1h_3hXDc/0.jpg)](https://youtu.be/Ghk1h_3hXDc)  
+
 5. 음성 메시지 주고 받기  
 [![bobi message](https://img.youtube.com/vi/tOKoOfi_7MY/0.jpg)](https://youtu.be/tOKoOfi_7MY)
 
