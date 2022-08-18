@@ -1,6 +1,5 @@
 ---
-author: Dongwon Kim
-date: 2022-08-12
+last modified: 2022-08-12
 ---
 # MQTT Broker
 1. EC2에 원격 접속

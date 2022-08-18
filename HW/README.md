@@ -1,6 +1,5 @@
 ---
-author: Dongwon Kim
-date: 2022-08-17
+last modified: 2022-08-18
 ---
 # HW(robot)
 - 로봇에서는 영상 인식, 음성 인식, 센서 등은 라즈베리파이에서 담당하고 모터, 부저는 ESP32에서 담당

@@ -3,24 +3,32 @@
 # 
 # Modification history
 #   Created by Dongwon Kim on 04 Aug, 2022 
+#   Modified by Dongwon Kim on 11 Aug, 2022
 #
 # reference
 #   stt.py by 정재훈
 '''
 import os
 import io
+import time
 from google.cloud import speech
-import camera_map_test
-import porcupine_custom
-from s3_voice_mssg import VoiceMessage
-import robot_test
-
+import voice_porcupine_custom
+from voice_s3_mssg import VoiceMessage
+import robot
+import sensor_mysql
+import sensor_oled
+import sensor_touch
+from voice_speaker import Speaker
 
 class VoiceRecognition():
+    """Get voice cmd file -> google stt -> parse the result -> map functions
+    :param user_id: user id from DB (primary key) as str(integer).
+    :param voice_file_name: file name for cmd voice file.
+    """
     def __init__(self, user_id, voice_file_name='cmd.wav'):
         super(VoiceRecognition, self).__init__()
         self.local_file_path = os.path.join(
-            '/home/pi/voice_recognition', voice_file_name)
+            '/home/pi/WAVEGO/RPi', voice_file_name)
         self.client = speech.SpeechClient()
         self.config = config = speech.RecognitionConfig(
             encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
@@ -28,59 +36,117 @@ class VoiceRecognition():
             language_code="ko-KR"
         )
         self.user_id = user_id
+        self.speaker = Speaker()
 
     def parse_command(self):
         with io.open(self.local_file_path, 'rb') as f:
             content = f.read()
         audio = speech.RecognitionAudio(content=content)
 
-        # 한번에 음성 데이터를 보내고 변환된 모든 텍스트 데이터를 한번에 받는 함수로 오디오 파일의 구성을 파라미터로 보낸다.
+        # send cmd.wav file to google stt and get result
         response = self.client.recognize(config=self.config, audio=audio)
 
-        # response는 여러개의 대안으로 전송되어 오는데, 그 중 confidence가 가장 높은 것을 체택한다.
+        # among candidates, find a keyword that has the highest confidence
         for result in response.results:
             var2 = result.alternatives[0].transcript
 
-            # 만약 앉아, 일어서 등 다양한 명령어들이 들어왔을 경우, 맨 앞 명령어인 "앉아"만 수행되게 설계함
+        # only select the first word among cmd
         var1 = var2.split()
         self.var = var1[0]
 
     def map_commands(self):
-        # 필요한 기능들 추가 혹은 빼야할 듯
+        # map robot func according to the cmd
         if self.var == "앉아":
-            robot_test.sit()
+            if sensor_touch.closeness < 100 :
+                print("exp 100 미만")
+                sensor_oled.state = "what"   
+            else :
+                sensor_oled.state = "sit"
+                sensor_touch.closeness += 10
+                robot.sit()
         elif self.var == "일어나":
-            robot_test.standUp()
+            if sensor_touch.closeness < 100 :
+                print("exp 100 미만")
+                sensor_oled.state = "what"   
+            else :
+                sensor_oled.state = "always"
+                robot.standUp()
         elif self.var == "오른손":
-            robot_test.rightHand()
+            if sensor_touch.closeness < 300 :
+                print("exp 300 미만")
+                sensor_oled.state = "what"   
+            else :
+                sensor_touch.closeness += 10
+                robot.rightHand()
         elif self.var == "왼손":
-            robot_test.leftHand()
+            if sensor_touch.closeness < 300 :
+                print("exp 300 미만")
+                sensor_oled.state = "what"   
+            else :
+                sensor_touch.closeness += 10
+                robot.leftHand()
         elif self.var == "엎드려":
-            robot_test.lower()
+            if sensor_touch.closeness < 200 :
+                print("exp 200 미만")
+                sensor_oled.state = "what"   
+            else :
+                sensor_oled.state = "down"
+                sensor_touch.closeness += 10
+                robot.lower()
         elif self.var == "잘했어":
-            robot_test.upper()
+            if sensor_touch.closeness < 200 :
+                print("exp 200 미만")
+                sensor_oled.state = "what"   
+            else :
+                sensor_oled.state = "always"
+                robot.upper()
         elif self.var == "메시지":
+            sensor_touch.closeness += 10
+            sensor_oled.state = "msg"
             self.record_voice()
+        elif self.var == "이야기":
+            sensor_oled.state = "sit"
+            self.speaker.speak_story()
+            sensor_oled.state = "always"
+            print("가장 최신 이야기 들려주기")
         else:
             print("Unknown command!!")
 
     def record_voice(self):
+        """record voice message for 7 seconds -> send the file to S3 & publish MQTT mssg
+        """
         file_name = self.user_id + "_from_bobi.wav"
         mssg_file_path = os.path.join(
-            '/home/pi/voice_recognition', file_name)
+            '/home/pi/WAVEGO/RPi', file_name)
         cmd = "arecord --device=hw:1,0 --format S16_LE -d7 --rate 48000 -V mono -c1 " + \
             mssg_file_path
         os.system(cmd)
         voice_mssg = VoiceMessage()
-        voice_mssg.upload_file(mssg_file_path, self.user_id)
-
+        if(voice_mssg.upload_file(mssg_file_path, self.user_id)):
+            sensor_oled.state = "success"
+            robot.ok()
+        else :
+            sensor_oled.state = "fail"
+    
     def run(self):
-        if porcupine_custom.hot_word_flag:
+        """record cmd if hot word detected -> parse -> map
+        """
+        if voice_porcupine_custom.hot_word_flag:
+            robot.buzzerCtrl(1, 0)
+            time.sleep(0.2)
+            robot.buzzerCtrl(0, 0)
+            time.sleep(0.2)
+            robot.buzzerCtrl(1, 0)
+            time.sleep(0.2)
+            robot.buzzerCtrl(0, 0)
+            sensor_oled.state = "record"
             cmd = "arecord --device=hw:1,0 --format S16_LE -d3 --rate 48000 -V mono -c1 " + \
                 self.local_file_path
             os.system(cmd)
+            sensor_oled.state = "always"
             print("\nFinish recording\n Start parsing")
             self.parse_command()
             print("\nFinish parsing\n command: " + self.var)
             print("command mapping...")
             self.map_commands()
+            print("exp : " + str(sensor_touch.closeness))

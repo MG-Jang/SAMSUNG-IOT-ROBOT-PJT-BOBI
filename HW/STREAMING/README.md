@@ -1,6 +1,5 @@
 ---
-author: Dongwon Kim
-date: 2022-08-10
+last modified: 2022-08-10
 ---
 # Flask + react 연결
 

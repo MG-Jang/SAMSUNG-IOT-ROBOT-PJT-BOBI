@@ -1,6 +1,5 @@
 ---
-author: Dongwon Kim
-date: 2022-08-11
+last modified: 2022-08-11
 ---
 # MQTT
 ## 세팅

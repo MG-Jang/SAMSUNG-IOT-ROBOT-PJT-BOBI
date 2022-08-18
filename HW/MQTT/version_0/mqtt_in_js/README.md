@@ -1,6 +1,5 @@
 ---
-author: Dongwon Kim
-date: 2022-08-02
+last modified: 2022-08-02
 ---
 
 # MQTT in Node.js
