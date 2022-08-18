@@ -1,14 +1,14 @@
 ---
 last modified: 2022-08-18
 ---
-# HW(robot)
+# 🤖 HW(robot)
 - 로봇에서는 영상 인식, 음성 인식, 센서 등은 라즈베리파이에서 담당하고 모터, 부저는 ESP32에서 담당
 - 로봇 사용을 위해 기본 세팅을 진행 후 프로젝트 세팅 진행 
 - ESP32를 먼저 키고 라즈베리파이를 켜야 정상동작
 - 자세한 내용, version 등은 [**wiki**](https://lab.ssafy.com/s07-webmobile3-sub2/S07P12A208/-/wikis/home) 혹은 각 기능의 requirements.txt 참고
 
-## 기본 세팅
-### How to set RPI
+## ⚒️ 기본 세팅
+### 🥞 How to set RPI
 1. 라즈베리파이에 os가 설치된 sd카드 연결
 2. 원격 접속(VNC, mobaxterm 등 참고) 혹은 HDMI 케이블을 직접 연결하여 라즈베리파이 접속
 3. 라즈베리파이 터미널에서 입력(로봇 기본 dependencies 설치)
@@ -20,7 +20,7 @@ last modified: 2022-08-18
 
 [영상 참고](https://youtu.be/SlyIttHri6M)
 
-### How to set Arduino(ESP32)
+### 📟 How to set Arduino(ESP32)
 1. Arduino IDE를 개인 PC에 다운 받기
 2. ESP32 개인 PC에 유선으로 연결
 3. `file → Preferences → Additional Boards Manager URLS` 에 `https://dl.espressif.com/dl/package_esp32_index.json 입력 → OK` 입력
@@ -53,7 +53,7 @@ last modified: 2022-08-18
 
 [로봇 데모 ESP32 참고](https://www.waveshare.com/wiki/WAVEGO#Install_Arduino_IDE) 
 
-## 프로젝트 세팅
+## ⚒️ 프로젝트 세팅
 - 개인 PC에서 코드 가져오기
     - git bash에서
     ```
@@ -61,7 +61,7 @@ last modified: 2022-08-18
     ```
 - 라즈베리파이에 코드 넣기
     - clone한 dir에서 HW/VOICE_DETECTION 내에 있는 파일(version_0 dir 제외)를 모두 라즈베리파이의 ~/WAVEGO/RPi 내로 옮김
-### 모듈 세팅
+### 🌡️ 모듈 세팅
 - 사용할 모듈
     - OLED 128x64 I2C 지원 2EA 
     - DHT11 온습도 센서
@@ -109,7 +109,7 @@ last modified: 2022-08-18
     $ python3 ~/WAVEGO/RPi/mysql_sensing.py
     ```
 
-### 음성 인식 세팅
+### 📢 음성 인식 세팅
 - 라즈베리파이4B Debian Buster 버전(2022.07.26 기준 RPI imager의 legacy 버전)
 
 1. [Google Speech to Text console start guide](https://cloud.google.com/speech-to-text/docs/transcribe-console?hl=ko)를 따라 프로젝트 설정 진행
@@ -199,7 +199,7 @@ last modified: 2022-08-18
     - 마이크 index는 위에서 보는 것 중 USB 마이크 0 제외 1 혹은 2로 진행하면 됨
     - user id는 웹에서 받은 DB의 아이디
 
-### MQTT 통신 세팅
+### 🌐 MQTT 통신 세팅
 - WEB과 신호를 주고 받기 위해 MQTT 사용
 - 라즈베리파이에 코드 넣기
     - clone한 dir에서 HW/MQTT 내에 있는 파일(version_0 dir 제외)를 모두 라즈베리파이의 ~/WAVEGO/RPi 내로 옮김
@@ -217,7 +217,7 @@ last modified: 2022-08-18
         ```
     - 라즈베리파이 콘솔에서 forward, backward 등이 수행이 잘 되면 성공
 
-### Video Streaming
+### 🎥 Video Streaming
 1. 라즈베리파이에 라이브러리 설치
     ```
     $ sudo apt update
@@ -231,7 +231,7 @@ last modified: 2022-08-18
     $ ffmpeg -re -i /dev/video0 -f lavfi -i anullsrc -vb 2500k -s 1280x720 -f flv [youtube streaming 키]
     ```
 
-### S3 access key 등록
+### 🔑 S3 access key 등록
 1. AWS에 로그인
 2. [IAM console](https://console.aws.amazon.com/iam) 로 이동
 3. `My Security Credentials → Access Keys` 로 이동
