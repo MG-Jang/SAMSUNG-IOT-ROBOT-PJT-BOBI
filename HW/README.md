@@ -256,7 +256,7 @@ last modified: 2022-08-18
 │  └─tips
 │      └─assets
 |
-├─Gesture_Sensor   // 터치 센서
+├─GESTURE_SENSOR   // 터치 센서
 │  ├─img
 |  ├─test
 |  ├─go_oled.py
@@ -270,7 +270,7 @@ last modified: 2022-08-18
 │  ├─mqtt.sh
 │  └─mqtt_subscribe.py
 │
-├─Object_learning  // 아이 학습
+├─OBJECT LEARNING  // 아이 학습
 │  ├─object_img
 │  ├─test_img
 │  └─output.xml
@@ -313,7 +313,7 @@ last modified: 2022-08-18
 │  ├─voice_s3_mssg.py
 │  └─voice_speaker.py
 |
-└─WAVEGO
+└─WAVEGO           // WAVEGO code 
    ├─Demo_code
    │  ├─WAVEGO_Demo_Code_(Arduino)_220128.zip
    │  └─WAVEGO_Demo_Code_(Pi)_220128.zip
@@ -324,17 +324,17 @@ last modified: 2022-08-18
    │  ├─WAVEGO_0811.ino
    │  ├─ServoCtrl_0811.h
    │  ├─robot_0811.py
-   │  ├─[WAVEGO] code_analysis.md
    │  ├─camera_opencv_0810.py
    │  ├─[WAVEGO] 0803_code_modify.md
    │  ├─[WAVEGO] 0804_code_modify.md
    │  ├─[WAVEGO] 0809_code_modify.md
    │  ├─[WAVEGO] 0811_code_modify.md
+   │  └─[WAVEGO] code_analysis.md
    ├─[WAVEGO] demo_code_flow.md
    └─robot.py
 
  ```
-
++ version_0: 개발 중에 생성한 파일들
 ## 🔎 차후 보완점
 - 모델링 더 귀엽게 개선
 - 터치 센서 여러 곳에 부착
