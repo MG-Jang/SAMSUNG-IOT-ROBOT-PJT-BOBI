@@ -10,8 +10,8 @@ def up():
     
     dotouch = GPIO.input(tilt_pin)  # 터치 누르면 1 안누르면 0 출력
     if dotouch : 
-        closeness += 10
-        print("exp : " + str(closeness))
+        closeness += 50
+        print(closeness)
         if closeness % 100 != 0 :
             sensor_oled.state = 'heart'
             sleep(3)
@@ -21,7 +21,6 @@ def up():
 
     timer = Timer(0.1, up)
     timer.start()
-
 def check():
     global timer2
     if(speaker.is_new_story_available()):

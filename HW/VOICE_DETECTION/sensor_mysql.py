@@ -60,12 +60,25 @@ def sensing():
     timer = Timer(60, sensing)
     timer.start()
 
+def polling():
+    global cur, db, temperature_c, humidity
+    cur.execute("select * from bobi_sensor order by sensor_id desc limit 1")
+    for (sensor_id,gas,temperature, humidity,datetime,battery,robot_id) in cur:
+        temperature_c = temperature
+        humidity = humidity
+
+    db.commit()
+
+
 # init
 db = mysql.connector.connect(host='i7a208.p.ssafy.io', port = '3306', user='pjt_bobi', password='mysql989312bobi#', database='bobi', auth_plugin='mysql_native_password')
 cur = db.cursor()
 
 timer = None
 closeness = 0
+
+temperature_c = 0
+humidity = 0
 
 dhtDevice = adafruit_dht.DHT11(board.D18)
 gas_pin = 17
@@ -76,6 +89,7 @@ GPIO.setup(gas_pin, GPIO.IN)
 
 lock = Lock()
 
+polling()
 signal.signal(signal.SIGINT, closeDB)
 sensing()
 
