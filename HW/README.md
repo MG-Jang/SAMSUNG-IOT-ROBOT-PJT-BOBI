@@ -2,7 +2,7 @@
 last modified: 2022-08-18
 ---
 # 🤖 HW(robot)
-- 로봇에서는 영상 인식, 음성 인식, 센서 등은 라즈베리파이에서 담당하고 모터, 부저는 ESP32에서 담당
+- 로봇에서는 영상 인식, 음성 인식, 센서 등은 라즈베리파이에서 담당하고 모터, LED, 부저는 ESP32에서 담당
 - 로봇 사용을 위해 기본 세팅을 진행 후 프로젝트 세팅 진행 
 - ESP32를 먼저 키고 라즈베리파이를 켜야 정상동작
 - 자세한 내용, version 등은 [**wiki**](https://lab.ssafy.com/s07-webmobile3-sub2/S07P12A208/-/wikis/home) 혹은 각 기능의 requirements.txt 참고
@@ -256,7 +256,7 @@ last modified: 2022-08-18
 │  └─tips
 │      └─assets
 |
-├─Gesture_Sensor   // 터치 센서
+├─GESTURE_SENSOR   // 터치 센서
 │  ├─img
 |  ├─test
 |  ├─go_oled.py
@@ -270,7 +270,7 @@ last modified: 2022-08-18
 │  ├─mqtt.sh
 │  └─mqtt_subscribe.py
 │
-├─Object_learning  // 아이 학습
+├─OBJECT LEARNING  // 아이 학습
 │  ├─object_img
 │  ├─test_img
 │  └─output.xml
@@ -313,10 +313,28 @@ last modified: 2022-08-18
 │  ├─voice_s3_mssg.py
 │  └─voice_speaker.py
 |
-└─WAVEGO
+└─WAVEGO           // WAVEGO code 
+   ├─Demo_code
+   │  ├─WAVEGO_Demo_Code_(Arduino)_220128.zip
+   │  └─WAVEGO_Demo_Code_(Pi)_220128.zip
+   ├─version_0
+   │  ├─코드 수정 후 적용.md
+   │  ├─얼굴 학습 사용법 정리.md
+   │  ├─WebPage_0811.h
+   │  ├─WAVEGO_0811.ino
+   │  ├─ServoCtrl_0811.h
+   │  ├─robot_0811.py
+   │  ├─camera_opencv_0810.py
+   │  ├─[WAVEGO] 0803_code_modify.md
+   │  ├─[WAVEGO] 0804_code_modify.md
+   │  ├─[WAVEGO] 0809_code_modify.md
+   │  ├─[WAVEGO] 0811_code_modify.md
+   │  └─[WAVEGO] code_analysis.md
+   ├─[WAVEGO] demo_code_flow.md
+   └─robot.py
 
  ```
-
++ version_0: 개발 중에 생성한 파일들
 ## 🔎 차후 보완점
 - 모델링 더 귀엽게 개선
 - 터치 센서 여러 곳에 부착

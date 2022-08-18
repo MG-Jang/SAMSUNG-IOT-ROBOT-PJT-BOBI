@@ -5,9 +5,8 @@
 #   Created by Dongwon Kim on 04 Aug, 2022 
 #   Modified by 곽다원 on 09 Aug, 2022
 #       - parse payload and map robot
-#   Modified by Dongwon kim on Aug, 2022
+#   Modified by Dongwon kim
 #       - refactoring
-#       - remove gesture (not needed)
 #
 # arguements
 #   - user_id: user id in DB as primary key
@@ -16,6 +15,7 @@ import paho.mqtt.client as mqtt
 import robot
 from voice_s3_mssg import VoiceMessage
 import argparse
+import os
 
 _mqtt_broker_ip = "i7a208.p.ssafy.io"
 
@@ -35,6 +35,7 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe(_user_id + "/move/left")
     client.subscribe(_user_id + "/move/right")
     client.subscribe(_user_id + "/voice/torobot")
+    client.subscribe(_user_id + "/gesture")
 
 
 def on_forward(client, userdata, msg):
@@ -83,6 +84,32 @@ def on_torobot(client, userdata, msg):
     mssg_file_name = _user_id + "_from_web.wav"
     voice_mssg = VoiceMessage()
     voice_mssg.download_file(mssg_file_name)
+    cmd = "omxplayer -o alsa " + "/home/pi/WAVEGO/RPi/" + mssg_file_name
+    os.system(cmd)
+    
+
+def on_gesture(client, userdata, msg):
+    value = parse_payload(msg.payload)
+    print("gesture " + value)
+    if value == "handshake":
+        robot.handShake()
+    elif value == "steady":
+        robot.steadyMode()
+    elif value == "jump":
+        robot.jump()
+    elif value == "sit":
+        robot.sit()
+    elif value == "standUp":
+        robot.standUp()
+    elif value == "leftHand":
+        robot.leftHand()
+    elif value == "rightHand":
+        robot.rightHand()
+    elif value == "lower":
+        robot.lower()
+    elif value == "upper":
+        robot.upper()
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--user_id',
@@ -97,6 +124,7 @@ client.message_callback_add(_user_id + "/move/backward", on_backward)
 client.message_callback_add(_user_id + "/move/left", on_left)
 client.message_callback_add(_user_id + "/move/right", on_right)
 client.message_callback_add(_user_id + "/voice/torobot", on_torobot)
+client.message_callback_add(_user_id + "/gesture", on_gesture)
 
 # connect to broker
 client.connect(_mqtt_broker_ip, 1883, 60)
