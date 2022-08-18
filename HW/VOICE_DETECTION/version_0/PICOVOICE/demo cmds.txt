@@ -1,0 +1,4 @@
+porcupine_demo_mic --access_key YN4dbG65PZ6tFVT+e0w1eAMCE2IL0YoDDY7b+yrtGDn9o1N5W+P2HQ== --keywords picovoice
+python porcupine_demo_mic.py --access_key YN4dbG65PZ6tFVT+e0w1eAMCE2IL0YoDDY7b+yrtGDn9o1N5W+P2HQ== --keywords picovoice
+porcupine_demo_mic --access_key YN4dbG65PZ6tFVT+e0w1eAMCE2IL0YoDDY7b+yrtGDn9o1N5W+P2HQ== --keywords picovoice
+python porcupine_demo_mic.py --access_key YN4dbG65PZ6tFVT+e0w1eAMCE2IL0YoDDY7b+yrtGDn9o1N5W+P2HQ== --keyword_paths "‪C:\Users\SSAFY\Desktop\hi_bobi_data\하이-보비_ko_raspberry-pi_v2_1_0.ppn" --model_path "C:\Users\SSAFY\Desktop\porcupine_params_ko.pv"

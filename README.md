@@ -68,9 +68,17 @@
   - /FE: FE 소스 코드
   
 - (BE)
+<<<<<<< HEAD
   - /BE/DOCS/ideas: BE가 볼 기획 내용  
   - /BE/DOCS/tips: BE가 볼 팁 내용  
   - /BE: BE 소스 코드
+=======
+  - [/BE/DOCS/ideas](./BE/DOCS/ideas): BE가 볼 기획 내용
+  
+  - [/BE/DOCS/tips](./BE/DOCS/tips): BE가 볼 팁 내용
+  
+  - [/BE](./BE): 개발 내용을 dir 등 사용하여 기재
+>>>>>>> release
   
     
 ## Total Architecture
@@ -92,4 +100,8 @@
 |정재훈 | jaeung644@gmail.com | Voice recognition, Video detection, Sensors |
 
 
+<<<<<<< HEAD
 last modified on 18 Aug, 2022
+=======
+last modified on 22 July, 2022
+>>>>>>> release

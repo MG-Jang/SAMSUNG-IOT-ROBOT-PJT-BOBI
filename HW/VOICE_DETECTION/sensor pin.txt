@@ -1,0 +1,17 @@
+VCC 빨강 3.3V => Board 1번핀
+GND 검은 => Board 14번핀
+
+OLED 
+SDA : GPIO 2번핀 노란색                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+SCL : GPIO 3번핀 흰색
+
+Touch : GPIO 4번핀 주황색
+Gas : GPIO 17번핀 초록
+dht11 : GPIO 18번핀 파랑
+초음파 : GPIO 27,22핀 보라
+
+
+
+
+vcc gnd scl sda
+74:A3:4A:1E:3F:A4
