@@ -244,3 +244,88 @@ last modified: 2022-08-18
     - 개인 PC로 받은 csv 파일을 열어 적혀 있는 access key, secret key 등록
  [AWS key 만들기](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey)
  [key 등록](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html)
+
+## 🌲 File Structure
+```
+📁HW
+├─DESIGN           // 3D models
+|
+├─DOCS
+│  ├─ideas
+│  │  └─assets
+│  └─tips
+│      └─assets
+|
+├─Gesture_Sensor   // 터치 센서
+│  ├─img
+|  ├─test
+|  ├─go_oled.py
+|  ├─mysql_sensing.py
+|  ├─oled_touch.py
+|  └─sensor pin.txt
+|
+├─MQTT             // web & robot 통신
+│  ├─version_0
+│  │  └─mqtt_in_js
+│  ├─mqtt.sh
+│  └─mqtt_subscribe.py
+│
+├─Object_learning  // 아이 학습
+│  ├─object_img
+│  ├─test_img
+│  └─output.xml
+│ 
+├─OPENCV           // 아이 인식 & following
+│  ├─version_0
+│  └─camera_opencv.py
+│  
+├─Sensor           // 센서 세팅
+│  ├─test
+│  ├─version_0
+│  ├─[sensor] setting_audio.md
+│  ├─[sensor] setting_dht11.md
+│  ├─[sensor] setting_gas.md
+│  ├─[sensor] setting_oled.md
+│  ├─[sensor] setting_sonic.md
+│  ├─[sensor] setting_touch.md
+│  └─sensor_requirements.txt
+|
+├─STREAMING        // YouTube streaming
+├─VOICE_DETECTION  // 음성 인식
+│  ├─img           // OLED에 사용되는 표정
+│  ├─version_0
+│  │  ├─Google_STT
+│  │  │  ├─resources
+│  │  │  └─results
+│  │  ├─PICOVOICE
+│  │  ├─VOICE_DETECTION
+│  │  └─VOICE_MSSG
+│  ├─voice_data    // story, key, 한글 모델
+│  ├─sensor pin.txt
+│  ├─sensor_mysql.py
+│  ├─sensor_oled.py
+│  ├─sensor_touch.py
+│  ├─voice.py
+│  ├─voice.sh
+│  ├─voice_porcupine_custom.py
+│  ├─voice_recognition.py
+│  ├─voice_requirements.txt
+│  ├─voice_s3_mssg.py
+│  └─voice_speaker.py
+|
+└─WAVEGO
+
+ ```
+
+## 🔎 차후 보완점
+- 모델링 더 귀엽게 개선
+- 터치 센서 여러 곳에 부착
+- ROS 이용 어떤 방인지 인식
+- OLED 각각 다른 표정 표시
+- 얼굴에 모터를 달아 고개 끄덕이기 부드럽게 진행
+- Google STT 대신 로컬에서 돌아가는 STT 이용 delay 줄이기
+- 마이크 1개 사용하면서 음성 인식 진행
+- 감도 높은 마이크 사용
+- 앰프가 탑재된 스피커 사용
+- 아이와 대화하는 기능
+- 라즈베리파이 CPU 온도 쿨링
