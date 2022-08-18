@@ -5,10 +5,10 @@ from .serializers import ArchiveImageSerializer, ArchiveImageSerializer, Archive
 
 # Create your views here.
 class ArchiveImageViewSet(viewsets.ModelViewSet):
-    queryset = ArchiveImage.objects.all()
+    queryset = ArchiveImage.objects.all().order_by('-pk')
     serializer_class = ArchiveImageSerializer
 
 
 class ArchiveVideoViewSet(viewsets.ModelViewSet):
-    queryset = ArchiveVideo.objects.all()
+    queryset = ArchiveVideo.objects.all().order_by('-pk')
     serializer_class = ArchiveVideoSerializer

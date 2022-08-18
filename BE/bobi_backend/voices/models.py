@@ -5,6 +5,10 @@ from django.conf import settings
 class Voice(models.Model):
     voice_id = models.IntegerField(primary_key=True)
     user_id = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='voices', db_column='user_id', on_delete=models.SET_NULL, null=True)
-    voice_link = models.CharField(max_length=100)   # S3에서 불러올 링크
-    user_send = models.BooleanField()
+    datetime = models.CharField(max_length=30, null=True)
+    is_checked = models.BooleanField()
+
+
+class VoiceCheck(models.Model):
+    datetime = models.CharField(max_length=30, null=True)
     is_checked = models.BooleanField()

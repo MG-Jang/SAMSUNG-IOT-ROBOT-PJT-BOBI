@@ -21,19 +21,20 @@ from accounts.views import FakeUserViewSet, UserViewSet
 from bobi.views import RobotViewSet
 from archives.views import ArchiveImageViewSet, ArchiveVideoViewSet
 from stories.views import StoryViewSet
-from movements.views import MovementViewSet
 from bobi.views import RobotViewSet, SensorViewSet
 from django.views.generic import TemplateView
 
+from voices.views import VoiceCheckViewSet
+
 router = routers.DefaultRouter()
 router.register('stories', StoryViewSet)
-router.register('movements', MovementViewSet)
 router.register('sensors', SensorViewSet)
 router.register('users', UserViewSet)
 router.register('archiveimages', ArchiveImageViewSet)
 router.register('archivevideos', ArchiveVideoViewSet)
 router.register('fakeusers', FakeUserViewSet)
 router.register('robots', RobotViewSet)
+router.register('voicecheck', VoiceCheckViewSet)
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html')),
@@ -59,11 +60,4 @@ urlpatterns = [
     path('voice/', TemplateView.as_view(template_name='index.html')),
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
-    # path('api/v1/stories/', StoryListAPI.as_view()),
-    # path('api/v1/bobi/', include('bobi.urls')),
-    # path('api/v1/accounts/', include('accounts.urls')),
-    # path('api/v1/stories/', include('stories.urls')),
-    # path('api/v1/movements/', include('movenments.urls')),
-    # path('api/v1/stories/', include('stories.urls')),
-    # path('api/v1/voices/', include('voices.urls')), 
 ]

@@ -12,3 +12,7 @@ class UserViewSet(viewsets.ModelViewSet):
 class FakeUserViewSet(viewsets.ModelViewSet):
     queryset = FakeUser.objects.all()
     serializer_class = FakeUserSerializer
+
+user_detail = FakeUserViewSet.as_view({
+    'get': 'list'
+})
