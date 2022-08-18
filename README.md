@@ -1,9 +1,11 @@
-<p align='center'>
-  <img src="./DOCS/etc/bobi_dot.png" alt="icon" width="400"> 
-</p>
 ---
 last modified: 2022-08-18
 ---
+
+<p align='center'>
+  <img src="./DOCS/etc/bobi_dot.png" alt="icon" width="400"> 
+</p>
+
 
 # BoBi 
 `SSAFY 공통 프로젝트`  
