@@ -1,5 +1,5 @@
 <p align = "center">
-  <img src="/DOCS/etc/bobi_dot.ico" alt="icon"> 
+  <img src="/DOCS/etc/bobi_dot.png" alt="icon"> 
 </p>
 
 # BoBi 
