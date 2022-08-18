@@ -1,7 +1,6 @@
 ---
 last modified: 2022-08-11
 ---
-- [ ] git upload할 때 google stt key 없이 올리기!!
 # voice recognition
 
 ## tech stack
