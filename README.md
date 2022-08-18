@@ -33,10 +33,16 @@
 
 - 그 외 `왼손`, `왼손`, `엎드려`, `잘했어`와 `춤추자`를 할 수 있어요!
 2. 아이 팔로잉
+- 팔로잉  
+[![bobi following](https://img.youtube.com/vi/AR1pQhxaYFQ/0.jpg)](https://youtu.be/AR1pQhxaYFQ)  
+- 보비 시점  
+[![bobi view](https://img.youtube.com/vi/_ghxQe-UKGY/0.jpg)](https://youtu.be/_ghxQe-UKGY)  
 3. 사족 보행  
 [![bobi left right](https://img.youtube.com/vi/R6O0f2qAB7g/0.jpg)](https://youtu.be/R6O0f2qAB7g)
 4. 이야기 들려주기
 5. 음성 메시지 주고 받기
+[![bobi message](https://img.youtube.com/vi/tOKoOfi_7MY/0.jpg)](https://youtu.be/tOKoOfi_7MY)
+
 6. 전용 웹페이지  
 [![bobi web](https://img.youtube.com/vi/2NgXGsnAArI/0.jpg)](https://youtu.be/2NgXGsnAArI)
 
