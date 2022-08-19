@@ -49,16 +49,17 @@ function Config() {
   };
 
   const exitSubmit = () => {
-    fetch(`https://i7a208.p.ssafy.io/api/v1/fakeusers/${id}/`, {
-      method: "DELETE",
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error));
-    window.localStorage.clear();
-    navigate(`/`);
+    // fetch(`https://i7a208.p.ssafy.io/api/v1/fakeusers/${id}/`, {
+    //   method: "DELETE",
+    // })
+    //   .then((res) => {
+    //     return res.json();
+    //   })
+    //   .then((data) => console.log(data))
+    //   .catch((error) => console.log(error));
+    // window.localStorage.clear();
+    // navigate(`/`);
+    alert("급하게 만든 사용자 계정인데 탈퇴하면 곤란해요 ㅠㅠ");
   };
 
   return (

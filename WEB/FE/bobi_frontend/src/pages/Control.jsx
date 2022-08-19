@@ -1,5 +1,5 @@
 import React from "react";
-import ControlButton from "../components/ControlButton";
+// import ControlButton from "../components/ControlButton";
 import ControlButtonDummy from "../components/ControlButtonDummy";
 import styled from "styled-components";
 
@@ -44,11 +44,11 @@ function Control() {
         </div>
       </StyledMain>
       <br />
-      {email === "carerobotbobi@gmail.com" ? (
+      {/* {email === "carerobotbobi@gmail.com" ? (
         <ControlButton />
-      ) : (
-        <ControlButtonDummy />
-      )}
+      ) : ( */}
+      <ControlButtonDummy />
+      {/* )} */}
     </div>
   );
 }
