@@ -62,7 +62,7 @@
 
 - 보비가 촬영중인 영상 유튜브라이브로 실시간 확인 가능
 
-  ![image-20220818010605159](README.assets/image-20220818010605159.png)
+  ![image-20220819102044091](README.assets/image-20220819102044091.png)
 
 
 
@@ -98,7 +98,7 @@
 
 - 허용된 이메일 (현재는 관리자인 carerobotbobi 계정)으로 접속해야 조작 가능
 
-  ![image-20220818011427504](README.assets/image-20220818011427504.png)
+  ![image-20220819102101362](README.assets/image-20220819102101362.png)
 
 
 
