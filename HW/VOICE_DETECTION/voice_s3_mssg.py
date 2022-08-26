@@ -24,8 +24,8 @@ class VoiceMessage():
         self.s3_client = boto3.client('s3')
         self.bucket_name = "bobivoicebucket"
         self.mqtt_client = mqtt.Client()
-        self.mqtt_client.connect("i7a208.p.ssafy.io", 1883, 60)
-        self.db = mysql.connector.connect(host='i7a208.p.ssafy.io', port = '3306', user='pjt_bobi', password='mysql989312bobi#', database='bobi', auth_plugin='mysql_native_password')
+        self.mqtt_client.connect("[server ip]", 1883, 60)
+        self.db = mysql.connector.connect(host='[server ip]', port = '3306', user='pjt_bobi', password='[db pw]', database='bobi', auth_plugin='mysql_native_password')
         self.cur = self.db.cursor()
         
     def upload_file(self, file_name, user_id):
