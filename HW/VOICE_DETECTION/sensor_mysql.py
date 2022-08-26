@@ -71,7 +71,7 @@ def polling():
 
 
 # init
-db = mysql.connector.connect(host='i7a208.p.ssafy.io', port = '3306', user='pjt_bobi', password='mysql989312bobi#', database='bobi', auth_plugin='mysql_native_password')
+db = mysql.connector.connect(host='[server ip]', port = '3306', user='pjt_bobi', password='[db pw]', database='bobi', auth_plugin='mysql_native_password')
 cur = db.cursor()
 
 timer = None
