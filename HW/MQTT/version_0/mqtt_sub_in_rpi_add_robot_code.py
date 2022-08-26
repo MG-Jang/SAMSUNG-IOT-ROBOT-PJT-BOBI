@@ -3,7 +3,7 @@ import robot_test
 from s3_voice_mssg import VoiceMessage
 import argparse
 
-_mqtt_broker_ip = "i7a208.p.ssafy.io"
+_mqtt_broker_ip = "[server ip]"
 
 speedMove = 100
 
