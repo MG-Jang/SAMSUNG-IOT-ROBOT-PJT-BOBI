@@ -12,7 +12,7 @@ class VoiceMessage():
         self.s3_client = boto3.client('s3')
         self.bucket_name = "bobivoicebucket"
         self.mqtt_client = mqtt.Client()
-        self.mqtt_client.connect("i7a208.p.ssafy.io", 1883, 60)
+        self.mqtt_client.connect("[server ip]", 1883, 60)
 
     def upload_file(self, file_name, user_id):
         """Upload a file to an S3 bucket
