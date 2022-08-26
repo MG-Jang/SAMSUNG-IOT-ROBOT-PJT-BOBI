@@ -5,9 +5,7 @@ last modified: 2022-08-09
 # S3 example
 
 ## AWS 계정 만들기
-    - carerobotbobi@gmail.com
-    - name: bobi
-    - pw: bobiA208#
+  
 ## boto3 설치
     - env picovoice로 진행
     - 역할 만들기, access 키 만들기
