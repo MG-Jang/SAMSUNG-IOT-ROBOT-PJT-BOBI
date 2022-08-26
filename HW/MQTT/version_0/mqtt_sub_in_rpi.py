@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt
 
-_mqtt_broker_ip = "i7a208.p.ssafy.io"
+_mqtt_broker_ip = "[server ip]"
 _user_id="testuser"
 
 def on_connect(client, userdata, flags, rc):
