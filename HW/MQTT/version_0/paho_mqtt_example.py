@@ -22,7 +22,7 @@ client.on_message = on_message
 client.message_callback_add("test/windows", on_forward)
 
 # connect to broker
-client.connect("172.30.1.8", 1883, 60)
+client.connect("[broker ip]", 1883, 60)
 
 # publish test
 client.publish("test/paho", "hello from paho")
