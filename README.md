@@ -1,14 +1,16 @@
 ---
 last modified: 2022-08-18
 ---
-
+- 웹과 임베디드 전공반이 한팀이 되어 7주간 진행되는 프로젝트
+- notion: https://www.notion.so/BOBI-99c240017e584ee1aba5d5fd013e6766
+- jira: https://ssafy208.atlassian.net/jira/software/projects/BOBI/boards/1
 <p align='center'>
   <img src="./DOCS/etc/bobi_dot.png" alt="icon" width="400"> 
 </p>
 
 
 # BoBi 
-`SSAFY 웹과 임베디드 전공반이 한팀이 되어 7주간 진행되는 프로젝트`  
+`SSAFY 공통프로젝트`  
 `SSAFY 7기 2반 8팀`
 
 > 보비 [명] 보조하여 돌봄  
