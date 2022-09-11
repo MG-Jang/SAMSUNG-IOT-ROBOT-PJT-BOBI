@@ -105,7 +105,7 @@ last modified: 2022-08-18
 
 - 최종  
 ![total_architecture](/uploads/6aa48867839c48b3a5ac4dc84bdd26d8/total_architecture.png)
-
+<img src="./DOCS/total_architecture.JPG" alt="icon" width="400"> 
 
 
 ## Members
