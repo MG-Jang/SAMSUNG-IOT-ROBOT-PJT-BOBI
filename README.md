@@ -104,8 +104,7 @@ last modified: 2022-08-18
 ![total_architecture_refined.drawio](/uploads/a5c85dfe389a1280565afa1ecd76e5ae/total_architecture_refined.drawio.png)
 
 - 최종  
-![total_architecture](/uploads/6aa48867839c48b3a5ac4dc84bdd26d8/total_architecture.png)
-<img src="./DOCS/total_architecture.JPG" alt="icon" width="400"> 
+<img src="./DOCS/total_architecture.JPG" alt="icon" width="800"> 
 
 
 ## Members
