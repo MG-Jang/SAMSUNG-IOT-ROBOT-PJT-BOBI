@@ -115,5 +115,5 @@ last modified: 2022-08-18
 |김동원 | kdw324400@gmail.com | Voice recognition, MQTT |
 |신선영 | sunyeong0412@naver.com | BE, Deploy, Server, FE(Sensor, Story), Design|
 |이승훈 | a01038517287@gmail.com | FE(Login, Archive, Voice, Remote Control)|
-|장명근 | jang23mg@naver.com | Robot movement, Video detection , FE|
+|장명근 | jang23mg@naver.com | Team Leader, Robot movement, Video detection , FE|
 |정재훈 | jaeung644@gmail.com | Voice recognition, Video detection, Sensors |
